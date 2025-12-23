@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-04</p>
+<p class="Large-Bold-Red">コンデンサ（容量）</p>
+<p><span class="Large-Bold-Red">コンデンサ</span>の細かい原理は置いていおいて，その性質は，</p>
+<p>　　<span class="Large-Bold-Red">容量は，電圧の時間変化に比例して電荷が変化する</span></p>
+<p>ものと考えます．式で表すと，</p>
+<p>\(\Large  Q(t) =  C \times V(t) \)　</p>
+<p>ここで，<br />
+　Q : 電荷量　（C)<br />
+　C : 容量　（F)<br />
+　V : 電圧　（V)<br />
+となります．電荷と電流との関係は，</p>
+<p>\(\Large  I(t) =    \displaystyle \frac{dQ(t)}{dt}  = C \frac{dV(t)}{dt}\)　</p>
+<p>電圧は，</p>
+<p>\(\Large  V(t)  =    \displaystyle \frac{1}{C} \ \int I(t) \ dt \)　</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・交流電源</p>
+<p class="Large-Bold-Red"><img src="Circuit-08.png" width="388" height="302" alt=""/></p>
+<p>教科書には，<span class="Blue-Bold">電圧入力</span>，と，<span class="Blue-Bold">電流入力</span>，とありますが，今回はすべて，<span class="Large-Bold-Red">電圧入力</span>，で考えます．<span class="Red-Bold">交流電源（電圧）</span>を加えた場合，</p>
+<p>\(\Large  V(t)  =    V_0 \ sin \ (\omega t )\)　</p>
+<p>となりますので，電流は，</p>
+<p>\(\Large  I(t) =    \displaystyle  C \frac{dV(t)}{dt} = C \cdot \omega \cdot V_0 \ cos \ (\omega t )\)　</p>
+<p>となります．三角関数の公式より，</p>
+<p>\(\Large  sin (a+b) = sin \ a \cdot cos \ b + cos \ a \cdot sin \ b\)　</p>
+<p>から，</p>
+<p>\(\Large  sin (a+ \frac{ \pi}{2} ) = sin \ a \cdot cos \ \frac{ \pi}{2}+ cos \ a \cdot sin \ \frac{ \pi}{2} = cos \ a \)　</p>
+<p>となるので，</p>
+<p>\(\Large  I(t) =    \displaystyle  C \frac{dV(t)}{dt} = C \cdot \omega \cdot V_0 \ cos \ (\omega t ) =  C \cdot \omega \cdot V_0 \ sin \ \left(\omega t + \frac{ \pi}{2} \right)\)　</p>
+<p>となり，位相がπ/2，進む？遅れる？ことになります．</p>
+<p>この進む，遅れるがV，I，どちらを基準に考えるかで逆転してしまうため，いつも混乱します．</p>
+<p>なので，きちんと図示して考えていきます．</p>
+<p>そこで，登場したのが，LTspice，です．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・LTspice</p>
+<p>ここ，に<a href="https://www.analog.com/jp/resources/design-tools-and-calculators/ltspice-simulator.html" target="_blank">DLサイト</a>があります．</p>
+<p>ちょっと古めのインターフェースですが，いろいろな機能が備わっており，なかなか使い慣れてくると便利です．Mac版もありますが，どうもショートカットなどが違い，混乱します．</p>
+<p>実際に<span class="Large-Bold-Red">C交流回路</span>を作ってみてシミュレートしてみました．</p>
+<p><img src="Circuit-03.png" width="678" height="599" alt=""/></p>
+<p>条件は，<br />
+　f = 40 Hz<br />
+　C = 34 μF<br />
+　V<sub>0</sub> = 1 V<br />
+ということで，</p>
+<p>\(\Large  \omega = 40 \cdot 2 \cdot \pi = 251.3 \ rad/s \)　</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">振幅</p>
+<p>コンデンサ直下の電流値の振幅は，</p>
+<p>\(\Large  C \cdot \omega \cdot V_0 = 8.55 \ mA \)　</p>
+<p>と電流の振幅が計算どおりとなっていることがわかります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">位相</p>
+<p>今回は，<a href="Phase difference-01.html">この計算</a>は使わずに，0点同士の差から求めました．</p>
+<p>\(\Large  \Delta t = 6.25 \ ms \)　</p>
+<p>周波数は40 Hz，ですので，一周期が，1/40 = 25 ms. </p>
+<p>\(\Large  \phi= \frac{6.25}{25} \times 360 = 90 \ (degree) \)　</p>
+<p>と90度（π/2），ズレていることがわかります．</p>
+<p>&nbsp;</p>
+<p>次ページは，<span class="Blue-Bold">インダクタ</span>について考えていきます．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-03.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-05.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

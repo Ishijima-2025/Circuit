@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-12</p>
+<p class="Large-Bold-Red"><span class="X-Large-Bold-RED">RL並列</span>交流回路</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p class="Large-Bold-Red"><img src="Circuit-26.png" width="501" height="408" alt=""/></p>
+<p><span class="Large-Bold-Red">R</span>と<span class="Large-Bold-Red">L</span>が<span class="Large-Bold-Red">並列</span>に並んだ<span class="Large-Bold-Red">交流回路</span>を考えます．</p>
+<p>交流ですが，インピーダンスを考えれば，直列の抵抗と同じように計算できます．</p>
+<p>つまり，交流回路の場合には，コンデンサのインピーダンスを交流回路の場合の抵抗値 と考え，直流の場合と同じように直列の計算をすればいいのです．インピーダンスは，</p>
+<p>\(\Large   Z_R = R \)</p>
+<p>\(\Large   Z_L =   \displaystyle j \omega L \)　</p>
+<p>となるので，</p>
+<p>\(\Large      \displaystyle \frac{1}{Z} = \frac{1}{Z_R} + \frac{1}{Z_L} =   \displaystyle \frac{1}{R} + \frac{1}{j \omega L} \)　</p>
+<p>\(\Large   V(t) = Z \cdot I(t) \)　</p>
+<p>から，</p>
+<p>\(\Large   I(t) = I_R(t) + I_L(t) = \displaystyle \left( \frac{1}{R} + \frac{1}{j \omega L} \right) \cdot V_0 \cdot e^{j \omega t} \)</p>
+<p>\(\Large    = \displaystyle \left( \frac{1}{R} - \frac{j}{ \omega L} \right) \cdot V_0 \cdot e^{j \omega t} \)</p>
+<p>となります．ここで複素平面を考えるために，</p>
+<p>\(\Large    = \displaystyle \sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}} \frac{\frac{1}{R} - \frac{j}{ \omega L}}{\sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}}} \cdot V_0 \cdot e^{j \omega t} \)</p>
+<p>とし，最初の項を，複素平面で，</p>
+<p><img src="Circuit-27.png" width="434" height="249" alt=""/></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>と考えると，</p>
+<p>\(\Large    cos \ (- \theta) =    \displaystyle \frac{1/R }{\sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}}}    \)　</p>
+<p>\(\Large    j \ sin \ (-\theta) = \frac{  \displaystyle   - \frac{1}{ \omega L}}{\sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}}}    \)　</p>
+<p>となるので，</p>
+<p>\(\Large      \displaystyle \frac{\frac{1}{R} - \frac{j}{ \omega L}}{\sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}}} = cos \ (- \theta) + j \ sin \ (- \theta) = e^{- j \ \theta} \)　</p>
+<p>となります．ここで，</p>
+<p>\(\Large     tan \ (- \theta) =   \displaystyle \frac{R}{\omega L}   \)　</p>
+<p>です．したがって，電流は，</p>
+<p>\(\Large    I(t) =  e^{-j \ \theta} \cdot \displaystyle \sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}} \cdot V_0 \ e^{j \omega t}   \)　</p>
+<p>\(\Large =\displaystyle  V_0 \cdot \sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}}  \cdot e^{j (\omega t - \theta)}   \)　</p>
+<p>となります．ここで，三角関数に戻すために，虚数部分のみ取り出すと，</p>
+<p>\(\Large Im[I(t)] = \displaystyle  V_0 \cdot \sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}}   \cdot sin \ (\omega t - \theta)   \)　</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>実際に<span class="Large-Bold-Red">RL並列交流回路</span>を作ってみてシミュレートしてみました．</p>
+<p><img src="Circuit-28.png" width="743" height="675" alt=""/></p>
+<p>&nbsp;</p>
+<p>条件は，<br />
+　f = 40 Hz<br />
+　R = 200 Ω<br />
+　L = 0.5 H<br />
+　V<sub>0</sub> = 1 V<br />
+ということで，</p>
+<p>\(\Large  \omega = 40 \cdot 2 \cdot \pi = 251.3 \ rad/s \)　</p>
+<p>となります．インピーダンスから求めたので，DC値は考慮していない計算となりましたが，シミュレーションはDC値が考慮されていました．</p>
+<p>詳しい導出方法は，こちら，で．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">振幅</p>
+<p>コンデンサ直下の電流値の振幅は，</p>
+<p>\(\Large  \displaystyle  V_0 \cdot \sqrt{ \frac{1}{R^2} - \frac{1}{ (\omega L)^2}}    = 9.398 \ mA \)　</p>
+<p>と電流の振幅が計算どおりとなっていることがわかります．</p>
+<p>実際のPeak to Peakは，</p>
+<p>\(\Large  \displaystyle   \frac{17.35 - (-1.435)}{2}     = 9.3925 \ mA \)　</p>
+<p>でした．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">位相</p>
+<p>今回は，<a href="Phase difference-01.html">この計算</a>は使わずに，ピーク地点同士の差から求めました．</p>
+<p>\(\Large  \Delta t = 3.99 \ ms \)　</p>
+<p>理論値は，</p>
+<p>\(\Large  tan^{-1} \ \frac{R}{\omega L}  = -1.01 \ rad \)　</p>
+<p>周波数は40 Hz，ですので，一周期が，1/40 = 25 ms. </p>
+<p>\(\Large   \frac{-1.01}{ 2 \pi} \times 25 \ ms = 4.02 \ ms \)　</p>
+<p>とほぼ一致していることがわかります．</p>
+<p>&nbsp;</p>
+<p>せっかくなので，<a href="Circuit-12-2.html">ここ</a>，に過渡現象を含めた<span class="Blue-Bold">RLの並列直列交流回路</span>にを計算していきます．</p>
+<p>　</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-11.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

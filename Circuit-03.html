@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-03</p>
+<p class="Large-Bold-Red">抵抗ー交流回路</p>
+<p>&nbsp;</p>
+<p>交流回路も抵抗だけの場合，それほどややこしくはありません，オームの法則，</p>
+<p>\(\Large  V =  R \ I \)　</p>
+<p>を使えば，</p>
+<p><img src="Circuit-06.png" width="596" height="428" alt=""/></p>
+<p>&nbsp;</p>
+<p>電圧は，</p>
+<p>\(\Large  V(t)  =    V_0 \ sin \ \omega \ t \)　</p>
+<p>となるので，</p>
+<p>\(\Large  I(t) = \frac{V(t)}{R}  =    \frac{V_0}{R} \ sin \ \omega \ t \)　</p>
+<p>となります．</p>
+<p>電気回路をシミュレートするのに最適なフリーソフトがあります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・LTspice</p>
+<p>ここ，に<a href="https://www.analog.com/jp/resources/design-tools-and-calculators/ltspice-simulator.html" target="_blank">DLサイト</a>があります．</p>
+<p>ちょっと古めのインターフェースですが，いろいろな機能が備わっており，なかなか使い慣れてくると便利です．Mac版もありますが，どうもショートカットなどが違い，混乱します．</p>
+<p>実際に<span class="Large-Bold-Red">R交流回路</span>を作ってみてシミュレートしてみました．</p>
+<p><img src="Circuit-07.png" width="490" height="431" alt=""/></p>
+<p>条件は，<br />
+　f = 40 Hz<br />
+　R = 100 Ω<br />
+　V<sub>0</sub> = 1 V<br />
+ということで，</p>
+<p>\(\Large  \frac{V_0}{R}  = \frac{1}{100} = 0.01 \ A = 10 \ mA \)　</p>
+<p>と計算どおりとなっていることがわかります．</p>
+<p>&nbsp;</p>
+<p>次ページは，<span class="Large-Bold-Blue">コンデンサ</span>について考えていきます．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-02.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-04.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

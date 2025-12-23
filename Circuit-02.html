@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-02</p>
+<p class="Large-Bold-Red">抵抗-直流回路</p>
+<p class="Large-Bold-Red">・直列回路</p>
+<p>まずは，抵抗が直列に並んだ場合</p>
+<p><img src="Circuit-01.png" width="489" height="337" alt=""/></p>
+<p>今までは抵抗をギザギザ，と書いていたのですが，どうも国際標準では長方形の箱状で描くようなので，それに準拠しました．</p>
+<p>上の図ではトータルの抵抗値は，</p>
+<p>\(\Large  R_{total} =  R_1 + R_2 + R_3 \)　</p>
+<p>\(\Large  I =   \displaystyle \frac{V}{R_{total}} =  \frac{V}{R_1 + R_2 + R_3} \)　</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・並列回路</p>
+<p>つぎには，抵抗が並列に並んだ場合</p>
+<p><img src="Circuit-02.png" width="537" height="252" alt=""/></p>
+<p>\(\Large     \displaystyle \frac{1}{R_{total}} =  \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} \rightarrow G_{total} = G_1 + G_2 + G_3 \)　</p>
+<p>と<span class="Blue-Bold">コンダクタンス</span>が登場します．</p>
+<p>\(\Large R_{total} =       \displaystyle \frac{1}{\frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}} \)　</p>
+<p>\(\Large     I =   \displaystyle \frac{V}{R_{total}} = \left(  \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} \right) V = \left( G_1 + G_2 + G_3 \right) V\)　</p>
+<p>となります．ここまでは簡単です．</p>
+<p>&nbsp;</p>
+<p>次ページは，<span class="Large-Bold-Red">交流回路</span>，に行く前に，<span class="Blue-Bold">コンデンサ</span>，<span class="Blue-Bold">インダクタ</span>について考えていきます．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-01.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-03.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

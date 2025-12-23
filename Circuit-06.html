@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-06</p>
+<p class="Large-Bold-Red">指数関数表示</p>
+<p>&nbsp;</p>
+<p>交流の計算は当然ながら，<span class="Blue-Bold">三角関数</span>がたくさん出てきますが，なかなか計算が大変です．公式などもいっぱい出ますので．</p>
+<p>そこで，オイラーの公式から，<span class="Large-Bold-Red">三角関数を指数関数</span>になおして見るととても計算が簡単になります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・オイラーの公式</p>
+<p>オイラーの公式は，</p>
+<p>\(\Large  e^{ i \theta} = cos \ \theta + i \ sin \ \theta \)</p>
+<p>\(\Large  e^{ -i \theta} = cos \ \theta - i \ sin \ \theta \)</p>
+<p>となるので，</p>
+<p>\(\Large   cos \ \theta = Re \ \left[e^{ i \theta} \right]\)</p>
+<p>\(\Large   sin \ \theta = Im \ \left[e^{ i \theta} \right]\)</p>
+<p>と考えると計算がとても楽になります．ここで，<span class="Blue-Bold">Re：実数部，Im：虚数部</span>，となります．</p>
+<p>しかし，ReとImの違いはsinかcosの違いで，交流回路の場合には特別な場合を除いて， 振動数が変化することはありません．</p>
+<p> したがって，実数，虚数を気にせずに，単に指数になおして計算すればいいことになります．</p>
+<p> 元の三角関数に戻す際は，cos，sinによって実数部，虚数部を使い分ければいいのです（ <span class="Red-Bold">フェーザー法</span>？ ）</p>
+<p>&nbsp;</p>
+<p>ちなみに，<span class="Large-Bold-Blue">θが特別</span>な場合，</p>
+<p>\(\Large  e^{ i \frac{ \pi}{ 2} } = cos \ \frac{ \pi}{ 2} + i \ sin \ \frac{ \pi}{ 2} = i \)</p>
+<p>となり，<span class="Blue-Bold">虚数を指数で表すことができます</span>．</p>
+<p>虚数を，i，と表現していましたが，電気回路では，i：電流，とよく使われ，まぎらわしいので，</p>
+<p>　<span class="Red-Bold">j：虚数</span></p>
+<p>としていますので，これに準拠します．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">指数表示</p>
+<p><span class="Red-Bold">交流電圧</span>は，</p>
+<p>\(\Large  V(t) = V_0 \ sin ( \omega t) = V_0 \ e^{ j \omega t} \)</p>
+<p>&nbsp;</p>
+<p><span class="Red-Bold">コンデンサ</span>は，</p>
+<p>\(\Large  I(t) = C \frac{d V(t)}{dt} =  C \frac{d }{dt}  V_0 \ e^{ j \omega t} = j \omega C V_0 \ e^{ j \omega t}\)</p>
+<p>\(\Large  V(t) =  \frac{1}{C} \int I(t) dt = \frac{1}{C} \int  I_0 \ e^{ j \omega t} = \frac{1}{j \omega C} I_0 \ e^{ j \omega t}\)</p>
+<p><span class="Red-Bold">インダクタ</span>は，</p>
+<p>\(\Large  V(t) = L \frac{d V(t)}{dt} =  L \frac{d }{dt}  I_0 \ e^{ j \omega t} = j \omega L I_0 \ e^{ j \omega t}\)</p>
+<p>\(\Large  I(t) =  \frac{1}{L} \int V(t) dt = \frac{1}{L} \int  V_0 \ e^{ j \omega t} = \frac{1}{j \omega L} V_0 \ e^{ j \omega t}\)</p>
+<p>と簡単になります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">インピーダンス</p>
+<p>ここで，直流回路におけるオームの法則を思い出し， </p>
+<p>\(\Large  V = R \ I \)</p>
+<p>の形を考えると，</p>
+<p class="Red-Bold">コンデンサ</p>
+<p>\(\Large  V(t) =   \frac{1}{j \omega C} I_0 \ e^{ j \omega t} =  \frac{1}{j \omega C} I(t) \equiv Z \cdot I(t) \)</p>
+<p>\(\Large  Z =   \frac{1}{j \omega C}  \)</p>
+<p>\(\Large  I(t) =   \frac{1}{Z} V(t) = j \omega C \ V(t) \)</p>
+<p>&nbsp;</p>
+<p class="Red-Bold">コイル</p>
+<p>\(\Large  V(t) = j \omega L \ I_0 \ e^{ j \omega t} =  j \omega L \ I(t) = Z \cdot I(t) \)</p>
+<p>\(\Large  Z =     j \omega L  \)</p>
+<p>\(\Large  I(t) = \frac{1}{Z} V(t) = \frac{1}{  j \omega L} \ V(t) \)</p>
+<p>この，<span class="Red-Bold">Z，をインピーダンス</span>，<span class="Red-Bold">１/Z，をアドミタンス</span>，といい，交流における抵抗値を表すことになります．　</p>
+<p>&nbsp;</p>
+<p>実際に交流回路で計算してみましょう．</p>
+<p><span class="Red-Bold">コンデンサ</span></p>
+<p><a href="Circuit-03.html">ここ</a>，にあるように，</p>
+<p>\(\Large  I(t) =    \displaystyle  C \frac{dV(t)}{dt} = C \frac{d}{dt} V_0 \ e^{ j \omega t} = j \omega C \cdot V_0 \ e^{ j \omega t} \)　</p>
+<p>\(\Large =    \displaystyle   e^{ \frac{ \pi}{ 2}}  \omega C \cdot V_0 \ e^{ j \omega t} = \omega C \cdot V_0 \ e^{ j \left(\omega t + \frac{ \pi}{ 2} \right) }\)　</p>
+<p>と振幅，位相がちゃんと計算できていることがわかります．</p>
+<p><span class="Red-Bold">コイル</span></p>
+<p><a href="Circuit-04.html">ここ</a>，にあるように</p>
+<p>\(\Large  I(t) =    \displaystyle \frac{1}{L} \ \int V(t) \ dt= \frac{1}{L} \ \int V_0 \ e^{ j \omega t} \ dt = \frac{1}{j \omega L} \  V_0 \ e^{ j \omega t}+ D \)　</p>
+<p>初期条件は，</p>
+<p>t=0, I(0) = 0，ですので，</p>
+<p>\(\Large  I(0) =    \displaystyle  \frac{1}{j \omega L} \  V_0 \ e^{ j \omega 0}+ D = \frac{1}{j \omega L} \  V_0 e^{ j \omega \cdot 0} + D = 0\)　</p>
+<p>\(\Large    \displaystyle  D = - \frac{1}{j \omega L} \  V_0 \)　</p>
+<p>\(\Large  I(t) =    \displaystyle  \frac{1}{j \omega L} \  V_0 \  (e^{ j \omega t} - 1) \)　</p>
+<p>\(\Large =    \displaystyle  \frac{j}{ \omega L} \  V_0 \  (1 - e^{ j \omega t} ) \)　</p>
+<p>\(\Large =    \displaystyle  \frac{j}{ \omega L} \  V_0  - \frac{j}{ \omega L} \  V_0 \ e^{ j \omega t} \)　</p>
+<p>\(\Large =    \displaystyle  \frac{j}{ \omega L} \  V_0 - \frac{1}{ \omega L} \  V_0 \ e^{ j \frac{\pi}{2}} \   e^{ j \omega t}  \)　</p>
+<p>\(\Large =    \displaystyle  \frac{j}{ \omega L} \  V_0 - \frac{1}{ \omega L} \  V_0  \   e^{ j ( \omega t + \frac{\pi}{2})}  \)　</p>
+<p>三角関数に戻すために虚数部分を抜き出すと，</p>
+<p>\(\Large Im [I(t)] =    \displaystyle  \frac{1}{ \omega L} \  V_0 - \frac{1}{ \omega L} \  V_0  \   sin ( \omega t + \frac{\pi}{2})  \)　</p>
+<p>\(\Large  =    \displaystyle  \frac{1}{ \omega L} \  V_0 \left\{ 1 -    sin ( \omega t + \frac{\pi}{2}) \right\} \)　</p>
+<p>と振幅，位相がちゃんと計算できていることがわかります．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>次ページは，<span class="Blue-Bold">インピーダンスの意味</span>，について考えていきます．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-05.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-07.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

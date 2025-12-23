@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-08-2</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p><span class="Large-Bold-Red">・L回路</span>を真面目に解く</p>
+<p>\(\Large  I(t) = \frac{1}{  L} \int V(t) \ dt =  \frac{1}{  L} \int V_0 \ e^{ i \omega t} \ dt =   \frac{1}{  j \omega L}  V_0 \ e^{ i \omega t} + D\) </p>
+<p>\(\Large  I(0) = 0 \) </p>
+<p>\(\Large  I(0) =    \frac{1}{  j \omega L}  V_0 \ e^{ j \omega \cdot 0} + D \rightarrow D= -\frac{1}{  j \omega L}  V_0 \) </p>
+<p>\(\Large  I(t) =    \frac{1}{  j \omega L}  V_0 \ ( e^{ j \omega t} - 1) <br />
+  = 
+\frac{j}{   \omega L}  V_0 \ ( 1 - e^{ i \omega t} ) <br />
+= 
+\frac{j}{   \omega L}  V_0  - \frac{j}{   \omega L}  V_0 \ e^{ j \omega t}   <br />
+= 
+\frac{j}{   \omega L}  V_0  - \frac{1}{   \omega L} \cdot e^{j \frac{\pi}{2} }  V_0 \ e^{ j \omega t}  \)</p>
+<p>\(\Large  I(t) = 
+\frac{j}{   \omega L}  V_0  - \frac{1}{   \omega L} \  V_0 \ e^{ j (\omega t+\frac{\pi}{2})}  \)</p>
+<p>&nbsp;</p>
+<p>\(\Large  Im[I(t)] = 
+    \displaystyle \frac{1}{   \omega L}  V_0  - \frac{1}{   \omega L} \  V_0 \ sin \left( \omega t+\frac{\pi}{2} \right)<br />
+= 
+\frac{j}{   \omega L}  V_0  \left\{ 1 -  sin \left( \omega t+\frac{\pi}{2} \right) \right\} \)</p>
+<p>ここで，</p>
+<p>\(\Large  - sin \theta = sin ( \theta - \pi)  \)</p>
+<p>より，</p>
+<p>\(\Large  I(t)
+= 
+\displaystyle \frac{V_0}{   \omega L}    \left\{ 1 +  sin \left( \omega t-\frac{\pi}{2} \right) \right\} \)</p>
+<p>となり，<a href="Circuit-05.html">三角関数で解いた結果</a>と一致します．</p>
+<p><a href="Circuit-08.html">戻る</a></p>
+<p>　</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-08.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

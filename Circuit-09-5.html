@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-09-5</p>
+<p class="Large-Bold-Red">RC直列交流回路を<span class="Large-Bold-Blue">ラプラス変換</span>で真面目に解く - <span class="Large-Bold-Blue">電圧</span>を主体に考える</p>
+<p class="Large-Bold-Red"><img src="Circuit-12.png" width="495" height="382" alt=""/></p>
+<p><span class="Large-Bold-Red">R</span>と<span class="Large-Bold-Red">C</span>が<span class="Large-Bold-Red">直列</span>に並んだ<span class="Large-Bold-Red">交流回路</span>を<span class="Large-Bold-Red"><span class="Large-Bold-Blue">ラプラス変換で電圧</span>を主体に</span>まじめに考えます．式は，</p>
+<p>  \(\Large      \displaystyle \frac{d}{dt} V_C (t)  =- \frac{1}{RC} V_C (t)  + \frac{1}{RC}V_0 \cdot e^{j \omega t}  \)</p>
+<p>でした．変形して，</p>
+<p>\(\Large      \displaystyle \frac{d}{dt} V_C (t)   + a \  V_C (t)   = a \ V_0 \cdot e^{j \omega t} \)</p>
+<p>  \(\Large      \displaystyle \left(a  \equiv \frac{1}{RC}\right) \)</p>
+<p><span class="Large-Bold-Red"><span class="Large-Bold-Blue">ラプラス変換</span></span>をおこなうと，</p>
+<p>\(\Large      \displaystyle sF(s)-V_C(0)\ + a \  F(s) =a\ V_0 \  \frac{1}{s - j \omega} \)</p>
+<p>  \(\Large      \displaystyle (s+a)F(s) = a\ V_0 \  \frac{1}{s - j \omega} + V_C(0) \)</p>
+<p>  \(\Large      \displaystyle F(s) = a\ V_0 \  \frac{1}{(s - j \omega)(s+a)} + \frac{V_C(0)}{s+a} \)</p>
+<p>となるので，右辺第一項を，</p>
+<p>\(\Large      \displaystyle \frac{1}{(s - j \omega)(s+a)} = \frac{A}{s - j \omega} + \frac{B}{s+a}  \)</p>
+<p>  \(\Large      \displaystyle = \frac{A(s+a)+B(s - j \omega)}{(s - j \omega)(s+a)}  \)</p>
+<p>  \(\Large      \displaystyle = \frac{s(A+B)+aA - j \omega B}{(s - j \omega)(s+a)}  \)</p>
+<p>  \(\Large      \displaystyle A+B=0 \rightarrow B = -A \)</p>
+<p> \(\Large      \displaystyle aA - j \omega B = aA + j \omega A = (a + j \omega) A = 1 \)</p>
+<p>  \(\Large      \displaystyle A=\frac{1}{a + j \omega} \)</p>
+<p>\(\Large      \displaystyle B = - \frac{1}{a + j \omega} \)</p>
+<p>となります．したがって，</p>
+<p>\(\Large      \displaystyle F(s) = a\ V_0 \  \frac{1}{a + j \omega}( \frac{1}{s - j \omega} - \frac{1}{s+a})  + \frac{V_0}{s+a} \)</p>
+<p>  \(\Large      \displaystyle =  V_0 \  \frac{a}{a + j \omega}( \frac{1}{s - j \omega} - \frac{1}{s+a})  + \frac{V_0}{s+a} \)</p>
+<p>  \(\Large      \displaystyle =  V_0 \  \frac{1/RC}{1/RC + j \omega}( \frac{1}{s - j \omega} - \frac{1}{s+a})  + \frac{V_0}{s+a} \)</p>
+<p>  \(\Large      \displaystyle =  V_0 \  \frac{1}{1 + j \omega RC}( \frac{1}{s - j \omega} - \frac{1}{s+a})  + \frac{V_0}{s+a} \)</p>
+<p>となります．逆ラプラス変換を行って，</p>
+<p>\(\Large      \displaystyle V_C (t) =  V_0 \  \frac{1}{1 + j \omega RC}( e^{ j \omega t} - e^{-\frac{1}{RC} t})  +  V_0 \ e^{-\frac{1}{RC} t} \)</p>
+<p>  \(\Large      \displaystyle I(t) = C \cdot \frac{d}{dt} V_C (t)   \)</p>
+<p>  \(\Large      \displaystyle =V_0 \  \frac{1}{1 + j \omega RC}( j \omega \ e^{ j \omega t} + \frac{1}{RC}e^{-\frac{1}{RC} t}) \)</p>
+<p>\(\Large      \displaystyle =V_0 \cdot \frac{C}{1 + j \omega RC} \left( j \omega \ e^{j \omega t} + \frac{1}{RC} e^{ - \frac{1}{RC} t}\right) - V_0 \frac{1}{RC} e^{ - \frac{1}{R} t}) \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  e^{j \omega t} + \frac{1}{1 + j \omega RC}\frac{1}{R} e^{ - \frac{1}{RC} t} - V_0 \frac{1}{R} e^{ - \frac{1}{RC} t}) \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  e^{j \omega t} + V_0 \frac{1 - 1 - j \omega RC}{1 + j \omega RC}\frac{1}{R} e^{ - \frac{1}{RC} t} ) \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  e^{j \omega t} + V_0\frac{ - j \omega C}{1 + j \omega RC} e^{ - \frac{1}{RC} t} ) \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  \left( e^{j \omega t} - e^{ - \frac{1}{RC} t} \right) \)</p>
+<p>\(\Large \displaystyle I(t) =  V_0 \cdot \frac{j \omega}{R (a+j \omega)}  \left( e^{ j \omega t} - e^{-at} \right) \)<br />
+\(\Large \displaystyle =  V_0 \cdot \frac{j \omega}{\frac{1}{C}+j \omega R }  \left( e^{ j \omega t} - e^{- \frac{1}{RC}t} \right) \)<br />
+\(\Large \displaystyle =  V_0 \cdot \frac{j \omega C}{1+j \omega RC }  \left( e^{ j \omega t} - e^{- \frac{1}{RC}t} \right) \)<br />
+\(\Large \displaystyle =  V_0 \cdot \frac{j \omega C + \omega^2 R C^2}{1+ (\omega RC)^2 }  \left( e^{ j \omega t} - e^{- \frac{1}{RC}t} \right) \)<br />
+\(\Large \displaystyle =  V_0 \cdot \frac{ \frac{j}{\omega C} +  R }{\frac{1}{ (\omega C)^2}+ R^2 }  \left( e^{ j \omega t} - e^{- \frac{1}{RC}t} \right) \)</p>
+<p>となり，一致します．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Blue">後の展開は同じですが，きちんと書くと，</p>
+<p>\(\Large      \displaystyle      =   V_0 \cdot \frac{R + \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}  \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left( e^{ j \omega t} - e^{- \frac{1}{ RC}  t}   \right) \)　</p>
+<p>ここで，複素数の項を指数に置き換える．</p>
+<p><img src="Circuit-15.png" width="495" height="326" alt=""/></p>
+<p>\(\Large         \displaystyle      cos \ \theta = \frac{R }{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}\)　</p>
+<p>\(\Large         \displaystyle      j \cdot sin \ \theta = \frac{ \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}\)　</p>
+<p>\(\Large         \displaystyle      e^{ j \ \theta} =cos \ \theta + j \cdot sin \ \theta \)　</p>
+<p>より，</p>
+<p>\(\Large      \displaystyle      \frac{R + \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}   =       e^{ j \ \theta} \)　</p>
+<p>ここで，</p>
+<p>\(\Large      \displaystyle tan \ \theta = \frac{1} {\omega RC} \)　</p>
+<p>となります．したがって，</p>
+<p>\(\Large      \displaystyle      I(t) =   V_0 \cdot \frac{R + \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}  \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left( e^{ j \omega t} - e^{- \frac{1}{ RC}  t}   \right) \)</p>
+<p> \(\Large      \displaystyle      = V_0 \cdot e^{ j \ \theta}  \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left( e^{ j \omega t} - e^{- \frac{1}{ RC}  t}   \right)\)　</p>
+<p> \(\Large      \displaystyle      = V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left\{ e^{ j (\omega t + \theta)} -        e^{ j \ \theta} \cdot e^{- \frac{1}{ RC}  t}   \right\}\)　</p>
+<p>となります．ここで，三角関数に戻すために，虚数部分のみ取り出すと，</p>
+<p> \(\Large      \displaystyle      Im [ I(t) ] = Im \left[V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  e^{ j (\omega t + \theta)}  \right] <br />
+  -  Im \left[V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  e^{ j \ \theta} \cdot e^{- \frac{1}{ RC}  t}  \right] \)</p>
+<p> \(\Large      \displaystyle       = V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  sin  (\omega t + \theta)<br />
+  -  V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  sin \ \theta  \cdot e^{- \frac{1}{ RC}  t}   \)</p>
+<p>十分な時間が経てば，第二項は0となるので，</p>
+<p> \(\Large      \displaystyle       I(t) \sim      \frac{V_0 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  sin  (\omega t + \theta)
+  \)</p>
+<p>\(\Large      \displaystyle  \theta = tan^{-1} \ \frac{1} {\omega RC} \)　</p>
+<p>となり，インピーダンスを用いた結果と一致します．　</p>
+<p><a href="Circuit-09.html">戻る</a></p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-09-4.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

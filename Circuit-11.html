@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED"> 回路-11</p>
+<p class="Large-Bold-Red"><span class="X-Large-Bold-RED">RC並列</span>交流回路</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p class="Large-Bold-Red"><img src="Circuit-23.png" width="495" height="404" alt=""/></p>
+<p><span class="Large-Bold-Red">R</span>と<span class="Large-Bold-Red">C</span>が<span class="Large-Bold-Red">並列</span>に並んだ<span class="Large-Bold-Red">交流回路</span>を考えます．</p>
+<p>交流ですが，インピーダンスを考えれば，直列の抵抗と同じように計算できます．</p>
+<p>つまり，交流回路の場合には，コンデンサのインピーダンスを交流回路の場合の抵抗値 と考え，直流の場合と同じように直列の計算をすればいいのです．インピーダンスは，</p>
+<p>\(\Large   Z_R = R \)</p>
+<p>\(\Large   Z_C =   \displaystyle \frac{1}{j \omega C} \)　</p>
+<p>となるので，</p>
+<p>\(\Large      \displaystyle \frac{1}{Z} = \frac{1}{Z_R} + \frac{1}{Z_C} =   \displaystyle \frac{1}{R} + j \omega C \)　</p>
+<p>\(\Large   V(t) = Z \cdot I(t) \)　</p>
+<p>から，</p>
+<p>\(\Large   I(t) = I_R(t) + I_C(t) = \displaystyle \left( \frac{1}{R} + j \omega C \right) \cdot V_0 \cdot e^{j \omega t} \)</p>
+<p>となります．ここで複素平面を考えるために，</p>
+<p>\(\Large   I(t) = I_R(t) + I_C(t) = \displaystyle \sqrt{\frac{1}{R^2} + ( \omega C)^2} \frac{ \frac{1}{R} + j \omega C }{\sqrt{\frac{1}{R^2} + ( \omega C)^2}} \cdot V_0 \cdot e^{j \omega t} \)</p>
+<p>とし，最初の項を，複素平面で，</p>
+<p>&nbsp;</p>
+<p><img src="Circuit-24.png" width="397" height="268" alt=""/></p>
+<p>と考えると，</p>
+<p>\(\Large    cos \ \theta =    \displaystyle \frac{1/R }{\sqrt{\frac{1}{R^2} + ( \omega C)^2}}    \)　</p>
+<p>\(\Large    j \ sin \ \theta = \frac{  \displaystyle  \omega C}{\sqrt{\frac{1}{R^2} + ( \omega C)^2}}    \)　</p>
+<p>となるので，</p>
+<p>\(\Large      \displaystyle \frac{ \frac{1}{R} + j \omega C }{\sqrt{\frac{1}{R^2} + ( \omega C)^2}} = cos \ \theta + j \ sin \ \theta = e^{j \ \theta} \)　</p>
+<p>となります．ここで，</p>
+<p>\(\Large     tan \ \theta =   \displaystyle \omega RC  \)　</p>
+<p>です．したがって，電流は，</p>
+<p>\(\Large    I(t) =  e^{j \ \theta} \cdot \displaystyle \sqrt{\frac{1}{R^2} + ( \omega C)^2} \cdot V_0 \ e^{j \omega t}   \)　</p>
+<p>\(\Large =\displaystyle  V_0 \cdot \sqrt{\frac{1}{R^2} + ( \omega C)^2}  \cdot e^{j (\omega t + \theta)}   \)　</p>
+<p>となります．ここで，三角関数に戻すために，虚数部分のみ取り出すと，</p>
+<p>\(\Large Im[I(t)] = \displaystyle  V_0 \cdot \sqrt{\frac{1}{R^2} + ( \omega C)^2}   \cdot sin \ (\omega t + \theta)   \)　</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>実際に<span class="Large-Bold-Red">RC並列交流回路</span>を作ってみてシミュレートしてみました．</p>
+<p><img src="Circuit-14.png" width="714" height="633" alt=""/></p>
+<p>&nbsp;</p>
+<p>条件は，<br />
+　f = 40 Hz<br />
+　R = 100 Ω<br />
+　C = 34 μF<br />
+　V<sub>0</sub> = 1 V<br />
+ということで，</p>
+<p>\(\Large  \omega = 40 \cdot 2 \cdot \pi = 251.3 \ rad/s \)　</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">振幅</p>
+<p>コンデンサ直下の電流値の振幅は，</p>
+<p>\(\Large  \displaystyle  V_0 \cdot \sqrt{\frac{1}{R^2} + ( \omega C)^2} = 13.2 \ mA \)　</p>
+<p>と電流の振幅が計算どおりとなっていることがわかります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">位相</p>
+<p>今回は，<a href="Phase difference-01.html">この計算</a>は使わずに，0点同士の差から求めました．</p>
+<p>\(\Large  \Delta t = 2.80 \ ms \)　</p>
+<p>理論値は，</p>
+<p>\(\Large  tan^{-1} \ \omega R C  = 0.707 \ rad \)　</p>
+<p>周波数は40 Hz，ですので，一周期が，1/40 = 25 ms. </p>
+<p>\(\Large   \frac{0.707}{ 2 \pi} \times 25 \ ms = 2.81 \ ms \)　</p>
+<p>とほぼ一致していることがわかります．</p>
+<p>　</p>
+<p>次に，<span class="Large-Bold-Blue"></span><span class="Blue-Bold">RL並列交流回路</span>，について考えていきます．</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-10.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-12.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

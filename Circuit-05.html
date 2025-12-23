@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-05</p>
+<p class="Large-Bold-Red">インダクタ（コイル）</p>
+<p><span class="Large-Bold-Red">インダクタ</span>の細かい原理は置いていおいて，その性質は，</p>
+<p>　　<span class="Large-Bold-Red">インダクタ，電流の時間的な変化量に比例して逆起電力が発生する</span></p>
+<p>ものと考えます．式で表すと，電圧は，</p>
+<p>\(\Large  V(t) =  L \displaystyle \frac{dI(t)}{dt} \)　</p>
+<p>ここで，<br />
+　L : インダクタ　（H)<br />
+となります．電流は，</p>
+<p>\(\Large  I(t)  =    \displaystyle \frac{1}{L} \ \int V(t) \ dt \)　 </p>
+<p>となります．ちょうどコンデンサと逆の関係になります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・交流電源</p>
+<p class="Large-Bold-Red"><img src="Circuit-09.png" width="470" height="352" alt=""/></p>
+<p>教科書には，<span class="Blue-Bold">電圧入力</span>，と，<span class="Blue-Bold">電流入力</span>，とありますが，今回はすべて，<span class="Large-Bold-Red">電圧入力</span>，で考えます．<span class="Red-Bold">交流電源（電圧）</span>を加えた場合，</p>
+<p>\(\Large  V(t)  =    V_0 \ sin \ (\omega t )\)　</p>
+<p>となりますので，電流は，</p>
+<p>\(\Large  I(t) =    \displaystyle \frac{1}{L} \ \int V(t) \ dt= -\frac{ V_0}{ \omega L}  \ cos \ (\omega t ) + D \)　</p>
+<p>となります．</p>
+<p>\(\Large  sin (a-b) = sin \ a \cdot cos \ b - cos \ a \cdot sin \ b\)　</p>
+<p>\(\Large  sin (a- \frac{ \pi}{2} ) = sin \ a \cdot cos \ \frac{ \pi}{2}- cos \ a \cdot sin \ \frac{ \pi}{2} = - cos \ a \)　</p>
+<p>から，</p>
+<p>\(\Large  I(t) =    \displaystyle  -\frac{ V_0}{ \omega L}  \ cos \ (\omega t ) + D = \frac{ V_0}{ \omega L}  \ sin \ \left(\omega t - \frac{ \pi}{2} \right) + D\)　</p>
+<p>となるので，</p>
+<p>初期条件は，</p>
+<p>t=0, I(0) = 0，ですので，</p>
+<p>\(\Large  I(０) =    \displaystyle  -\frac{ V_0}{ \omega L}  \ sin \ (\omega \cdot 0  - \frac{ \pi}{2}) + D = -\frac{ V_0}{ \omega L}   + D = 0 \)　</p>
+<p>\(\Large  D = \frac{ V_0}{ \omega L}    \)　</p>
+<p>\(\Large  I(t) =    \displaystyle   \frac{ V_0}{ \omega L}  \ sin \ \left(\omega t - \frac{ \pi}{2} \right) + \frac{ V_0}{ \omega L} = \frac{ V_0}{ \omega L} \left\{ 1 + sin \ \left(\omega t - \frac{ \pi}{2} \right) \right\}\)　</p>
+<p>となります．<span class="Red-Bold">位相がπ/2だけシフト</span>します．<span class="Blue-Bold">コンデンサのときとは逆のシフト</span>となります．さらに，<span class="Red-Bold">電流はプラスマイナスではなく，０から</span>，となります．　</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・LTspice</p>
+<p>実際に<span class="Large-Bold-Red">L交流回路</span>を作ってみてシミュレートしてみました．</p>
+<p><img src="Circuit-04.png" width="674" height="590" alt=""/></p>
+<p>&nbsp;</p>
+<p>条件は，<br />
+　f = 40 Hz<br />
+　L = 10 H<br />
+　V<sub>0</sub> = 1 V<br />
+ということで，</p>
+<p>\(\Large  \omega = 40 \cdot 2 \cdot \pi = 251.3 \ rad/s \)　</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">振幅</p>
+<p>インダクタ直下の電流値の振幅は，</p>
+<p>\(\Large  \frac{ V_0}{C \cdot \omega } = 398 \mu A \)　</p>
+<p>と電流の振幅が計算どおりとなっていることがわかります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">位相</p>
+<p>今回は，<a href="Phase difference-01.html">この計算</a>は使わずに，頂点同士の差（電流は０を横切らないので）から求めました．</p>
+<p>\(\Large  \Delta t = 5.90 \ ms \)　</p>
+<p>周波数は40 Hz，ですので，一周期が，1/40 = 25 ms. </p>
+<p>\(\Large  \phi= \frac{5.90}{25} \times 360 = 84 \ (degree) \)　</p>
+<p>と若干異なりますが，約90度（π/2），ズレていることがわかります．</p>
+<p>&nbsp;</p>
+<p>次ページは，<span class="Blue-Bold">指数関数表示</span>について考えていきます．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-04.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-06.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

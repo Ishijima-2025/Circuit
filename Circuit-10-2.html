@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-10-2</p>
+<p class="Large-Bold-Red">RL直列回路を真面目に解く</p>
+<p class="Large-Bold-Red"><img src="Circuit-16.png" width="502" height="374" alt=""/></p>
+<p><span class="Large-Bold-Red">R</span>と<span class="Large-Bold-Red">L</span>が<span class="Large-Bold-Red">直列</span>に並んだ<span class="Large-Bold-Red">交流回路</span>をまじめに考えます．式は，</p>
+<p>\(\Large    R \cdot I(t) +  \displaystyle L \frac{d \ I(t)}{ dt}  = V_0 \cdot e^{ j \omega t} \)　</p>
+<p>となるので，</p>
+<p>\(\Large      \displaystyle  \frac{d \  I(t)}{dt} = - \frac{R}{ L}  I(t)  +\frac{V_0}{L}  \cdot e^{ j \omega t} \)　</p>
+<p>定数変化法により，</p>
+<p>\(\Large      \displaystyle    I(t) = A_0 \cdot e^{- \frac{R}{ L}  t}   \)　</p>
+<p>\(\Large      \displaystyle    \frac{d \  I(t)}{dt} = A_0' \cdot e^{- \frac{R}{ L}  t}   \color{blue}{- \frac{R}{ L} \cdot A_0 \cdot e^{- \frac{R}{ L}  t}}\)　</p>
+<p>\(\Large      \displaystyle   = \color{blue}{- \frac{R}{ L}  I(t)}  +\frac{ V_0}{L}  \cdot e^{ j \omega t} \)　</p>
+<p>\(\Large      \displaystyle     A_0' \cdot e^{- \frac{R}{ L}  t}   = \frac{ V_0}{L}  \cdot e^{ j \omega t}\)　</p>
+<p>\(\Large      \displaystyle     A_0' =  e^{ \frac{R}{ L}  t}    \cdot \frac{ V_0}{L}  \cdot e^{ j \omega t} <br />
+  = 
+\frac{ V_0}{L}  \cdot e^{ (j \omega + \frac{R}{ L})t}\)　</p>
+<p>\(\Large      \displaystyle     A_0 =   
+\frac{V_0 }{L} \cdot  \frac{1}{j \omega + \frac{R}{ L}} \cdot e^{ (j \omega + \frac{R}{ L})t} + D\)　</p>
+<p>\(\Large      \displaystyle    I(t) = \left(   \frac{ V_0}{L} \cdot \frac{1}{j \omega + \frac{R}{ L}} \cdot e^{ (j \omega + \frac{R}{ L})t} + D\right) \cdot e^{- \frac{R}{ L}  t}   \)　</p>
+<p>\(\Large      \displaystyle     =    \frac{ V_0}{L} \cdot \frac{1}{j \omega + \frac{R}{ L}} \cdot e^{ j \omega t} + D \cdot e^{- \frac{R}{ L}  t}   \)　</p>
+<p>\(\Large      \displaystyle    I(0) = 0   \)　</p>
+<p>\(\Large      \displaystyle     I(0) =    \frac{ V_0}{L} \cdot \frac{1}{j \omega + \frac{R}{ L}} \cdot e^{ j \omega \cdot 0 } + D \cdot e^{- \frac{R}{ L}  \cdot 0}   \)　</p>
+<p>\(\Large      \displaystyle        \frac{ V_0}{L} \cdot \frac{1}{j \omega + \frac{R}{ L}}  + D  =0   \)　</p>
+<p>\(\Large      \displaystyle        D = - \frac{ V_0}{L} \cdot \frac{1}{j \omega + \frac{R}{ L}}       \)　</p>
+<p>\(\Large      \displaystyle     I(t) =   \frac{ V_0}{L} \cdot \frac{1}{j \omega + \frac{R}{ L}}  \cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot \frac{1}{R + j \omega L}  \cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot \frac{R - j \omega L}{R^2 +  (\omega L)^2 }  \cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot \frac{R - j \omega L}{R^2 +  (\omega L)^2 }  \frac{\sqrt{R^2 +  (\omega L)^2}}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot \frac{R - j \omega L}{\sqrt{R^2 +  (\omega L)^2} }  \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>とし，最初の項を，複素平面で，</p>
+<p><img src="Circuit-17.png" width="376" height="196" alt=""/></p>
+<p> と考えると，</p>
+<p>\(\Large    cos \ (-\theta) =    \displaystyle \frac{R }{\sqrt{R^2 + (\omega L)^2 }}    \)　</p>
+<p>\(\Large    j \ sin \ (-\theta) = - \frac{  \displaystyle j \omega L}{\sqrt{R^2 +   (\omega L)^2 }}    \)　</p>
+<p>となるので，</p>
+<p>\(\Large     \frac{R - j \omega L}{\sqrt{R^2 +   (\omega L)^2 }} = cos \ (-\theta) - j \ sin \ (-\theta) = e^{-j \ \theta} \)　</p>
+<p>となります．ここで，</p>
+<p>\(\Large     tan (-\theta) =   \displaystyle \frac{\omega L}{R}  \)　</p>
+<p>です．したがって，電流は，</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot e^{ -j \theta} \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle =   V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j (\omega t - \theta)} -  e^{ -j \theta} \cdot e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle =   V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ j (\omega t - \theta)} -     V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ -j \theta} \cdot e^{- \frac{R}{ L}  t}    \)　</p>
+<p>となります．ここで，三角関数に戻すために，虚数部分のみ取り出すと，</p>
+<p> \(\Large      \displaystyle      Im [ I(t) ] = Im \left[V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ j (\omega t - \theta)}  \right] <br />
+-  Im \left[V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ -j \theta} \cdot e^{- \frac{R}{ L}  t}  \right] \)</p>
+<p> \(\Large      \displaystyle       = V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  sin (\omega t - \theta)<br />
+-  V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  sin\ \theta \cdot e^{- \frac{R}{ L}  t}   \)</p>
+<p>十分な時間が経てば，第二項は0となるので，</p>
+<p> \(\Large      \displaystyle       I(t) \sim      V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  sin (\omega t - \theta)
+\)</p>
+<p>となり，インピーダンスを用いた結果と一致します．</p>
+<p>実際に過渡現象のシミュレートしてみると，</p>
+<p><img src="Circuit-20.png" width="743" height="654" alt=""/></p>
+<p>となり，電流（黄色）が振動しながら徐々に変化して落ち着いていきます．最初の方を計算してみると，</p>
+<p><img src="Circuit-19.png" width="758" height="360" alt=""/></p>
+<p>　赤点　：　LT-spiceで求めた過渡現象<br />
+  　黄色点線　：　上記の式の第一項（三角関数）と第二項（指数）<br />
+　赤点線　：　黄色点線を足したもの</p>
+<p>となります．ぴったり一致することがわかります．</p>
+<p>次は，</p>
+<p>　<a href="Circuit-10-3.html">RL直列回路をラプラス変換で真面目に解く</a></p>
+<p>です．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-10.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-10-3.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

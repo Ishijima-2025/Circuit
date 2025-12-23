@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-09-4</p>
+<p class="Large-Bold-Red">RC直列交流回路を真面目に解く - <span class="Large-Bold-Blue">電圧</span>を主体に考える</p>
+<p class="Large-Bold-Red"><img src="Circuit-12.png" width="495" height="382" alt=""/></p>
+<p><span class="Large-Bold-Red">R</span>と<span class="Large-Bold-Red">C</span>が<span class="Large-Bold-Red">直列</span>に並んだ<span class="Large-Bold-Red">交流回路</span>を<span class="Large-Bold-Red"><span class="Large-Bold-Blue">電圧</span>を主体に</span>まじめに考えます．式は，</p>
+<p>\(\Large      \displaystyle V = V_0 \cdot e^{j \omega t} = V_R (t)+ V_C (t) \)</p>
+<p>  \(\Large      \displaystyle V_R (t) = R \cdot I(t) \)</p>
+<p>  \(\Large      \displaystyle I(t) = C \cdot \frac{d}{dt} V_C (t) \)</p>
+<p>となるので，</p>
+<p>\(\Large      \displaystyle V = R \cdot C \cdot \frac{d}{dt} V_C + V_C \)</p>
+<p>となります．したがって，</p>
+<p> \(\Large      \displaystyle R \cdot C \cdot \frac{d}{dt} V_C (t) + V_C (t)  = V_0 \cdot e^{j \omega t} \)</p>
+<p>  \(\Large      \displaystyle \frac{d}{dt} V_C (t)  =- \frac{1}{RC} V_C (t)  + \frac{1}{RC}V_0 \cdot e^{j \omega t}  \)</p>
+<p>&nbsp;</p>
+<p>定数変化法を用いて，</p>
+<p>\(\Large      \displaystyle V_C (t)   = A_0 \cdot e^{ - \frac{1}{RC} t}   \)</p>
+<p>\(\Large      \displaystyle \frac{d}{dt} V_C (t)  = A_0' \cdot e^{ - \frac{1}{RC} t} \color{blue}{- \frac{1}{RC}A_0 \cdot e^{ - \frac{1}{RC} t}}   \)</p>
+<p>\(\Large      \displaystyle = \color{blue}{- \frac{1}{RC} V_C (t) } + \frac{1}{RC}V_0 \cdot e^{j \omega t}    \)</p>
+<p>\(\Large      \displaystyle A_0' \cdot e^{ - \frac{1}{RC} t} = \frac{1}{RC}V_0 \cdot e^{j \omega t}   \)</p>
+<p>\(\Large      \displaystyle A_0' = \frac{1}{RC}V_0 \cdot e^{(\frac{1}{RC} + j \omega) t}   \)</p>
+<p>\(\Large      \displaystyle A_0 = \frac{1}{RC}V_0 \cdot \frac{1}{\frac{1}{RC} + j \omega}\cdot e^{(\frac{1}{RC} + j \omega) t}  + D   \)</p>
+<p>\(\Large      \displaystyle V_C (t)   = \left( \frac{1}{RC}V_0 \cdot \frac{1}{\frac{1}{RC} + j \omega}\cdot e^{(\frac{1}{RC} + j \omega) t}  + D\right) \cdot e^{ - \frac{1}{RC} t}   \)</p>
+<p>\(\Large      \displaystyle =  \frac{1}{RC}V_0 \cdot \frac{1}{\frac{1}{RC} + j \omega}\cdot e^{ j \omega t}  + D \cdot e^{ - \frac{1}{RC} t}   \)</p>
+<p>\(\Large      \displaystyle =  V_0 \cdot \frac{1}{1 + j \omega RC}\cdot e^{ j \omega t}  + D \cdot e^{ - \frac{1}{RC} t}   \)</p>
+<p>&nbsp;</p>
+<p>ここで，初期値は，</p>
+<p>\(\Large      \displaystyle V_C(0) = V_0; \)</p>
+<p>となります．その理由は，</p>
+<p> \(\Large      \displaystyle R \cdot C \cdot \frac{d}{dt} V_C + V_C = V_0 \ e^{j \omega t} \)</p>
+<p>電流の初期値は，I(0)=0，として，</p>
+<p>\(\Large      \displaystyle I(0) = 0 = C \left.\frac{d}{dt} V_C \right|_{t=0} ; \)</p>
+<p>元の微分方程式に戻すと</p>
+<p>\(\Large      \displaystyle R \cdot C \cdot \left. \frac{d}{dt} V_C \right|_{t=0} + V_C(0) = V_0 \ e^{j \omega \cdot 0} = V_0 \)</p>
+<p>となり，したがって，</p>
+<p>\(\Large      \displaystyle V_C(0) = V_0 \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>したがって，</p>
+<p> \(\Large      \displaystyle R \cdot C \cdot \frac{d}{dt} V_C (t)    + V_C (t)    = V_0 \cdot e^{j \omega t} \)</p>
+<p>  \(\Large      \displaystyle \frac{d}{dt} V_C (t)    =- \frac{1}{RC} V_C (t)    + \frac{1}{RC}V_0 \cdot e^{j \omega t}  \)</p>
+<p>\(\Large      \displaystyle V_C (t)     =  \frac{1}{RC}V_0 \cdot \frac{1}{\frac{1}{RC} + j \omega}\cdot e^{ j \omega t}  + D \cdot e^{ - \frac{1}{RC} t}  \)</p>
+<p>  \(\Large      \displaystyle V_C(0)=V_0; \)</p>
+<p>  \(\Large      \displaystyle V_C(0)=V_0 =  \frac{1}{RC}V_0 \cdot \frac{1}{\frac{1}{RC} + j \omega}\cdot e^{  j \omega \cdot 0}  + D \cdot e^{ - \frac{1}{RC} \cdot 0}  \)</p>
+<p>  \(\Large      \displaystyle =  V_0 \cdot \frac{1}{1 + j \omega RC}  + D = V_0  \)</p>
+<p>  \(\Large      \displaystyle D = V_0-V_0 \cdot \frac{1}{1 + j \omega RC}  \)</p>
+<p>  \(\Large      \displaystyle V_C (t)     = \left( V_0 \cdot \frac{1}{1 + j \omega RC}\cdot e^{(\frac{1}{RC} + j \omega) t}  +V_0- V_0 \cdot \frac{1}{1 + j \omega RC} \right) \cdot e^{ - \frac{1}{RC} t}  \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{1}{1 + j \omega RC} \left( e^{j \omega t} - e^{ - \frac{1}{RC} t}\right) + V_0 \cdot e^{ - \frac{1}{RC} t}　 \)</p>
+<p>  \(\Large      \displaystyle I(t) = C \cdot \frac{d}{dt} V_C (t)     \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{C}{1 + j \omega RC} \left( j \omega \ e^{j \omega t} + \frac{1}{RC} e^{ - \frac{1}{RC} t}\right) - V_0 \frac{1}{RC} e^{ - \frac{1}{R} t} \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  e^{j \omega t} + \frac{1}{1 + j \omega RC}\frac{1}{R} e^{ - \frac{1}{RC} t} - V_0 \frac{1}{R} e^{ - \frac{1}{RC} t} \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  e^{j \omega t} + V_0 \frac{1 - 1 - j \omega RC}{1 + j \omega RC}\frac{1}{R} e^{ - \frac{1}{RC} t}  \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  e^{j \omega t} + V_0\frac{ - j \omega C}{1 + j \omega RC} e^{ - \frac{1}{RC} t}  \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}  \left( e^{j \omega t} - e^{ - \frac{1}{RC} t} \right) \)</p>
+<p>&nbsp;</p>
+<p>微分して電流にしてから初期値を入れると，</p>
+<p>\(\Large      \displaystyle I(t) = C \cdot \frac{d}{dt} V_C (t)     \)</p>
+<p>  \(\Large      \displaystyle =V_0 \cdot \frac{j \omega C}{1 + j \omega RC}\cdot e^{ j \omega t}  - \frac{D}{R}  \cdot e^{ - \frac{1}{RC} t}  \)</p>
+<p>\(\Large      \displaystyle I(0)=0; \)</p>
+<p>\(\Large      \displaystyle I(0) =  V_0 \cdot \frac{j \omega C}{1 + j \omega RC}\cdot e^{ j \omega \cdot 0}   - \frac{D}{R} \cdot e^{ - \frac{1}{RC} \cdot 0}  \)</p>
+<p>  \(\Large      \displaystyle V_0 \cdot \frac{j \omega C}{1 + j \omega RC} =\frac{D　}{R}  \)</p>
+<p>  \(\Large      \displaystyle D = V_0 \cdot \frac{j \omega RC}{1 + j \omega RC}  \)</p>
+<p>\(\Large      \displaystyle I(t) =  V_0 \cdot \frac{j \omega C}{1 + j \omega RC}\cdot (e^{ j \omega t}  - e^{ - \frac{1}{RC} t})  \)</p>
+<p> \(\Large \displaystyle =  V_0 \cdot \frac{j \omega C}{1+j \omega RC }  \left( e^{ j \omega t} - e^{- \frac{1}{RC}t} \right) \)</p>
+<p>  \(\Large \displaystyle =  V_0 \cdot \frac{j \omega C + \omega^2 R C^2}{1+ (\omega RC)^2 }  \left( e^{ j \omega t} - e^{- \frac{1}{RC}t} \right) \)</p>
+<p>  \(\Large \displaystyle =  V_0 \cdot \frac{ \frac{j}{\omega C} +  R }{\frac{1}{ (\omega C)^2}+ R^2 }  \left( e^{ j \omega t} - e^{- \frac{1}{RC}t} \right) \)</p>
+<p>となり，一致します．</p>
+<p>&nbsp;</p>
+<p class="Blue-Bold">後の展開は同じですが，きちんと書くと，</p>
+<p>\(\Large      \displaystyle      =   V_0 \cdot \frac{R + \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}  \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left( e^{ j \omega t} - e^{- \frac{1}{ RC}  t}   \right) \)　</p>
+<p>ここで，複素数の項を指数に置き換える．</p>
+<p><img src="Circuit-15.png" width="495" height="326" alt=""/></p>
+<p>\(\Large         \displaystyle      cos \ \theta = \frac{R }{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}\)　</p>
+<p>\(\Large         \displaystyle      j \cdot sin \ \theta = \frac{ \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}\)　</p>
+<p>\(\Large         \displaystyle      e^{ j \ \theta} =cos \ \theta + j \cdot sin \ \theta \)　</p>
+<p>より，</p>
+<p>\(\Large      \displaystyle      \frac{R + \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}   =       e^{ j \ \theta} \)　</p>
+<p>ここで，</p>
+<p>\(\Large      \displaystyle tan \ \theta = \frac{1} {\omega RC} \)　</p>
+<p>となります．したがって，</p>
+<p>\(\Large      \displaystyle      I(t) =   V_0 \cdot \frac{R + \frac{j}{ \omega C}}{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}  \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left( e^{ j \omega t} - e^{- \frac{1}{ RC}  t}   \right) \)</p>
+<p> \(\Large      \displaystyle      = V_0 \cdot e^{ j \ \theta}  \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left( e^{ j \omega t} - e^{- \frac{1}{ RC}  t}   \right)\)　</p>
+<p> \(\Large      \displaystyle      = V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot \left\{ e^{ j (\omega t + \theta)} -        e^{ j \ \theta} \cdot e^{- \frac{1}{ RC}  t}   \right\}\)　</p>
+<p>となります．ここで，三角関数に戻すために，虚数部分のみ取り出すと，</p>
+<p> \(\Large      \displaystyle      Im [ I(t) ] = Im \left[V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  e^{ j (\omega t + \theta)}  \right] <br />
+  -  Im \left[V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  e^{ j \ \theta} \cdot e^{- \frac{1}{ RC}  t}  \right] \)</p>
+<p> \(\Large      \displaystyle       = V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  sin  (\omega t + \theta)<br />
+  -  V_0   \cdot  \frac{1 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  sin \ \theta  \cdot e^{- \frac{1}{ RC}  t}   \)</p>
+<p>十分な時間が経てば，第二項は0となるので，</p>
+<p> \(\Large      \displaystyle       I(t) \sim      \frac{V_0 }{{ \sqrt{R^2 + \frac{1}{ (\omega C)^2 }}}} \cdot  sin  (\omega t + \theta)
+  \)</p>
+<p>\(\Large      \displaystyle  \theta = tan^{-1} \ \frac{1} {\omega RC} \)　</p>
+<p>となり，インピーダンスを用いた結果と一致します．　</p>
+<p>次は，<span class="Large-Bold-Blue">０９－５．RC直列交流回路をラプラス変換で真面目に解く - 電圧を主体に考える</span>，です．</p>
+<p>&nbsp;</p>
+<p><a href="Circuit-09.html">戻る　</a></p>
+<p><span class="style7"><a href="Circuit-09-3.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-09-5.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

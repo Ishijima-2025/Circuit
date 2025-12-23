@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-09</p>
+<p class="Large-Bold-Red">RC直列交流回路</p>
+<p class="Large-Bold-Red"><img src="Circuit-12.png" width="495" height="382" alt=""/></p>
+<p><span class="Large-Bold-Red">R</span>と<span class="Large-Bold-Red">C</span>が<span class="Large-Bold-Red">直列</span>に並んだ<span class="Large-Bold-Red">交流回路</span>を考えます．</p>
+<p>交流ですが，インピーダンスを考えれば，直列の抵抗と同じように計算できます．</p>
+<p>つまり，交流回路の場合には，コンデンサのインピーダンスを交流回路の場合の抵抗値 と考え，直流の場合と同じように直列の計算をすればいいのです．インピーダンスは，</p>
+<p>\(\Large   Z = R +  \displaystyle \frac{1}{j \omega C} \)　</p>
+<p>となるので，</p>
+<p>\(\Large   V_0 \cdot e^{j \omega t}  = Z \cdot I(t) = \left( R +  \displaystyle \frac{1}{j \omega C} \right) \cdot I(t) = \left( R -  \displaystyle \frac{j}{ \omega C} \right) \cdot I(t) \)　</p>
+<p>電流は，</p>
+<p>\(\Large   I(t) = \frac{1}{R -  \displaystyle \frac{j}{ \omega C}} V_0 \cdot e^{j \omega t}   \)　</p>
+<p>となります．分母に虚数が入るのはいやらしいので，</p>
+<p>\(\Large    = \frac{R +  \displaystyle \frac{j}{ \omega C}}{\left(R -  \displaystyle \frac{j}{ \omega C} \right) \left(R +  \displaystyle \frac{j}{ \omega C} \right)} V_0 \cdot e^{j \omega t}   \)　</p>
+<p>\(\Large    = \frac{R +  \displaystyle \frac{j}{ \omega C}}{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }} V_0 \cdot e^{j \omega t}   \)　</p>
+<p>となります．ここで複素平面を考えるために，</p>
+<p>\(\Large    = \frac{R +  \displaystyle \frac{j}{ \omega C}}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}} \frac{1}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}}V_0 \cdot e^{j \omega t}   \)　</p>
+<p>とし，最初の項を，複素平面で，</p>
+<p><img src="Circuit-13.png" width="402" height="266" alt=""/></p>
+<p>と考えると，</p>
+<p>\(\Large    cos \ \theta =    \displaystyle \frac{R }{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}}    \)　</p>
+<p>\(\Large    j \ sin \ \theta = \frac{  \displaystyle \frac{j}{ \omega C}}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}}    \)　</p>
+<p>となるので，</p>
+<p>\(\Large     \frac{R +  \displaystyle \frac{j}{ \omega C}}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}} = cos \ \theta + j \ sin \ \theta = e^{j \ \theta} \)　</p>
+<p>となります．ここで，</p>
+<p>\(\Large     tan \ \theta =   \displaystyle \frac{1}{\omega RC}  \)　</p>
+<p>です．したがって，電流は，</p>
+<p>\(\Large    I(t) =  e^{j \ \theta} \cdot \frac{V_0}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}} \cdot V_0 \cdot e^{j \omega t}   \)　</p>
+<p>\(\Large = \displaystyle \frac{V_0}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}} \cdot e^{j (\omega t + \theta)}   \)　</p>
+<p>となります．ここで，三角関数に戻すために，虚数部分のみ取り出すと，</p>
+<p>\(\Large Im[I(t)] = \frac{V_0}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}} \cdot sin \ (\omega t + \theta)   \)　</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>真面目に解くと．．．<a href="Circuit-09-2.html">ここ</a>，に記載しました．</p>
+<p>&nbsp;</p>
+<p>実際に<span class="Large-Bold-Red">RC交流回路</span>を作ってみてシミュレートしてみました．</p>
+<p><img src="Circuit-14.png" width="714" height="633" alt=""/></p>
+<p>条件は，<br />
+　f = 40 Hz<br />
+　C = 34 μF<br />
+　V<sub>0</sub> = 1 V<br />
+ということで，</p>
+<p>\(\Large  \omega = 40 \cdot 2 \cdot \pi = 251.3 \ rad/s \)　</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">振幅</p>
+<p>コンデンサ直下の電流値の振幅は，</p>
+<p>\(\Large  \frac{V_0}{\sqrt{R^2 +  \displaystyle \frac{1}{ (\omega C)^2 }}} = 6.5 \ mA \)　</p>
+<p>と電流の振幅が計算どおりとなっていることがわかります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">位相</p>
+<p>今回は，<a href="Phase difference-01.html">この計算</a>は使わずに，0点同士の差から求めました．</p>
+<p>\(\Large  \Delta t = 3.32 \ ms \)　</p>
+<p>理論値は，</p>
+<p>\(\Large  tan^{-1} \frac{1}{ \omega R C}  = 0.86 rad \)　</p>
+<p>周波数は40 Hz，ですので，一周期が，1/40 = 25 ms. </p>
+<p>\(\Large   \frac{0.86}{ 2 \pi} \times 25 \ ms = 3.44 \ ms \)　</p>
+<p>とほぼ一致していることがわかります．</p>
+<p>　</p>
+<p>せっかくなので，<a href="Circuit-09-2.html">ここ</a>，に過渡現象を含めた<span class="Blue-Bold">RCの直列交流回路</span>にを計算していきます．</p>
+<p>　<a href="Circuit-09-2.html">０９－２．RC直列交流回路を真面目に解く</a><br />
+　<a href="Circuit-09-3.html">０９－３．RC直列交流回路をラプラス変換で真面目に解く</a><br />
+　<a href="Circuit-09-4.html">０９－４．RC直列交流回路を真面目に解く - 電圧を主体に考える</a><br />
+　<a href="Circuit-09-5.html">０９－５．RC直列交流回路をラプラス変換で真面目に解く - 電圧を主体に考える</a></p>
+<p>といくつかの方法で解いてみました．</p>
+<p>&nbsp;</p>
+<p>次に，<span class="Large-Bold-Blue">RL</span><span class="Blue-Bold">の直列交流回路</span>，について考えていきます．</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-08.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-10.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

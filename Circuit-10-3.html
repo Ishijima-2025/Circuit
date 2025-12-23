@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-10-3</p>
+<p class="Large-Bold-Red">RL直列回路を<span class="Large-Bold-Blue">ラプラス変換</span>で真面目に解く</p>
+<p class="Large-Bold-Red"><img src="Circuit-16.png" width="502" height="374" alt=""/></p>
+<p><span class="Large-Bold-Red">R</span>と<span class="Large-Bold-Red">L</span>が<span class="Large-Bold-Red">直列</span>に並んだ<span class="Large-Bold-Red">交流回路</span>を<span class="Large-Bold-Red"><span class="Large-Bold-Blue">ラプラス変換</span></span>でまじめに考えます．式は，</p>
+<p>\(\Large    R \cdot I(t) +  \displaystyle L \frac{d \ I(t)}{ dt}  = V_0 \cdot e^{ j \omega t} \)　</p>
+<p>ラプラス変換を行うと，</p>
+<p>\(\Large      \displaystyle R \cdot F(s) + L \ \{sF(s)-I(0)\}  =V_0 \cdot  \frac{1}{s - j \omega} \)</p>
+<p>I(0)=0，なので，</p>
+<p>\(\Large      \displaystyle R \cdot F(s) + L \ sF(s)  =V_0 \cdot \frac{1}{s - j \omega} \)</p>
+<p>  \(\Large      \displaystyle F(s) = \frac{1}{R+Ls} \cdot V_0 \cdot  \frac{1}{s - j \omega} \)<br />
+</p>
+<p>\(\Large      \displaystyle \frac{1}{R+Ls} \cdot  \frac{1}{s - j \omega} = \frac{A}{R+Ls} + \frac{B}{s - j \omega}\)</p>
+<p>  \(\Large      \displaystyle = \frac{A(s - j \omega)+B(R+Ls)}{(s - j \omega)(R+Ls)} \)</p>
+<p>  \(\Large      \displaystyle = \frac{s(A + BL)+BR- j A \omega}{(s - j \omega)(R+Ls)} \)</p>
+<p>  \(\Large      \displaystyle B = -\frac{A}{L} \rightarrow -\frac{A}{L}R-j A \omega=1 \)</p>
+<p>  \(\Large      \displaystyle A = - \frac{1}{\frac{R}{L}+ j \omega} = - \frac{L}{R+ j \omega L} \)</p>
+<p>  \(\Large      \displaystyle B = \frac{1}{R+ j \omega L} \)</p>
+<p>したがって，</p>
+<p>\(\Large      \displaystyle F(s) =  V_0 \cdot  \left[  - \frac{L}{R+ j \omega L} \frac{1}{R+Ls} + \frac{1}{R+ j \omega L} \frac{1}{s - j \omega} \right] \)</p>
+<p>  \(\Large      \displaystyle =  V_0 \cdot  \frac{1}{R+ j \omega L} \left[   \frac{1}{s - j \omega} -  \frac{1}{\frac{R}{L}+s} \right] \)</p>
+<p>逆ラプラス変換を行うと，</p>
+<p>\(\Large      \displaystyle I(t) = V_0 \cdot  \frac{1}{R+ j \omega L} \left[ e^{j \omega t} - e^{-\frac{R}{L} t} \right] \)</p>
+<p>  \(\Large      \displaystyle = V_0 \cdot  \frac{R- j \omega L}{R^2 +  (\omega L)^2} \left[ e^{j \omega t} - e^{-\frac{R}{L} t} \right] \)</p>
+<p>  \(\Large      \displaystyle = V_0 \cdot  \frac{R- j \omega L}{R^2 +  (\omega L)^2} \left[ e^{j \omega t} - e^{-\frac{R}{L} t} \right] \)</p>
+<p>&nbsp;</p>
+<p><span class="Large-Bold-Blue">後の展開は同じですが，きちんと書くと，</span></p>
+<p>&nbsp;</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot \frac{R - j \omega L}{R^2 +  (\omega L)^2 }  \frac{\sqrt{R^2 +  (\omega L)^2}}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot \frac{R - j \omega L}{\sqrt{R^2 +  (\omega L)^2} }  \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>とし，最初の項を，複素平面で，</p>
+<p><img src="Circuit-17.png" width="376" height="196" alt=""/></p>
+<p> と考えると，</p>
+<p>\(\Large    cos \ (-\theta) =    \displaystyle \frac{R }{\sqrt{R^2 + (\omega L)^2 }}    \)　</p>
+<p>\(\Large    j \ sin \ (-\theta) = - \frac{  \displaystyle j \omega L}{\sqrt{R^2 +   (\omega L)^2 }}    \)　</p>
+<p>となるので，</p>
+<p>\(\Large     \frac{R - j \omega L}{\sqrt{R^2 +   (\omega L)^2 }} = cos \ (-\theta) - j \ sin \ (-\theta) = e^{-j \ \theta} \)　</p>
+<p>となります．ここで，</p>
+<p>\(\Large     tan (-\theta) =   \displaystyle \frac{\omega L}{R}  \)　</p>
+<p>です．したがって，電流は，</p>
+<p>\(\Large      \displaystyle     I(t) =   V_0 \cdot e^{ -j \theta} \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j \omega t} - e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle =   V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot \left( e^{ j (\omega t - \theta)} -  e^{ -j \theta} \cdot e^{- \frac{R}{ L}  t}   \right) \)　</p>
+<p>\(\Large      \displaystyle =   V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ j (\omega t - \theta)} -     V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ -j \theta} \cdot e^{- \frac{R}{ L}  t}    \)　</p>
+<p>となります．ここで，三角関数に戻すために，虚数部分のみ取り出すと，</p>
+<p> \(\Large      \displaystyle      Im [ I(t) ] = Im \left[V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ j (\omega t - \theta)}  \right] <br />
+  -  Im \left[V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  e^{ -j \theta} \cdot e^{- \frac{R}{ L}  t}  \right] \)</p>
+<p> \(\Large      \displaystyle       = V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  sin (\omega t - \theta)<br />
+  -  V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  sin\ \theta \cdot e^{- \frac{R}{ L}  t}   \)</p>
+<p>十分な時間が経てば，第二項は0となるので，</p>
+<p> \(\Large      \displaystyle       I(t) \sim      V_0  \cdot \frac{1}{\sqrt{R^2 +  (\omega L)^2} }\cdot  sin (\omega t - \theta)
+  \)</p>
+<p>となり，インピーダンスを用いた結果と一致します．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-10.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

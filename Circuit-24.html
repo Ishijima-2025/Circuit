@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">回路-24</p>
+<p class="Large-Bold-Red"><span class="X-Large-Bold-RED">RLハイパスフィルタ</span></p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p>次は<span class="Large-Bold-Red">RL</span>の<span class="Large-Bold-Red">ハイパスフィルタ</span>．</p>
+<p><img src="Circuit-111.png" width="630" height="320" alt=""/></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>これも，単なる，<span class="Large-Bold-Blue">RL直列回路</span>，なんですね．．．．どの部分の電圧を取るかによってフィルター特性が変わるようです．</p>
+<p>RC回路と違い，<span class="Red-Bold">Lがローパスフィルタ</span>となります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・インピーダンス</p>
+<p>一番定番の，インピーダンス，から求めていきます．</p>
+<p>インピーダンスなので，<span class="Large-Bold-Red">定常状態</span>，での特性を見ることになります．スイッチオンでの過渡現象は見ません．</p>
+<p>これが一番わかりやすい方法だと思います．</p>
+<p>全体のインピーダンスは，</p>
+<p>\(\Large   Z =   \displaystyle R + j \omega L \)　</p>
+<p>となります．<span class="Blue-Bold">コイル部の電圧，V<sub>out</sub></span>，のインピーダンスは，</p>
+<p>\(\Large   Z_{out} =   \displaystyle  j \omega L \)　</p>
+<p>となるので，<span class="Large-Bold-Blue">伝達関数</span>，は，</p>
+<p>\(\Large   G( j \omega)  =   \displaystyle \frac{V_{out}}{V_{in}} = \frac{Z_{out} \cdot I}{Z \cdot I} = \frac {Z_{out}}{Z} = \frac{ j \omega L}{R + j \omega L} \)　</p>
+<p>\(\Large       \displaystyle =  \frac{j \omega L \ (R - j \omega L)} {R^2 + ( \omega L)^2 } =  \frac{ ( \omega L)^2 +  j \omega RL} {R^2 + ( \omega L)^2 }　= \omega L \cdot \frac{  \omega L +  j  R} {R^2 + ( \omega L)^2 }\)　</p>
+<p>となります．利得は，複素数の絶対値を考えればいいです．</p>
+<p><span class="Blue">複素数の絶対値</span>は，</p>
+<p>\(\Large   z =   a + b \ i\)　</p>
+<p>\(\Large   |z| =\sqrt{   a^2 + b^2} \)　</p>
+<p>となるので，</p>
+<p>\(\Large   G( j \omega)  =   \displaystyle   \omega L \cdot \frac{  \omega L +  j  R} {R^2 + ( \omega L)^2 } \)　</p>
+<p>\(\Large   | G( j \omega)|  =   \displaystyle  \frac{\omega L  } {R^2 + ( \omega L)^2 } \ \sqrt{R^2 + ( \omega L)^2} =   \frac{\omega L  } { \sqrt{R^2 + ( \omega L)^2}} \)　</p>
+<p>となります．</p>
+<p>\(\Large   \omega \sim 0 \ : \ | G( j \omega)|  = 0 \)　</p>
+<p>\(\Large   \omega \sim \infty \ : \ | G( j \omega)|  = 1 \)　</p>
+<p>となり，<span class="Large-Bold-Red">ハイパスフィルタ</span>，となります．</p>
+<p>&nbsp;</p>
+<p><span class="Blue-Bold">位相角</span>は，<span class="Large-Bold-Blue">複素項／実数項</span>，となりますので，</p>
+<p>\(\Large   tan \ \theta =   \displaystyle  \frac {R} {\omega L }\)　</p>
+<p>\(\Large    \theta =   \displaystyle  tan^{-1} \left( \frac {R}{\omega L } \right) \)　</p>
+<p>となります．</p>
+<p><img src="Circuit-112.png" width="403" height="229" alt=""/></p>
+<p>&nbsp;</p>
+<p>実際に，<span class="Blue-Bold">LTspice</span>，とエクセルでの計算結果を確認すると， </p>
+<p>R　：　10 Hz<br />
+L　：　10 H</p>
+<p>において，</p>
+<p><img src="Circuit-113.png" width="728" height="499" alt=""/></p>
+<p>　　</p>
+<p>と一致することがわかります．</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-11.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="kenkyu-2.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

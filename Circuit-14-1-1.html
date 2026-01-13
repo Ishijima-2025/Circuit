@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１４－１ー１．ステップ関数（RC回路）</p>
+<p>このページからは，入力が正弦波ではなく<span class="Large-Bold-Red">ステップ関数</span>の場合の応答を，<span class="X-Large-Bold-Blue">V<sub>C</sub></span>，から調べていきます．</p>
+<p>次は，<span class="Large-Bold-Red">抵抗，コンデンサが直列</span>の回路について</p>
+<p><img src="Circuit-40.png" width="514" height="398" alt=""/></p>
+<p>&nbsp;</p>
+
+    
+
+<p>入力はステップ関数となるので，</p>
+<p>\(\Large   V(t)  \ : \ V_0 \ ( 0 \leq t \leq t_0) \)</p>
+<p>\(\Large   \hspace{35 pt} : \ 0 \ (t_0 &lt; t) \)</p>
+<p>となります．</p>
+<p><img src="Circuit-41.png" width="341" height="322" alt=""/></p>
+<p>直列なので，<br />
+　電流はどこも同じ<br />
+　電圧は，抵抗+コンデンサ，が電源と等しい<br />
+ことから，</p>
+<p>\(\Large   V_0  = V_R (t) + V_C (t) \)</p>
+<p>\(\Large   V_R  = R \cdot I(t)  \)</p>
+<p>\(\Large   \displaystyle       I(t)   = C \ \frac{d}{dt} V_C (t) \)</p>
+<p>\(\Large   \displaystyle          V_0  = R \cdot C \cdot \frac{d}{dt} V_C (t)  + V_C (t) \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} V_C (t)  = - \frac{1}{R \cdot C} V_C (t) +  \frac{1}{R \cdot C} \ V_0 \)</p>
+<p>なる，微分方程式を解けばいいことになります．</p>
+<p>&nbsp;</p>
+<p class="Red-Bold">\(\Large    0 \leq t \leq t_0 \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} V_C (t)  = - \frac{1}{R \cdot C} V_C (t) +  \frac{1}{R \cdot C} \ V_0 \)</p>
+<p>定数変化法を使って，</p>
+<p>\(\Large   \displaystyle          V_C(t) = A_0 \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} V_C (t)  = A_0' \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \color{blue}{- \frac{1}{R \cdot C} \cdot A_0 \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right)} = \color{blue}{- \frac{1}{R \cdot C} V_C (t)} +  \frac{1}{R \cdot C} \ V_0 \)</p>
+<p>\(\Large   \displaystyle           A_0' \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) =  \frac{1}{R \cdot C} \ V_0 \)</p>
+<p>\(\Large   \displaystyle           A_0' =   \frac{1}{R \cdot C} \ V_0 \cdot exp \left(  \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle           A_0 =    V_0 \cdot exp \left(  \frac{1}{R \cdot C} \ t  \right) + D \)</p>
+<p>\(\Large   \displaystyle          V_C(t) = \left\{ V_0 \cdot exp \left(  \frac{1}{R \cdot C} \ t  \right) + D \right\} \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle          V_C(t) =  V_0 + D \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>t=0 : V<sub>C</sub>(0) = 0,</p>
+<p>\(\Large   \displaystyle          0 = V_C(0) =  V_0 + D  \)</p>
+<p>\(\Large   \displaystyle          D = -  V_0   \)</p>
+<p>\(\Large   \displaystyle          V_C(t) =  V_0 -  V_0 \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle          V_C(t) =  V_0 \left\{ 1-  exp \left( - \frac{1}{R \cdot C} \ t  \right) \right\} \)</p>
+<p>&nbsp;</p>
+<p>\(\Large   \displaystyle       I(t)   = C \ \frac{d}{dt} V_C (t)  =  C \cdot V_0 \left( - \frac{1}{R \cdot C} \right) \left\{-  exp \left( - \frac{1}{R \cdot C} \ t  \right) \right\} =   \frac{V_0}{R}  exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>&nbsp;</p>
+<p><span class="Red-Bold">\(\Large     t_0 &lt; t\)</span></p>
+<p>t<sub>0</sub>以降（ステップ電圧が０になってから）は，t<sub>0</sub>からの関数を考えると，電圧が０なので，</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} V_C (t - t_0)  = - \frac{1}{R \cdot C} V_C (t - t_0) \)</p>
+<p>という単純な微分関数を考えればいいことになります．</p>
+<p>ここで，</p>
+<p>\(\Large   \displaystyle    T \equiv t - t_0 \rightarrow dT = dt \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} V_C (T)  = - \frac{1}{R \cdot C} V_C (T) \)</p>
+<p>\(\Large   \displaystyle          V_C(T) = A_0 \cdot exp \left( - \frac{1}{R \cdot C} \ T  \right) \)</p>
+<p>ここで，初期値は，</p>
+<p>\(\Large   \displaystyle          V_C(t_0) =  V_0 \left\{ 1-  exp \left( - \frac{1}{R \cdot C} \ t_0  \right) \right\} \)</p>
+<p>したがって，</p>
+<p>\(\Large   \displaystyle          V_C(T) =           V_C(t_0) \cdot exp \left( - \frac{1}{R \cdot C} \ T  \right) \)</p>
+<p>\(\Large   \displaystyle       I(T)   = C \ \frac{d}{dt} V_C (T)  =  C \cdot V_C(t_0 \left( - \frac{1}{R \cdot C} \right) \left\{  exp \left( - \frac{1}{R \cdot C} \ T  \right) \right\} =   - \frac{V_C(t_0)}{R}  exp \left( - \frac{1}{R \cdot C} \ T  \right) \)</p>
+<p>\(\Large   \displaystyle       I(t)    =   - \frac{V_C(t_0)}{R}  exp \left( - \frac{1}{R \cdot C} \ (t-t_0)  \right) \)</p>
+<p>t<sub>0</sub>が十分長ければV<sub>0</sub>となります．その場合には，</p>
+<p>\(\Large   \displaystyle       I(t)    \sim   - \frac{V_0}{R}  exp \left( - \frac{1}{R \cdot C} \ (t-t_0)  \right) \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>減衰が不十分の場合でも，</p>
+<p>t<sub>0</sub>でV=V<sub>0</sub>の場合，</p>
+<p>\(\Large   \displaystyle       I(t_{0-before})    =   \frac{V_0}{R}  exp \left( - \frac{1}{R \cdot C} \ t_0  \right) \)</p>
+<p>t<sub>0</sub>でV=0になると，</p>
+<p>\(\Large   \displaystyle       I(t_{0-after})    =   - \frac{V_C(t_0)}{R}  exp \left( - \frac{1}{R \cdot C} \ (t_0-t_0)  \right) =   - \frac{V_C(t_0)}{R} =  -\frac{V_0}{R} \left\{ 1-  exp \left( - \frac{1}{R \cdot C} \ t_0  \right) \right\}\)</p>
+<p>二つの差分は，</p>
+<p>\(\Large   \displaystyle       I(t_{0-before})    - I(t_{0-after})=   \frac{V_0}{R}  exp \left( - \frac{1}{R \cdot C} \ t  \right) +  \frac{V_0}{R} \left\{ 1-  exp \left( - \frac{1}{R \cdot C} \ t_0  \right) \right\} =   \frac{V_0}{R} \)</p>
+<p>となり，変化量は，<span class="Large-Bold-Red">V<sub>0</sub>/R</span>，と一定の値となります．</p>
+<p>&nbsp;</p>
+<p>実際に<span class="Large-Bold-Red">CR</span><span class="Large-Bold-Red">ステップ回路</span>を作ってみてシミュレートしてみました．</p>
+<p>条件は，<br />
+　　V<sub>0</sub> = 1 V<br />
+　　R = 100 Ω<br />
+　　<span class="Blue-Bold">C = 50 µF</span><br />
+　　t<sub>0</sub> = 50 ms<br />
+の場合，</p>
+<p><img src="Circuit-42.png" width="661" height="595" alt=""/></p>
+<p>となり，この条件ではステップ電圧の間に十分に電流が0となっています．</p>
+<p><span class="Red-Bold">振幅</span>は，</p>
+<p>\(\Large   \displaystyle   \frac{V_0}{R}  = \frac{1}{100} = 10 \ mA \)</p>
+<p><span class="Red-Bold">時定数</span>は，</p>
+<p>\(\Large   \displaystyle   \frac{1}{RC}  = 100 \times 50 \times 10^{-6} = 5 \ ms \)</p>
+<p>となり，</p>
+<p><img src="Circuit-43.png" width="642" height="469" alt=""/></p>
+<p>となり，きれいにフィットすることができました．</p>
+<p>次に中途半端な減衰の場合，</p>
+<p>条件は，<br />
+　　V<sub>0</sub> = 1 V<br />
+　　R = 100 Ω<br />
+　　<span class="Blue-Bold">C = 300 µF</span><br />
+　　t<sub>0</sub> = 50 ms<br />
+の場合，</p>
+<p><img src="Circuit-44.png" width="634" height="575" alt=""/></p>
+<p><span class="Red-Bold">振幅</span>は，</p>
+<p>\(\Large   \displaystyle   \frac{V_0}{R}  = \frac{1}{100} = 10 \ mA \)</p>
+<p>と上記と同じですが，</p>
+<p><span class="Red-Bold">時定数</span>は，</p>
+<p>\(\Large   \displaystyle   \frac{1}{RC}  = 100 \times 300 \times 10^{-6} = 30 \ ms \)</p>
+<p>となります．</p>
+<p><img src="Circuit-45.png" width="656" height="480" alt=""/></p>
+<p>50msでの電流は，それぞれ，</p>
+<p>\(\Large   \displaystyle       I(t_{0-before})    =   \frac{V_0}{R}  exp \left( - \frac{1}{R \cdot C} \ t_0  \right) =   \frac{1}{100}  exp \left( - \frac{1}{100 \cdot 300 \times 10^{-6}} \ 50 \ ms \right) = 1.89 \ mA\)</p>
+<p>\(\Large   \displaystyle       I(t_{0-after})     =  -\frac{V_0}{R} \left\{ 1-  exp \left( - \frac{1}{R \cdot C} \ t_0  \right) \right\} =  -\frac{1}{100} \left\{ 1-  exp \left( - \frac{1}{100 \cdot 300 \times 10^{-6}} \ 50 \ ms \right) \right\} = -8.11 \ mA\)</p>
+<p>両者の差分は，</p>
+<p>\(\Large   \displaystyle       1.89 - (-8.11) = 10 \ mA\)</p>
+<p>となり，変化量は，<span class="Large-Bold-Red">V<sub>0</sub>/R</span>，と一定の値となります．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>次は，同様の<span class="Large-Bold-Red">ＲＣ回路</span>を，<span class="Large-Bold-Blue">電荷，ｑ</span>，から考えてみます．です．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-12.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

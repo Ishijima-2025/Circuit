@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１４－２．ステップ関数（RL回路）</p>
+<p>このページからは，入力が正弦波ではなく<span class="Large-Bold-Red">ステップ関数</span>の場合の応答を調べていきます．</p>
+<p>次は，<span class="Large-Bold-Red">抵抗，コイルが直列</span>の回路について</p>
+<p><img src="Circuit-46.png" width="515" height="384" alt=""/></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+    
+
+<p>入力はステップ関数となるので，</p>
+<p>\(\Large   V(t)  \ : \ V_0 \ ( 0 \leq t \leq t_0) \)</p>
+<p>\(\Large   \hspace{35 pt} : \ 0 \ (t_0 &lt; t) \)</p>
+<p>となります．</p>
+<p><img src="Circuit-41.png" width="341" height="322" alt=""/></p>
+<p>直列なので，<br />
+　電流はどこも同じ<br />
+　電圧は，抵抗+コンデンサ，が電源と等しい<br />
+ことから，</p>
+<p>\(\Large   V_0  = V_R (t) + V_C (t) \)</p>
+<p>\(\Large   V_R(t)  = R \cdot I(t)  \)</p>
+<p>\(\Large   \displaystyle       V_L(t)   = L \ \frac{d}{dt} I(t) \)</p>
+<p>\(\Large   \displaystyle          V_0  = R \cdot I(t) +  L \ \frac{d}{dt} I(t) \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} I (t)  = - \frac{R}{L} I (t) +  \frac{1}{L} \ V_0 \)</p>
+<p>なる，微分方程式を解けばいいことになります．</p>
+<p>&nbsp;</p>
+<p class="Red-Bold">\(\Large    0 \leq t \leq t_0 \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} I (t)  = - \frac{R}{L} I (t) +  \frac{1}{L} \ V_0 \)</p>
+<p>定数変化法を使って，</p>
+<p>\(\Large   \displaystyle          I(t) = A_0 \cdot exp \left( - \frac{R}{L} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} I (t)  = A_0' \cdot exp \left( - \frac{R}{L} \ t  \right) \color{blue}{- \frac{R}{L} \cdot A_0 \cdot exp \left( - \frac{R}{L} \ t  \right)} = \color{blue}{- \frac{R}{L} I (t)} +  \frac{1}{L} \ V_0 \)</p>
+<p>\(\Large   \displaystyle           A_0' \cdot exp \left( - \frac{R}{L} \ t  \right) =  \frac{1}{L} \ V_0 \)</p>
+<p>\(\Large   \displaystyle           A_0' =   \frac{1}{L} \ V_0 \cdot exp \left(  \frac{R}{L} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle           A_0 =\frac{L}    {R}\frac{1}{L} \ V_0 \cdot exp \left(  \frac{R}{L} \ t  \right) + D=\frac{1}    {R} \ V_0 \cdot exp \left(  \frac{R}{L} \ t  \right) + D \)</p>
+<p>\(\Large   \displaystyle          I(t) = \left\{ \frac{1}    {R} \ V_0 \cdot exp \left(  \frac{R}{L} \ t  \right) + D \right\} \cdot exp \left( - \frac{R}{L} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle           =  \frac{1}    {R} \ V_0 + D \cdot exp \left( - \frac{R}{L} \ t  \right) \)</p>
+<p>t=0 : I<sub></sub>(0) = 0,</p>
+<p>\(\Large   \displaystyle          0 = I(0) =  \frac{1}    {R} \ V_0 + D  \)</p>
+<p>\(\Large   \displaystyle          D = -  \frac{1}    {R} \ V_0   \)</p>
+<p>\(\Large   \displaystyle          I(t) =  \frac{V_0}    {R} \  \left\{ 1 - exp \left( - \frac{R}{L} \ t  \right) \right\} \)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="Red-Bold">\(\Large     t_0 &lt; t\)</span></p>
+<p>t<sub>0</sub>以降（ステップ電圧が０になってから）は，t<sub>0</sub>からの関数を考えると，t=t<sub>0</sub>においては， </p>
+<p>\(\Large   \displaystyle          I(t_0) =  \frac{V_0}    {R} \  \left\{ 1 - exp \left( - \frac{R}{L} \ t_0  \right) \right\} \)</p>
+<p>t<sub>0</sub>以降では，電圧が０なので，</p>
+<p>\(\Large   \displaystyle           R \cdot I(t - t_0) +  L \ \frac{d}{dt} I(t-t_0) = 0\)</p>
+<p>ここで，</p>
+<p>\(\Large   \displaystyle    T \equiv t - t_0 \rightarrow dT = dt \)</p>
+<p>\(\Large   \displaystyle           R \cdot I(T) +  L \ \frac{d}{dT} I(T) = 0 \)</p>
+<p>\(\Large   \displaystyle          I(T) = A_0 \cdot exp \left( - \frac{R}{L} \ T  \right) \)</p>
+<p>\(\Large   \displaystyle           = I(t_0) \cdot exp \left( - \frac{R}{L} \ T  \right) \)</p>
+<p>\(\Large   \displaystyle           =   \frac{V_0}    {R} \  \left\{ 1 - exp \left( - \frac{R}{L} \ t_0  \right) \right\} \cdot exp \left( - \frac{R}{L} \ T  \right) \)</p>
+<p>\(\Large   \displaystyle           I(t-t_0) =   \frac{V_0}    {R} \  \left\{ 1 - exp \left( - \frac{R}{L} \ t_0  \right) \right\} \cdot exp \left( - \frac{R}{L} \ (t-t_0)  \right) \)</p>
+<p>&nbsp;</p>
+<p>t<sub>0</sub>が十分長ければ，</p>
+<p>\(\Large   \displaystyle           I(t-t_0) \sim   \frac{V_0}    {R}  \cdot exp \left( - \frac{R}{L} \ (t-t_0)  \right) \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>実際に<span class="Large-Bold-Red">CL</span><span class="Large-Bold-Red">ステップ回路</span>を作ってみてシミュレートしてみました．</p>
+<p>条件は，<br />
+　　V<sub>0</sub> = 10 V<br />
+　　R = 100 Ω<br />
+　　<span class="Blue-Bold">L = 1 H</span><br />
+　　t<sub>0</sub> = 50 ms<br />
+の場合，</p>
+<p><img src="Circuit-47.png" width="656" height="584" alt=""/></p>
+<p>&nbsp;</p>
+<p>となり，この条件ではステップ電圧の間に十分に電流が一定となっています．</p>
+<p><span class="Red-Bold">電流</span>は，</p>
+<p>\(\Large   \displaystyle   \frac{V_0}{R}  = \frac{10}{100} = 10 \ mA \)</p>
+<p><span class="Red-Bold">時定数</span>は，</p>
+<p>\(\Large   \displaystyle   \frac{L}{R}  = \frac{1}{100} = 10 \ ms \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>次に中途半端な減衰の場合，</p>
+<p>条件は，<br />
+　　V<sub>0</sub> = 1 V<br />
+　　R = 100 Ω<br />
+　　<span class="Blue-Bold">L = 2 H</span><br />
+　　t<sub>0</sub> = 50 ms<br />
+の場合，</p>
+<p><img src="Circuit-48.png" width="625" height="554" alt=""/></p>
+<p><span class="Red-Bold">電流</span>は，</p>
+<p>\(\Large   \displaystyle          I(t_0) =  \frac{V_0}    {R} \  \left\{ 1 - exp \left( - \frac{R}{L} \ t_0  \right) \right\} =   \frac{1}    {100} \  \left\{ 1 - exp \left( - \frac{100}{2} \times 0.05  \right) \right\} \)</p>
+<p>\(\Large   \displaystyle = 0.00918 A = 9.18 \ mA\)</p>
+<p><span class="Red-Bold">時定数</span>は，</p>
+<p>\(\Large   \displaystyle   \frac{L}{R}  = \frac{2}{100} = 20 \ ms \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>次は，同様の<span class="Large-Bold-Red">ＲＣ回路</span>を，<span class="Large-Bold-Blue">電荷，ｑ</span>，から考えてみます．です．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-12.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

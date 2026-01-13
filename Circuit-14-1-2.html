@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１４－１－２．ステップ関数（RC回路）</p>
+<p>このページからは，入力が正弦波ではなく<span class="Large-Bold-Red">ステップ関数</span>の場合の応答を，<span class="X-Large-Bold-Blue">q</span>，から調べていきます．</p>
+<p>次は，<span class="Large-Bold-Red">抵抗，コンデンサが直列</span>の回路について</p>
+<p><img src="Circuit-40.png" width="514" height="398" alt=""/></p>
+<p>&nbsp;</p>
+
+    
+
+<p>入力はステップ関数となるので，</p>
+<p>\(\Large   V(t)  \ : \ V_0 \ ( 0 \leq t \leq t_0) \)</p>
+<p>\(\Large   \hspace{35 pt} : \ 0 \ (t_0 &lt; t) \)</p>
+<p>となります．</p>
+<p><img src="Circuit-41.png" width="341" height="322" alt=""/> </p>
+<p>直列なので，<br />
+　電流はどこも同じ<br />
+　電圧は，抵抗+コンデンサ，が電源と等しい<br />
+ことから，</p>
+<p>\(\Large   V_0  = V_R (t) + V_C (t) \)</p>
+<p>\(\Large   V_R  = R \cdot I(t)  \)</p>
+<p>\(\Large   \displaystyle       I(t)   = C \ \frac{d}{dt} V_C (t) \)</p>
+<p>と，ここまでは同じですが，</p>
+<p>\(\Large   \displaystyle       I(t)   = \ \frac{d \ q(t)}{dt}  \)</p>
+<p>となるので，</p>
+<p>\(\Large      \displaystyle       V_R  = R \cdot I(t)  = R \  \frac{d \ q(t)}{dt} \)</p>
+<p>\(\Large   \displaystyle       V_C(t)   = \frac{1}{C} \ \int \ I (t) \ dt = \frac{1}{C} \ q(t) \)</p>
+<p>となります．したがって， </p>
+<p>\(\Large   \displaystyle          V_0  = V_R (t) + V_C (t) = R \  \frac{d \ q(t)}{dt}  +  \frac{1}{C} \ q(t) \)</p>
+<p>なる，微分方程式を解けばいいことになります．</p>
+<p>&nbsp;</p>
+<p class="Red-Bold">\(\Large    0 \leq t \leq t_0 \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} q (t)  = - \frac{1}{R \cdot C} \ q (t) +  \frac{1}{R } \ V_0 \)</p>
+<p>定数変化法を使って，</p>
+<p>\(\Large   \displaystyle          q(t) = A_0 \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} q (t)  = A_0' \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \color{blue}{- \frac{1}{R \cdot C} \cdot A_0 \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right)} = \color{blue}{- \frac{1}{R \cdot C} V_C (t)} +  \frac{1}{R } \ V_0 \)</p>
+<p>\(\Large   \displaystyle           A_0' \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) =  \frac{1}{R} \ V_0 \)</p>
+<p>\(\Large   \displaystyle           A_0' =   \frac{1}{R} \ V_0 \cdot exp \left(  \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle           A_0 =    V_0 \cdot C \cdot exp \left(  \frac{1}{R \cdot C} \ t  \right) + D \)</p>
+<p>\(\Large   \displaystyle          q(t) = \left\{ V_0 \cdot  C \cdot exp \left(  \frac{1}{R \cdot C} \ t  \right) + D \right\} \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle          q(t) =  V_0   \cdot C + D \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>t=0 : q(0) = 0,</p>
+<p>\(\Large   \displaystyle          0 = q(0) =  V_0  \cdot C + D  \)</p>
+<p>\(\Large   \displaystyle          D = -  V_0     \cdot C\)</p>
+<p>\(\Large   \displaystyle          q(t) =  V_0  \cdot C -  V_0   \cdot C \cdot exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>\(\Large   \displaystyle          V_C(t) =  V_0  \cdot C \left\{ 1-  exp \left( - \frac{1}{R \cdot C} \ t  \right) \right\} \)</p>
+<p>&nbsp;</p>
+<p>\(\Large   \displaystyle       I(t)   =  \ \frac{d}{dt} q (t)  =  C \cdot V_0 \left( - \frac{1}{R \cdot C} \right) \left\{-  exp \left( - \frac{1}{R \cdot C} \ t  \right) \right\} =   \frac{V_0}{R}  exp \left( - \frac{1}{R \cdot C} \ t  \right) \)</p>
+<p>とV<sub>C</sub>で解いた結果と一致します．</p>
+<p>ここで，<br />
+　なぜ，q(0)=0，なのだろう<br />
+と気になったので，Copilot，に聞いてみると，</p>
+<p class="Blue-Bold">Copilotの返答<br />
+  コンデンサは電荷を蓄える素子ですが、回路に電源が接続される前（つまり  ）には、電荷が蓄積されていないと仮定するのが一般的です。<br />
+これは以下のような理由によります：<br />
+　・ステップ応答解析では、回路は  で突然電源がオンになると仮定します。<br />
+　・それ以前（t&lt;0）は電源がオフで、コンデンサには電荷が蓄積されていない（＝電圧ゼロ）とするのが自然です。<br />
+　・コンデンサの電荷と電圧の関係は  なので、電圧がゼロなら電荷もゼロ。</p>
+<p>ということでした．</p>
+<p>あとは同じなので，省略します．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>次は，同様の<span class="Large-Bold-Red">ＲＣ回路</span>を，<span class="Large-Bold-Blue">電荷，ｑ</span>，から考えてみます．です．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-12.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

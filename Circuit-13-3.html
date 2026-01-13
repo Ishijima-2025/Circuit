@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１３－３．ステップ関数（L回路）</p>
+<p>このページからは，入力が正弦波ではなく<span class="Large-Bold-Red">ステップ関数</span>の場合の応答を調べていきます．</p>
+<p>次は，<span class="Large-Bold-Red">コイルのみ</span>の回路について</p>
+<p><img src="Circuit-38.png" width="513" height="394" alt=""/></p>
+<p class="Large-Bold-Red">&nbsp;</p>
+
+    
+
+<p>入力はステップ関数となるので，</p>
+<p>\(\Large   V(t)  \ : \ V_0 \ ( 0 \leq t \leq t_0) \)</p>
+<p>\(\Large   \hspace{35 pt} : \ 0 \ (t_0 &lt; t) \)</p>
+<p>となります．したがって，</p>
+<p>\(\Large   V(t)  = V_0 \cdot u(t) \)</p>
+<p>と書けます．u(t)はステップ関数です．</p>
+<p>&nbsp;</p>
+<p class="Red-Bold">\(\Large    0 \leq t \leq t_0 \)</p>
+<p>\(\Large   \displaystyle    V(t)  = L \frac{d}{dt} I(t) = V_0 \)</p>
+<p>となるので，</p>
+<p>\(\Large   \displaystyle    I(t)  =  \frac{V_0}{L}t + I(0) \)</p>
+<p>I(0) = 0，とすると，</p>
+<p>\(\Large   \displaystyle    I(t)  =  \frac{V_0}{L}t  \)</p>
+<p>となり，<span class="Blue-Bold">t<sub>0</sub></span>の段階では，</p>
+<p>\(\Large   \displaystyle    I(t_0)  =  \frac{V_0}{L}t_0  \)</p>
+<p>&nbsp;</p>
+<p><span class="Red-Bold">\(\Large     t_0 &lt; t\)</span></p>
+<p>\(\Large   \displaystyle    V(t)  = L \frac{d}{dt} I(t) = 0 \)</p>
+<p>となるので，</p>
+<p>\(\Large   \displaystyle    I(t)  =  I(t_0) = \frac{V_0}{L}t_0 \)</p>
+<p>となり，L回路において，ステップ電圧を入力すると，入力中は一定速度で電流が上昇し，ステップ電圧がなくなると，電流値はそのまま維持されます．</p>
+<p>&nbsp;</p>
+<p>とりあえず，実際に<span class="Large-Bold-Red">Lステップ回路</span>を作ってみてシミュレートしてみました．</p>
+<p> C = 1 F　→　10 MA</p>
+<p><img src="Circuit-39.png" width="664" height="586" alt=""/></p>
+<p>&nbsp;</p>
+<p>計算では，</p>
+<p>条件は，<br />
+　　V<sub>0</sub> = 1 V<br />
+　　L = 10 H<br />
+ 　　t<sub>0</sub> = 100 ms<br />
+ということで，</p>
+<p>\(\Large   \displaystyle    I(t)  =  I(t_0) = \frac{V_0}{L}t_0 = \frac{1}{10} \cdot 0.1 = 0.01 = 10 \ mA\)</p>
+<p>となり，シミュレーション結果と一致します．</p>
+<p>&nbsp;</p>
+<p>次は，<span class="Red-Bold">L回路のステップ応答</span>です．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-12.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

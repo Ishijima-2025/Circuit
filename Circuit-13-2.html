@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１３－２．ステップ関数（C回路）</p>
+<p>このページからは，入力が正弦波ではなく<span class="Large-Bold-Red">ステップ関数</span>の場合の応答を調べていきます．</p>
+<p>次は，<span class="Large-Bold-Red">コンデンサのみ</span>の回路について</p>
+<p class="Large-Bold-Red"><img src="Circuit-31.png" width="508" height="335" alt=""/></p>
+<p class="Large-Bold-Red">&nbsp;</p>
+
+    
+
+<p>入力はステップ関数となるので，</p>
+<p>\(\Large   V(t)  \ : \ V_0 \ (t \geq 0) \)</p>
+<p>\(\Large   \hspace{35 pt} : \ 0 \ (t &lt; 0) \)</p>
+<p>となります．したがって，</p>
+<p>\(\Large   V(t)  = V_0 \cdot u(t) \)</p>
+<p>と書けます．u(t)はステップ関数です．</p>
+<p>ステップ関数を微分すると，デルタ関数，となるので，</p>
+<p>\(\Large   \displaystyle \frac{d}{dt}V(t)  = V_0 \cdot \delta(t) \)</p>
+<p>なります．コンデンサの性質から，</p>
+<p>\(\Large   I(t)  = C \ \frac{d}{dt} \cdot V(t) = C \cdot V_0 \cdot \delta(t) \)</p>
+<p>δ関数となるので，一瞬ではあるが無限大の電流が流れることになります．</p>
+<p> しかし，実際には配線などの抵抗があるので，C回路自体は現実的ではありません． </p>
+<p>実際には，<span class="Blue-Bold">RC回路</span>として考えるべきです． </p>
+<p>&nbsp;</p>
+<p>とりあえず，実際に<span class="Large-Bold-Red">Cステップ回路</span>を作ってみてシミュレートしてみました．</p>
+<p> C = 1 F　→　10 MA</p>
+<p><img src="Circuit-32.png" width="669" height="595" alt=""/></p>
+<p>なんと，デルタ関数のピークの値が，10 MA．という値に．コンデンサの容量を変えてみると，</p>
+<p>C = 1 µF　→　10 A</p>
+<p><img src="Circuit-33.png" width="671" height="597" alt=""/></p>
+<p>C = 0.1 µF　→　1 A</p>
+<p><img src="Circuit-34.png" width="670" height="592" alt=""/></p>
+<p>計算では，</p>
+<p>条件は，<br />
+　　V<sub>0</sub> = 1 V<br />
+ということで，</p>
+<p>C = 1 F : \(\Large   I(t)  = C \cdot V_0 = 1  A \longleftrightarrow 10 \ MA\)</p>
+<p>C = 1 µF : \(\Large   I(t)  = C \cdot V_0 = 1 \mu A \longleftrightarrow 10 \ A\)</p>
+<p>C = 0.1 µF : \(\Large   I(t)  = C \cdot V_0 = 0.1 \mu A \longleftrightarrow 1 \ A\)</p>
+<p>と，<span class="Large-Bold-Blue">10<sup>7</sup>，の差</span>が開いています．これを考えるに，シミュレーションの設定で，</p>
+<p><img src="Circuit-35.png" width="677" height="464" alt=""/></p>
+<p>にあるようにステップの<span class="Large-Bold-Blue">上がり，下がり時間を10<sup>-7</sup>，秒で設定</span>したことではないかと思います．</p>
+<p>試しに，これを<span class="Large-Bold-Blue">10<sup>-6</sup>，秒</span>に変えて，1F，でシミュレートすると，</p>
+<p><img src="Circuit-36.png" width="677" height="463" alt=""/></p>
+<p><img src="Circuit-37.png" width="814" height="720" alt=""/></p>
+<p><span class="Large-Bold-Blue">10 MA → 1 MA</span>，と変化していることがわかります．</p>
+<p>たぶん，ステップ関数の場合は，縦軸は，</p>
+<p>　<span class="Large-Bold-Red">A/s</span></p>
+<p>であって，デルタ関数の場合は面積で考えているのでしょう．．．．</p>
+<p>C回路はあまり現実的ではないので，大した問題ではないのかもしれません．．．．．</p>
+<p>&nbsp;</p>
+<p>次は，<span class="Red-Bold">L回路のステップ応答</span>です．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-12.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー０１．ステップ関数（RLC回路）</p>
+<p>このページからは，いよいよ<span class="Large-Bold-Red">RLC回路</span>の<span class="Large-Bold-Red">ステップ関数</span>の場合の応答を調べていきます．</p>
+<p>次は，<span class="Large-Bold-Red">抵抗，コイル，コンデンサが直列</span>の回路について</p>
+<p><img src="Circuit-49.png" width="577" height="374" alt=""/></p>
+<p>&nbsp;</p>
+
+    
+
+<p>入力はステップ関数となるので，</p>
+<p>\(\Large   V(t)  \ : \ V_0 \ ( 0 \leq t \leq t_0) \)</p>
+<p>\(\Large   \hspace{35 pt} : \ 0 \ (0&gt;t, t_0 &lt; t) \)</p>
+<p>となります．</p>
+<p><img src="Circuit-41.png" width="250" height="236" alt=""/></p>
+<p>思った以上に複雑になったので，順を追って説明していきます．</p>
+<p><a href="Circuit-15-1-02.html">１．初期条件（t=0）</a></p>
+<p>２．0 &lt; t &lt; t0，でのステップ応答</p>
+<p>　　<a href="Circuit-15-1-03.html">通常の解き方</a></p>
+<p> 　　　<a href="Circuit-15-1-04.html">α &lt; ω0</a></p>
+<p>　　　<a href="Circuit-15-1-05.html">α &gt; ω0</a></p>
+<p>　　　<a href="Circuit-15-1-06.html">α = ω0</a></p>
+<p>　　<a href="Circuit-15-1-07.html">ラプラス変換での解き方</a></p>
+<p> 　　　<a href="Circuit-15-1-08.html">α &lt; ω0</a></p>
+<p>　　　<a href="Circuit-15-1-09.html">α &gt; ω0</a></p>
+<p>　　　<a href="Circuit-15-1-10.html">α = ω0</a></p>
+<p>３． <a href="Circuit-15-1-11.html">t &gt; t0，でのステップ応答</a></p>
+<p> 　　　<a href="Circuit-15-1-12.html">α &lt; ω0 だめな例</a></p>
+<p>　　　<a href="Circuit-15-1-12-02.html">α &lt; ω0 よい例</a></p>
+<p>　　　<a href="Circuit-15-1-13.html">α &gt; ω0</a></p>
+<p>　　　<a href="Circuit-15-1-14.html">α = ω0</a></p>
+<p>４．コンデンサ，コイルの電圧はどうなるか</p>
+<p>５．初期条件が，I'(0) = 0，の場合</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>直列なので，<br />
+　電流はどこも同じ<br />
+　電圧は，抵抗+コンデンサ，が電源と等しい<br />
+ことから，</p>
+<p>\(\Large   V_0  = V_R (t) + V_C (t) \)</p>
+<p>\(\Large   V_R(t)  = R \cdot I(t)  \)</p>
+<p>\(\Large   \displaystyle       V_L(t)   = L \ \frac{d}{dt} I(t) \)</p>
+<p>\(\Large   \displaystyle       V_C(t)   = \frac{1}{C} \ \int I(t) \ dt \)</p>
+<p>\(\Large   \displaystyle          V_0  = R \cdot I(t) +  L \ \frac{d}{dt} I(t) \)</p>
+<p>\(\Large   \displaystyle          \frac{d}{dt} I (t)  = - \frac{R}{L} I (t) +  \frac{1}{L} \ V_0 \)</p>
+<p>なる，微分方程式を解けばいいことになります．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-02.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

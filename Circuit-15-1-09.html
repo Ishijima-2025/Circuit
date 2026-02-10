@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー９．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・α <span class="X-Large-Bold-RED">&gt;</span> ω<sub>0</sub></p>
+<p>\(\Large \displaystyle F(s) = \frac{V_0}{L} \frac{1}{s^2 + 2 \ \alpha \ s + \omega_0^2} \)</p>
+<p> \(\Large \displaystyle = \frac{V_0}{L} \frac{1}{(s-s_1)(s-s_2)}    \)</p>
+<p> \(\Large \displaystyle s_{1,2} = - \alpha \pm \sqrt{ \alpha^2 - \omega_0^2}  \)</p>
+<p> \(\Large \displaystyle s_1 + s_2 = -2 \ \alpha \)</p>
+<p>\(\Large \displaystyle  s_1 \cdot s_2 = \left(- \alpha + \sqrt{ \alpha^2 - \omega_0^2} \right)\left(- \alpha - \sqrt{ \alpha^2 - \omega_0^2} \right) \)</p>
+<p> \(\Large \displaystyle = \alpha^2 - \left( \alpha^2 - \omega_0^2 \right) = \omega_0^2 \)</p>
+<p>部分分数分解を考える． </p>
+<p>\(\Large \displaystyle \frac{1}{(s-s_1)(s-s_2)}= \frac{A}{s-s_1} + \frac{B}{s-s_2}  \)</p>
+<p> \(\Large \displaystyle =\frac{A(s-s_2)+B(s-s_1)}{(s-s_1)(s-s_2)} \)</p>
+<p> \(\Large \displaystyle 1 = A(s-s_2)+B(s-s_1)  \)</p>
+<p>どんなｓでも成り立たたないといけないので，s=s&lt;sub&gt;1&lt;/sub&gt;，とおくと，</p>
+<p>\(\Large \displaystyle s = s_1 \)</p>
+<p>\(\Large \displaystyle   1 = A(s_1-s_2) \)</p>
+<p> \(\Large \displaystyle A = \frac{1}{s_1-s_2}  \)</p>
+<p>\(\Large \displaystyle B = -\frac{1}{s_1-s_2}  \)</p>
+<p> \(\Large \displaystyle F(s) = \frac{V_0}{L} \frac{1}{(s-s_1)(s-s_2)} \)</p>
+<p> \(\Large \displaystyle = \frac{V_0}{L}\frac{1}{s_1-s_2} \left( \frac{1}{s-s_1}-\frac{1} {s-s_2}\right)   \)</p>
+<p>逆ラプラス変換を行うと， </p>
+<p>\(\Large \displaystyle F(s)  = \frac{V_0}{L}\frac{1}{s_1-s_2} \left( \frac{1}{s-s_1}-\frac{1} {s-s_2}\right) \)</p>
+<p> \(\Large \displaystyle I(t)  = \frac{V_0}{L}\frac{1}{s_1-s_2} \left( e^{s_1 \ t} - e^{s_2 \ t}\right)  \)</p>
+<p>\(\Large \displaystyle \sqrt{ \alpha^2 - \omega_0^2} \equiv  \omega \)</p>
+<p> \(\Large \displaystyle s_{1,2} = - \alpha \pm \sqrt{ \alpha^2 - \omega_0^2} = - \alpha \pm \omega \)</p>
+<p> \(\Large \displaystyle s_1 + s_2 = -2 \ \alpha \\ s_1 - s_2 = 2 \sqrt{ \alpha^2 - \omega_0^2} = 2 \omega \)</p>
+<p>なので， </p>
+<p>\(\Large \displaystyle I(t)  = \frac{V_0}{L}\frac{1}{s_1-s_2} \left( e^{s_1 \ t} - e^{s_2 \ t}\right)  \)</p>
+<p>\(\Large \displaystyle = \frac{V_0}{L}\frac{1}{2 \omega}\left( e^{(- \alpha + \omega ) \ t} - e^{(- \alpha - \omega ) \ t}\right)  \)</p>
+<p>\(\Large \displaystyle = \frac{V_0}{2 \omega L} \ e^{- \alpha t}\left( e^{\omega \ t} - e^{ -\omega \ t}\right)  \)</p>
+<p> \(\Large \displaystyle = \frac{V_0}{ \omega L} \ e^{- \alpha t} \cdot sinh \ \omega t  \)</p>
+<p>となり，<a href="Circuit-15-1-5.html">通常の解法</a>，と一致します．</p>
+<p>次は，<span class="Large-Bold-Red">α <span class="X-Large-Bold-RED">=</span> ω<sub>0</sub></span>，です．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-15-1-08.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-10.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

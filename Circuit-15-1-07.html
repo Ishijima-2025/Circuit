@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー０７．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・ラプラス変換</p>
+<p>今までの，<span class="Large-Bold-Blue">RL回路</span>など，通常の解き方とラプラス変換，双方で解いてきてみましたが，それほどラプラス変換の有効性は見られませんでした．</p>
+<p>しかし，<span class="Large-Bold-Blue">RLC回路</span>の計算となると，その有効性が際立ってきます．</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p class="Large-Bold-Red">・ラプラス変換の基本</p>
+<p>\(\Large \displaystyle  \mathfrak{ L} \left[ K \right] = \frac{K}{s}  \)</p>
+<p> \(\Large \displaystyle             \mathfrak{ L} \left[ f(t) \right] = F(s)  \)</p>
+<p> \(\Large \displaystyle             \mathfrak{ L} \left[ \frac{d}{dt} f(t) \right] = s \cdot F(s) -f(0)  \)</p>
+<p> \(\Large \displaystyle             \mathfrak{ L} \left[ \frac{d^2}{dt^2} f(t) \right] = s^2 \cdot F(s) - s \cdot f(0) - f'(0)  \)</p>
+<p> \(\Large \displaystyle             \mathfrak{ L} \left[ \int f(t) \ dt \right] = \frac{1}{s}\ \cdot F(s)  \)</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p class="Large-Bold-Red">・RLC直列回路のステップ応答</p>
+<p>\(\Large \displaystyle           R \cdot I(t) +  L \ \frac{d}{dt} I(t) + \frac{1}{C} \ \int I(t) \ dt  = V_0 \ u(t)  \)</p>
+<p>初期条件として，</p>
+<p>\(\Large \displaystyle            I(t) = f(0) = 0 \)</p>
+<p>として計算します．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・そのままでラプラス変換</p>
+<p>\(\Large \displaystyle  L \ \frac{dI}{dt} + R \cdot I + \frac{1}{C} \int I \ dt =V_0 \ u(t)\)</p>
+<p> \(\Large \displaystyle           L \{ s \cdot F(s) - f(0)\} +R \cdot F(s) + \frac{1}{C} \frac{1}{s} \cdot F(s) = \frac{V_0}{s}\)</p>
+<p> \(\Large \displaystyle           L \cdot s^2 \cdot F(s)  +R \cdot s \cdot F(s) + \frac{1}{C}  \cdot F(s) = V_0 \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・微分してラプラス変換</p>
+<p>\(\Large \displaystyle  L \ \frac{dI}{dt} + R \cdot I + \frac{1}{C} \int I \ dt =V_0 \ u(t)\)</p>
+<p> \(\Large \displaystyle  L \ \frac{d^2I}{dt^2} + R \cdot \frac{dI}{dt} + \frac{1}{C} I  = 0\)</p>
+<p> \(\Large \displaystyle  L \{ s^2 \cdot F(s) - s \cdot f(0) -f'(0) \} +R \{ s \cdot F(s) - f(0) \} + \frac{1}{C}  \cdot F(s) = 0\)</p>
+<p> \(\Large \displaystyle  L \cdot s^2 \cdot F(s)  -   L \cdot f'(0) + R \cdot s \cdot F(s) + \frac{1}{C}  \cdot F(s) = 0 \)</p>
+<p>&nbsp;</p>
+<p>両者を比べると，</p>
+<p>\(\Large \displaystyle L \cdot f'(0) = V_0 \)</p>
+<p> \(\Large \displaystyle f'(0) = I'(0) =  \frac{V_0}{L} \)</p>
+<p>となり，電流の微分値の結果が，<a href="Circuit-15-1-2.html">ここ</a>，で求めた結果と一致します．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・ラプラス変換後の計算</p>
+<p>計算を進めていきます．</p>
+<p>\(\Large \displaystyle L \cdot s^2 \cdot F(s)  -   L \cdot f'(0) + R \cdot s \cdot F(s) + \frac{1}{C}  \cdot F(s) = 0 \)</p>
+<p> \(\Large \displaystyle F(s) = \frac{V_0}{L \cdot s^2  + R \cdot s  + \frac{1}{C} }  \)</p>
+<p> \(\Large \displaystyle = \frac{V_0}{L} \frac{1}{\cdot s^2  + \frac{R}{L} \cdot s  + \frac{1}{LC} }  \)</p>
+<p>ここで， </p>
+<p>\(\Large \displaystyle \omega_0 = \frac{1}{ \sqrt{LC}}  \)</p>
+<p> \(\Large \displaystyle \alpha = \frac{R}{2L} \)</p>
+<p>  とすると，</p>
+<p>\(\Large \displaystyle F(s)  = \frac{V_0}{L} \frac{1}{\cdot s^2  + 2 \alpha \cdot s  + \omega_0^2} \)</p>
+<p>&nbsp;</p>
+<p>分母に注目すると，<span class="Large-Bold-Blue">重解</span>となる場合には， </p>
+<p>\(\Large \displaystyle s^2 + 2 \ \alpha \ s + \omega_0^2 = (s-s_1)(s-s_2)  \)</p>
+<p>\(\Large \displaystyle s_{1,2} = \frac{-2 \alpha \pm \sqrt{4 \alpha^2 - 4 \omega_0^2}}{2}  \)</p>
+<p> \(\Large \displaystyle = - \alpha \pm \sqrt{ \alpha^2 - \omega_0^2}  \)</p>
+<p>となり，通常の計算方法より，若干．．．計算が楽になっている感じがします．</p>
+<p>&nbsp;</p>
+<p>次は，通常の計算と同様に，<span class="Blue-Bold">平方根内の極性に応じて</span>計算していきましょう．</p>
+<p>まずは，<span class="Large-Bold-Red">α <span class="X-Large-Bold-RED">&lt;</span> ω<sub>0</sub></span>，から</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-15-1-06.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-08.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

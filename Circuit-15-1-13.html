@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー１３．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">α <span class="X-Large-Bold-RED">&gt;</span> ω<sub>0</sub></p>
+<p><br />
+平方根内が実数となるので，</p>
+<p><br />
+\(\Large \displaystyle \sqrt{ \alpha^2 - \omega_0^2} \equiv  \omega \)</p>
+<p>  \(\Large \displaystyle I(t) = A \cdot exp \left[ \left(- \alpha + \omega \right) t \right]  + B \cdot exp \left[ \left(- \alpha - \omega \right) t \right] \)</p>
+<p>  \(\Large \displaystyle =  e^{- \alpha t} \cdot \left[ A \cdot e^{ \omega  t}  + B \cdot e^{-\omega t} \right] \)<br />
+</p>
+<p>初期条件として，<br />
+  I(0)=0, i'(0)=V0/L，とすると，<br />
+</p>
+<p>\(\Large \displaystyle I(0) = A + B =0  \)</p>
+<p>  \(\Large \displaystyle I'(t) = - \alpha \ e^{- \alpha t} \cdot \left[ A \cdot e^{ \omega  t}  + B \cdot e^{-\omega t} \right]  + e^{- \alpha t} \cdot \left[ A \ \omega \cdot e^{ \omega  t}  - B  \ \omega \cdot e^{-\omega t} \right] \)</p>
+<p>  \(\Large \displaystyle I'(0) = - \alpha  \cdot \left[ A  + B \right]+  \omega \left[ A   - B  \right] = \frac{V_0}{L} \)</p>
+<p>  \(\Large \displaystyle A + B = 0  \)</p>
+<p>  \(\Large \displaystyle A-B = \frac{V_0}{\omega L}  \)</p>
+<p>  \(\Large \displaystyle A=\frac{V_0}{2\omega L}  \)</p>
+<p>  \(\Large \displaystyle B=-\frac{V_0}{2\omega L}  \)<br />
+</p>
+<p>\(\Large \displaystyle I(t) =  \frac{V_0}{2\omega L} \cdot e^{- \alpha t} \cdot \left[ e^{ \omega  t}  -e^{-\omega t} \right] \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{\omega L} \cdot e^{- \alpha t} \cdot sinh \ ( \omega t) \)</p>
+<p>ここで，</p>
+<p>  \(\Large \displaystyle sinh (x)  = \frac{e^x - e^{-x}}{2} \)</p>
+<p>です．<br />
+</p>
+<p>t=t0の場合には，<br />
+\(\Large \displaystyle I(t) =  \frac{V_0}{2\omega L} \cdot e^{- \alpha t} \cdot \left[ e^{ \omega  t}  -e^{-\omega t} \right] \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L} \cdot \left[ e^{  (-\alpha  + \omega)  t}  -e^{(- \alpha -\omega) t} \right] \)</p>
+<p>となり，コンデンサの電圧は，<br />
+</p>
+<p>\(\Large \displaystyle V_C =  \frac{1}{C} \int_0^{t_0} I(t) \ dt  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega CL}\int_0^{t_0} \left[ e^{  (-\alpha  + \omega)  t}  -e^{(- \alpha -\omega) t} \right] dt  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega CL} \left[ \frac{e^{  (-\alpha  + \omega)  t}}{-\alpha  + \omega}  - \frac{e^{(- \alpha -\omega) t}}{-\alpha  - \omega} \right]_0^{t_0}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega CL} \left\{ \left[ \frac{e^{  (-\alpha  + \omega)  t_0}}{-\alpha  + \omega}  - \frac{e^{(- \alpha -\omega) t_0}}{-\alpha  - \omega} \right] - \left[ \frac{1}{-\alpha  + \omega}  - \frac{1}{-\alpha  - \omega} \right] \right\} \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega CL} \left\{ \left[ \frac{(\alpha  + \omega) e^{  (-\alpha  + \omega)  t_0}}{(-\alpha  + \omega)(\alpha  + \omega)}  + \frac{(-\alpha  + \omega) e^{(- \alpha -\omega) t_0}}{(\alpha  + \omega)(-\alpha  + \omega)} \right] - \left[ \frac{(\alpha  + \omega) }{(-\alpha  + \omega)(\alpha  + \omega)} + \frac{(-\alpha  + \omega) }{(\alpha  + \omega)(-\alpha  + \omega)} \right] \right\} \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega CL} \frac{1}{\omega^2 - \alpha^2} \left\{ \left[ (\alpha  + \omega) e^{  (-\alpha  + \omega)  t_0}  + (-\alpha  + \omega) e^{(- \alpha -\omega) t_0} \right] - \left[ (\alpha  + \omega)  + (-\alpha  + \omega)  \right] \right\} \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega CL} \frac{1}{\omega^2 - \alpha^2} \left\{ e^{  -\alpha  \  t_0} \left[ (\alpha  + \omega) e^{  \omega  t_0}  + (-\alpha  + \omega) e^{ -\omega \ t_0} \right] - 2 \omega \right\} \)</p>
+<p>です．ここで，<br />
+</p>
+<p>\(\Large \displaystyle \sqrt{ \alpha^2 - \omega_0^2} \equiv  \omega \)</p>
+<p>なので，</p>
+<p>  \(\Large \displaystyle \omega^2 - \alpha^2 = \alpha^2 - \omega_0^2 - \alpha^2 = - \omega_0^2 \)</p>
+<p>となります，したがって，<br />
+</p>
+<p>\(\Large \displaystyle V_C =  - \frac{V_0 \ }{2\omega CL \ \omega_0^2}  \left\{ e^{  -\alpha  \  t_0} \left[ (\alpha  + \omega) e^{  \omega  t_0}  + (-\alpha  + \omega) e^{ -\omega \ t_0} \right] - 2 \omega \right\} \)</p>
+<p> \(\Large \displaystyle =  - \frac{V_0 \ }{2\omega CL \ \omega_0^2}  \left\{ e^{  -\alpha  \  t_0} \left[ \omega (  e^{  \omega  t_0}  + e^{ -\omega \ t_0}) + \alpha (  e^{  \omega  t_0}  - e^{ -\omega \ t_0}) \right] - 2 \omega \right\} \)</p>
+<p>  \(\Large \displaystyle =  - \frac{V_0 \ }{\omega CL \ \omega_0^2}  \left\{ e^{  -\alpha  \  t_0} \left[ \omega \cdot cosh \ ( \omega  t_0)  + \alpha \cdot sinh \ ( \omega  t_0)  \right] -  \omega \right\} \)</p>
+<p>また，<br />
+\(\Large \displaystyle \omega_0 = \frac{1}{ \sqrt{LC}}  \)</p>
+<p>  \(\Large \displaystyle \omega_0^2 = \frac{1}{ LC}  \)</p>
+<p>となるので，<br />
+\(\Large \displaystyle V_C  =  - \frac{V_0 \ }{\omega}  \left\{ e^{  -\alpha  \  t_0} \left[ \omega \cdot cosh \ ( \omega  t_0)  + \alpha \cdot sinh \ ( \omega  t_0)  \right] -  \omega \right\} \)</p>
+<p>  \(\Large \displaystyle =  V_0  \left\{ 1 - e^{  -\alpha  \  t_0} \left[  cosh \ ( \omega  t_0)  + \frac{\alpha}{\omega} \cdot sinh \ ( \omega  t_0)  \right]  \right\} \)</p>
+<p>となります．t=t0での電流の微分値，電流は，<br />
+</p>
+<p>\(\Large \displaystyle I'(t_0) = - \frac{ V_C + R \cdot I(t_0)  }{L}  \)<br />
+</p>
+<p>\(\Large \displaystyle I(t_0) =  \frac{V_0}{2\omega L} \cdot \left[ e^{  (-\alpha  + \omega)  t_0}  -e^{(- \alpha -\omega) t_0} \right] \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L} \cdot e^{  -\alpha  \  t_0} \left[ e^{   \omega \   t_0}  -e^{ -\omega \ t_0} \right] \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{\omega L} \cdot e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0)  \)</p>
+<p>となります．<br />
+</p>
+<p>t=t0以降の波形は，<br />
+</p>
+<p>\(\Large \displaystyle I(t)  =  e^{- \alpha (t-t_0)} \cdot \left[ A \cdot e^{ \omega   (t-t_0)}  + B \cdot e^{-\omega  (t-t_0)} \right] \)</p>
+<p>となるので，t=t0において，<br />
+\(\Large \displaystyle I(t_0) = A + B   \)</p>
+<p>  \(\Large \displaystyle I'(t) = - \alpha \ e^{- \alpha  (t-t_0)} \cdot \left[ A \cdot e^{ \omega   (t-t_0)}  + B \cdot e^{-\omega  (t-t_0)} \right]+ e^{- \alpha  (t-t_0)} \cdot \left[ A \ \omega \cdot e^{ \omega   (t-t_0)}  - B  \ \omega \cdot e^{-\omega  (t-t_0)} \right] \)</p>
+<p>  \(\Large \displaystyle I'(t_0) = - \alpha  \cdot \left[ A  + B \right]+  \omega \left[ A   - B  \right] =  -\alpha  \cdot I(t_0) +  \omega \left[ A   - B  \right] \)</p>
+<p>  \(\Large \displaystyle A + B =  I(t_0)   \)</p>
+<p>  \(\Large \displaystyle A-B = \frac{ 1}{\omega }  \left[ I'(t_0)  + \alpha I(t_0) \right]  \)</p>
+<p>となりますので，A，Bは，<br />
+\(\Large \displaystyle A= \frac{1}{2} \left\{ I(t_0) + \frac{ 1}{\omega }  \left[ I'(t_0)  + \alpha I(t_0) \right]\right\} = \frac{1}{2} \left\{ I(t_0) + \frac{ 1}{\omega }   I'(t_0)  + \frac{ \alpha }{\omega } I(t_0) \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ \frac{ \omega + \alpha }{\omega }I(t_0) + \frac{ 1}{\omega }   I'(t)    \right\}  \)</p>
+<p>  \(\Large \displaystyle B = I(t_0) - A =I(t_0) - \frac{1}{2} \left\{ \frac{ \omega + \alpha }{\omega }I(t_0) + \frac{ 1}{\omega }   I'(t_0)    \right\}  \)</p>
+<p>  \(\Large \displaystyle = \frac{1}{2} \left\{ \frac{2 \omega - \omega - \alpha}{\omega} I(t_0) - \frac{ 1}{\omega }   I'(t) \right\}  \)</p>
+<p>  \(\Large \displaystyle = \frac{1}{2} \left\{ \frac{\omega  - \alpha}{\omega} I(t_0) - \frac{ 1}{\omega }   I'(t_0) \right\} \)</p>
+<p>となり，最初の式，<br />
+</p>
+<p>\(\Large \displaystyle I( t-t_0)  =  e^{- \alpha  (t-t_0)} \cdot \left[ A \cdot e^{ \omega   (t-t_0)}  + B \cdot e^{-\omega  (t-t_0)} \right] \)<br />
+</p>
+<p>に組み込めばいいことになります．</p>
+<p>&nbsp;</p>
+<p>しかしまだ式が複雑ですので係数を簡単にしたい</p>
+<p>\(\Large \displaystyle A  =  \frac{1}{2} \left\{ \frac{ \omega + \alpha }{\omega }I(t_0) + \frac{ 1}{\omega }   I'(t)    \right\}  \)</p>
+<p>  \(\Large \displaystyle B = \frac{1}{2} \left\{ \frac{\omega  - \alpha}{\omega} I(t_0) - \frac{ 1}{\omega }   I'(t_0) \right\} \)<br />
+</p>
+<p>\(\Large \displaystyle V_C    =  V_0  \left\{ 1 - e^{  -\alpha  \  t_0} \left[  cosh \ ( \omega  t_0)  + \frac{\alpha}{\omega} \cdot sinh \ ( \omega  t_0)  \right]  \right\} \)<br />
+</p>
+<p>\(\Large \displaystyle I'(t_0) = - \frac{ V_C + R \cdot I(t_0)  }{L}  \)<br />
+</p>
+<p>\(\Large \displaystyle I(t_0)   =  \frac{V_0}{\omega L} \cdot e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0)  \)</p>
+<p>Aについては，<br />
+</p>
+<p>\(\Large \displaystyle A  =  \frac{1}{2} \left\{ \frac{ \omega + \alpha }{\omega }I(t_0) + \frac{ 1}{\omega }   I'(t)    \right\}  \)</p>
+<p> \(\Large \displaystyle =  \frac{1}{2} \left\{ \frac{ \omega + \alpha }{\omega }I(t_0) - \frac{ V_C + R \cdot I(t_0)  }{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) +\frac{  \alpha }{\omega }I(t_0) - \frac{  R   }{\omega L}\cdot I(t_0) - \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>ここで，<br />
+\(\Large \displaystyle \alpha = \frac{R}{2L}  \)</p>
+<p>なので，<br />
+\(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) +\frac{  \alpha }{\omega }I(t_0) - \frac{  2 \alpha    }{\omega }\cdot I(t_0) - \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) -\frac{  \alpha }{\omega }I(t_0) - \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) \left(1 -\frac{  \alpha }{\omega } \right) - \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) \left(\frac{  \omega - \alpha }{\omega } \right) - \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2}  \left(\frac{  \omega - \alpha }{\omega } \right) \frac{V_0}{\omega L} \cdot e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0)- \frac{V_0}{2\omega L} \left\{ 1 - e^{  -\alpha  \  t_0} \left[  cosh \ ( \omega  t_0)  + \frac{\alpha}{\omega} \cdot sinh \ ( \omega  t_0)  \right]  \right\}     \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{ \left(\frac{  \omega - \alpha }{\omega } \right)  \cdot e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0) -   1 + e^{  -\alpha  \  t_0} \left[  cosh \ ( \omega  t_0)  + \frac{\alpha}{\omega} \cdot sinh \ ( \omega  t_0)  \right]     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{  e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0) -   1 + e^{  -\alpha  \  t_0}   cosh \ ( \omega  t_0)     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{  e^{  -\alpha  \  t_0} \cdot [ cosh \ ( \omega  t_0) + sinh \   (\omega \   t_0) ]-   1     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{  e^{  -\alpha  \  t_0} \cdot e^{\omega t_0}-   1     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{  e^{  (-\alpha + \omega)  \  t_0} -   1     \right\}  \)</p>
+<p>Bにおいても，<br />
+</p>
+<p>\(\Large \displaystyle B  =  \frac{1}{2} \left\{ \frac{ \omega - \alpha }{\omega }I(t_0) - \frac{ 1}{\omega }   I'(t)    \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ \frac{ \omega - \alpha }{\omega }I(t_0) + \frac{ V_C + R \cdot I(t_0)  }{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) -\frac{  \alpha }{\omega }I(t_0) + \frac{  R   }{\omega L}\cdot I(t_0) + \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle \alpha = \frac{R}{2L}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) -\frac{  \alpha }{\omega }I(t_0) + \frac{  2 \alpha    }{\omega }\cdot I(t_0) + \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) +\frac{  \alpha }{\omega }I(t_0) + \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) \left(1 +\frac{  \alpha }{\omega } \right) + \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2} \left\{ I(t_0) \left(\frac{  \omega + \alpha }{\omega } \right) + \frac{V_C}{\omega L}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{1}{2}  \left(\frac{  \omega + \alpha }{\omega } \right) \frac{V_0}{\omega L} \cdot e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0)+\frac{V_0}{2\omega L} \left\{ 1 - e^{  -\alpha  \  t_0} \left[  cosh \ ( \omega  t_0)  + \frac{\alpha}{\omega} \cdot sinh \ ( \omega  t_0)  \right]  \right\}     \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{ \left(\frac{  \omega + \alpha }{\omega } \right)  \cdot e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0) +   1 - e^{  -\alpha  \  t_0} \left[  cosh \ ( \omega  t_0)  + \frac{\alpha}{\omega} \cdot sinh \ ( \omega  t_0)  \right]     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{  e^{  -\alpha  \  t_0} \cdot sinh \   (\omega \   t_0) +   1 - e^{  -\alpha  \  t_0}   cosh \ ( \omega  t_0)     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{ 1- e^{  -\alpha  \  t_0} \cdot [ cosh \ ( \omega  t_0)- sinh \   (\omega \   t_0) ]     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{  1- e^{  -\alpha  \  t_0} \cdot e^{-\omega t_0}     \right\}  \)</p>
+<p>  \(\Large \displaystyle =  \frac{V_0}{2\omega L}  \left\{  1- e^{  (-\alpha - \omega)  \  t_0}      \right\}  \)</p>
+<p>となるので，</p>
+<p>\(\Large \displaystyle \color{blue}{I( t-t_0)  =  \frac{V_0}{2\omega L}  \ e^{- \alpha  (t-t_0)} \cdot \left[ A \cdot e^{ \omega   (t-t_0)}  + B \cdot e^{-\omega  (t-t_0)} \right] }\)</p>
+<p>  \(\Large \displaystyle \color{blue}{A =    \left\{  e^{  (-\alpha + \omega)  \  t_0} -   1     \right\}  }\)</p>
+<p>\(\Large \displaystyle \color{blue}{B =  \left\{  1- e^{  (-\alpha - \omega)  \  t_0}      \right\}  }\)</p>
+<p>となります．さらに，簡単にしていきましょう．</p>
+<p>&nbsp;</p>
+<p>電流の式の<span class="Blue-Bold">右辺第一項（係数抜き）</span>は，</p>
+<p>\(\Large \displaystyle e^{- \alpha  (t-t_0)} \cdot A \cdot e^{ -\omega   (t-t_0)}   \)</p>
+<p>ここに，Aを代入すると，</p>
+<p><span class="Blue-Bold">第一項</span>は，</p>
+<p>\(\Large \displaystyle e^{- \alpha  t} \cdot  e^{ \alpha  t_0} \cdot e^{ -\alpha   t_0}   \cdot e^{ \omega   t_0}    \cdot e^{ \omega   t}   \cdot e^{ -\omega   t_0}   \)</p>
+<p>キャンセルし合う項目を削除すると，<br />
+</p>
+<p>\(\Large \displaystyle e^{- \alpha  t} \cdot    e^{ \omega   t}      \)</p>
+<p>となります．</p>
+<p><span class="Blue-Bold">第二項</span>は，</p>
+<p>\(\Large \displaystyle e^{- \alpha  (t-t_0)}    \cdot e^{ \omega   (t-t_0)}\)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p>同様に，電流の式の<span class="Blue-Bold">右辺第二項（係数抜き）</span>は，</p>
+<p>\(\Large \displaystyle e^{- \alpha  (t-t_0)} \cdot B \cdot e^{ -\omega   (t-t_0)}   \)</p>
+<p>ここに，Aを代入すると，</p>
+<p><span class="Blue-Bold">第一項</span>は，</p>
+<p>\(\Large \displaystyle e^{- \alpha  (t-t_0)}    \cdot e^{ -\omega   (t-t_0)}\)</p>
+<p>となります．</p>
+<p><span class="Blue-Bold">第二項</span>は，</p>
+<p>\(\Large \displaystyle e^{- \alpha  t} \cdot  e^{ \alpha  t_0} \cdot e^{ -\alpha   t_0}   \cdot e^{ -\omega   t_0}    \cdot e^{ -\omega   t}   \cdot e^{ -\omega   t_0}   \)</p>
+<p>キャンセルし合う項目を削除すると，<br />
+</p>
+<p>\(\Large \displaystyle e^{- \alpha  t} \cdot    e^{ -\omega   t}      \)</p>
+<p>となります．まとめると，</p>
+<p>\(\Large \displaystyle e^{- \alpha  t} \cdot    e^{ \omega   t}      - e^{- \alpha  (t-t_0)}    \cdot e^{ \omega   (t-t_0)} + e^{- \alpha  (t-t_0)}    \cdot e^{ -\omega   (t-t_0)} - e^{- \alpha  t} \cdot    e^{ -\omega   t}\)</p>
+<p>\(\Large \displaystyle = e^{- \alpha  t} \cdot \left\{ e^{ \omega   t}-e^{ -\omega   t} \right\} -  e^{- \alpha  (t-t_0)} \left\{ e^{ \omega   (t-t_0)} - e^{ -\omega   (t-t_0)} \right\}\)</p>
+<p>\(\Large \displaystyle = 2 e^{- \alpha  t} \cdot sinh \ \omega   t -  2 e^{- \alpha  (t-t_0)} \cdot sinh \  \omega   (t-t_0) \)</p>
+<p>となりますので，</p>
+<p>\(\Large \displaystyle \color{red}{I( t-t_0)  =  \frac{V_0}{\omega L}  \ \left\{ e^{- \alpha  t} \cdot sinh \ (\omega   t) -   e^{- \alpha  (t-t_0)} \cdot sinh \  \omega   (t-t_0) \right\} }\)</p>
+<p>となります．</p>
+<p>この式の結果は何を意味しているかというと，<a href="Circuit-15-1-12-02.html">前ページ</a>と同じで，</p>
+<p class="Blue-Bold">　第一項　：　最初のステップオンの際の波形（たとえば，0→1）</p>
+<p class="Blue-Bold">　第二項　：　t=t<sub>0</sub>，において，1→0，のように，逆のステップを入力した波形</p>
+<p>なので，<span class="Red-Bold">ステップオフ後</span>，の波形は，</p>
+<p>　<span class="Large-Bold-Red">ステップオンの波形の残り　＋　マイナスのステップの波形　の和</span></p>
+<p>となるわけです．</p>
+<p>&nbsp;</p>
+<p>実際に，<span class="Large-Bold-Blue">LTspice</span>，でシミュレートしてみましょう．<a href="Circuit-15-1-04.html">ここ</a>，と同様に，</p>
+<p>V<sub>0</sub> : 1 V<br />
+  R : 10 Ω<br />
+  L : 0.1 H<br />
+  C : 0.1 F</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \omega_0 =   \frac{1}{\sqrt{0.１2 \times 0.1} } = 10 \ (1/s) \)</p>
+<p>\(\Large \displaystyle              \alpha \equiv  \frac{10}{2 \times 0.1}   = 50 \ (1/s) \)</p>
+<p>となり，<span class="Red-Bold">α &gt; ω0</span>，の条件となります．　</p>
+<p>\(\Large \displaystyle               \omega =  \sqrt{   \alpha^2 - \omega_0^2  } = 48.99 (rad/s)  \)</p>
+<p>となり，LTspiceでシミュレートすると，</p>
+<p><img src="Circuit-218.png" width="716" height="626" alt=""/></p>
+<p>&nbsp;</p>
+<p>となります．式と当てはめてみると，</p>
+<p><img src="Circuit-219.png" width="715" height="449" alt=""/></p>
+<p>&nbsp;</p>
+<p>と一致することがわかります（全領域で）．</p>
+<p><span class="Blue-Bold">青点線，が右辺第二項</span>，で<span class="Red-Bold">右辺第一項</span>との和が，シミュレーションと一致することがわかります．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-15-1-09.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー０２．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・基本関係式</p>
+<p>直列なので，</p>
+<p>\(\Large   V(t)  = V_R (t) + V_L (t) + V_C(t)  \)</p>
+<p>\(\Large   V_R(t)  = R \cdot I(t)  \)</p>
+<p>\(\Large   \displaystyle       V_L(t)   = L \ \frac{d}{dt} I(t) \)</p>
+<p>\(\Large   \displaystyle       V_C(t)   = \frac{1}{C} \ \int I(t) \ dt \)</p>
+<p>となりますので，</p>
+<p>\(\Large \displaystyle          V(t)  = R \cdot I(t) +  L \ \frac{d}{dt} I(t) + \frac{1}{C} \ \int I(t) \ dt  \)</p>
+<p>を解けばいいことになります．</p>
+<p>&nbsp;</p>
+<p>電流と電荷との関係は，</p>
+<p>\(\Large \displaystyle           I(t) = \frac{dq}{dt} \)</p>
+<p>&nbsp;</p>
+<p>ステップ応答なので，</p>
+<p>\(\Large    V(t) = V_0 \ u(t) \)</p>
+<p>\(\Large    u(t) = \left\{     \begin{array}{l}       1 \ (0&lt;t&lt;t_0) \\       0 \ (t&lt; 0, \ t_0 &lt; t)     \end{array}   \right. \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・初期条件</p>
+<p>初期条件は，</p>
+<p>\(\Large   I(0) = 0 \)</p>
+<p>\(\Large   q(0) = 0 \)</p>
+<p>と，電流，電荷ともに０と直感的にわかりやすいですが，<span class="Blue-Bold">電流の微分値</span>は注意が必要となります．</p>
+<p>t=0においては，</p>
+<p>\(\Large \displaystyle R \cdot I(t) +  L \ \frac{d}{dt} I(t) + \frac{1}{C} \ \int I(t) \ dt  = V_0 \)</p>
+<p>ですが，電荷を導入すると，</p>
+<p>\(\Large \displaystyle R \cdot I(t) +  L \ \frac{d}{dt} I(t) + \frac{1}{C} \ q(t)   = V_0 \)</p>
+<p>となり，t=0，の場合は，</p>
+<p>\(\Large \displaystyle R \cdot I(0) +  L \ \frac{d}{dt} I(0) + \frac{1}{C} \ q(0)   = V_0 \)</p>
+<p>\(\Large \displaystyle I'(0) =  \frac{V_0}{L} \)</p>
+<p>となります．</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-15-1-01.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-03.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

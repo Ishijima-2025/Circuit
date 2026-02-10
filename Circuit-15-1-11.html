@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー１１．ステップ関数（RLC回路）</p>
+<p>次は，<span class="Large-Bold-Red">t &gt; t0</span>，でのステップ応答，です．つまり，ステップオフの場合の応答を考えていきます．</p>
+<p>これが結構面倒くさかったです．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・t <span class="X-Large-Bold-RED">=</span> t<sub>0</sub></p>
+<p>t=t0，の場合は，</p>
+<p>\(\Large \displaystyle           R \cdot I(t_0) +  L \ \frac{d}{dt} I(t_0) + V_C = 0 \)</p>
+<p>となります（ステップが０なので右辺は０）</p>
+<p>ここで，</p>
+<p>\(\Large \displaystyle          V_C = \frac{1}{C} \ \int_0^{t_0} I(t) \ dt  \)</p>
+<p>電流の微分値は，</p>
+<p>\(\Large \displaystyle          I'(t_0) = - \frac{R \cdot I(t_0) +  V_C }{L}  \)</p>
+<p>&nbsp;</p>
+<p>電流値は，t &lt; t0，と同様に</p>
+<p>\(\Large \displaystyle              I(t-t_0)  = e^{ - \alpha (t-t_0)} \cdot  \left[ A \cdot exp \left( \sqrt{ \alpha^2 - \omega_0^2} \right) (t-t_0) +  B \cdot exp  \left( - \sqrt{ \alpha^2 - \omega_0^2} \right) (t-t_0) \right] \)</p>
+<p>となります．<span class="Blue-Bold">ｔ，がｔ－ｔ０</span>，と変わっていることに注意です．</p>
+<p>では，同じように，平方根の中の極性に場合分けして考えていきます．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-15-1-09.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-12.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー１４．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">α=ω<sub>0</sub></p>
+<p><br />
+</p>
+<p>\(\Large \displaystyle I(t) = I_1(t) + I_2(t)  \)</p>
+<p>  \(\Large \displaystyle =  C_0 \ e^{- \alpha t} + (C_1 \ t + C_2)e^{- \alpha t}  \)</p>
+<p>\(\Large \displaystyle   =   (D_1 + D_2 \ t ) \ e^{- \alpha t}  \)</p>
+<p>  となる．</p>
+<p>I(0) =0, I'(0)=V<sub>0</sub>/L，とすると，</p>
+<p>\(\Large \displaystyle I(0) = D_1 =0  \)</p>
+<p>\(\Large \displaystyle   I'(t) =   D_2 \  e^{- \alpha t} - \alpha (D_1 + D_2 \ t ) \ e^{- \alpha t}  \)</p>
+<p>\(\Large \displaystyle   =   D_2 \ ( 1- \alpha \ t) e^{- \alpha t}   \)</p>
+<p>\(\Large \displaystyle   I'(0) =  D_2 = \frac{V_0}{L}  \)</p>
+<p>  \(\Large \displaystyle I(t) = \frac{V_0}{L} \cdot \ t \cdot e^{- \alpha t} \)<br />
+</p>
+<p> \(\Large \displaystyle V_C =  \frac{1}{C} \int_0^{t_0} I(t) \ dt  \)</p>
+<p>\(\Large \displaystyle   =  \frac{1}{C} \int_0^{t_0} \frac{V_0}{L} \cdot \ t \cdot e^{- \alpha t} \ dt  \)</p>
+<p>\(\Large \displaystyle  =  \frac{V_0}{LC} \int_0^{t_0}   t \cdot e^{- \alpha t} \ dt  \)</p>
+<p>この積分は，部分積分から，</p>
+<p>\(\Large \displaystyle (fg)' = f'g + fg'  \)</p>
+<p>\(\Large \displaystyle   f'g = (fg)' - fg'  \)</p>
+<p>\(\Large \displaystyle  \int f'g = fg - \int fg' \)</p>
+<p>\(\Large \displaystyle   f' = e^{- \alpha t}, \ f= - \frac{1}{\alpha} e^{- \alpha t} \)</p>
+<p>\(\Large \displaystyle   g = t, \ g' =1  \)</p>
+<p>\(\Large \displaystyle   \int_0^{t_0}   t \cdot e^{- \alpha t} \ dt  = \left[ t \cdot (- \frac{1}{\alpha} e^{- \alpha t})\right]_0^{t_0} - \int_0^{t_0} (- \frac{1}{\alpha} e^{- \alpha t} ) \ dt \)</p>
+<p>\(\Large \displaystyle   = - \frac{t_0}{\alpha} \cdot e^{- \alpha \ t_0} - \frac{1}{ \alpha^2} \left[ e^{- \alpha t} \right]_0^{t_0} \)</p>
+<p>\(\Large \displaystyle   = - \frac{t_0}{\alpha} \cdot e^{- \alpha \ t_0} - \frac{1}{ \alpha^2} \left[ e^{- \alpha t_0} -1 \right]_0^{t_0} \)</p>
+<p>\(\Large \displaystyle   = \frac{1}{\alpha^2} \left[ 1 - e^{- \alpha \ t_0 } ( 1 + \alpha t_0)\right]  \)</p>
+<p>となるので，</p>
+<p>\(\Large \displaystyle   V_C = \frac{V_0}{LC} \frac{1}{\alpha^2} \left[ 1 - e^{- \alpha \ t_0 } ( 1 + \alpha t_0)\right]  \)</p>
+<p>となり，t0における電流の微分値は，</p>
+<p>\(\Large \displaystyle I'(t_0) = - \frac{ V_C + R \cdot I(t_0)  }{L}  \)</p>
+<p>となる．</p>
+<p>\(\Large \displaystyle I(t) = \frac{V_0}{L} \cdot \ t \cdot e^{- \alpha t}  \)</p>
+<p>\(\Large \displaystyle   I(t_0) = \frac{V_0}{L} \cdot \ t \cdot e^{- \alpha t_0}  \)</p>
+<p>から，電流は，</p>
+<p>\(\Large \displaystyle I(t) =   (D_1 + D_2 \ t ) \ e^{- \alpha t}  \)</p>
+<p>\(\Large \displaystyle   I'(t) =   - \alpha \ (D_1 + D_2 \ t ) \ e^{- \alpha t} + D_2 \ e^{- \alpha t} \)</p>
+<p>\(\Large \displaystyle   I(t_0) =   (D_1 + D_2 \ t_0 ) \ e^{- \alpha t_0}  \)</p>
+<p>\(\Large \displaystyle   I'(t_0) =   - \alpha \ (D_1 + D_2 \ t_0 ) \ e^{- \alpha t_0} + D_2 \ e^{- \alpha t_0} \)</p>
+<p>\(\Large \displaystyle   =   - \alpha \ I( t_0) + D_2 \ e^{- \alpha t_0} \)</p>
+<p>\(\Large \displaystyle   D_2 = \{ I'(t_0) + \alpha \ I( t_0)\}  \ e^{ \alpha t_0} \)</p>
+<p>\(\Large \displaystyle   D_1 = I(t_0) \ e^{ \alpha \ t_0} - D_2 \ t_0  = I(t_0) \ e^{ \alpha \ t_0} - \{ I'(t_0) + \alpha \ I( t_0)\}  \ e^{ \alpha t_0} \ t_0 \) </p>
+<p>\(\Large \displaystyle   =  e^{ \alpha \ t_0} \{ I(t_0) (1- \alpha \ t_0 ) - I'(t_0) \ t_0  \} \)</p>
+<p>まとめると，</p>
+<p>\(\Large \displaystyle \color{red}{I(t) =   (D_1 + D_2 \ t ) \ e^{- \alpha t}  }\)<br />
+</p>
+<p>\(\Large \displaystyle   \color{red}{D_1 =  e^{ \alpha \ t_0} \{ I(t_0) (1- \alpha \ t_0 ) - I'(t_0) \ t_0  \} }\)</p>
+<p>\(\Large \displaystyle   \color{red}{D_2 = \{ I'(t_0) + \alpha \ I( t_0)\}  \ e^{ \alpha t_0} }\)</p>
+<p>もしくは，<br />
+</p>
+<p>\(\Large \displaystyle \color{red}{I(t) =   (D_1 + D_2 \ t ) \ e^{- \alpha (t-t_0)}  }\)<br />
+</p>
+<p>\(\Large \displaystyle   \color{red}{D_1 = \{ I(t_0) (1- \alpha \ t_0 ) - I'(t_0) \ t_0  \} }\)</p>
+<p>\(\Large \displaystyle   \color{red}{D_2 = \{ I'(t_0) + \alpha \ I( t_0)\}  }\)</p>
+<p>となります．</p>
+<p>この式の結果は何を意味しているかというと，<a href="Circuit-15-1-13.html">前ページ</a>と同じで，</p>
+<p class="Blue-Bold">　第一項　：　最初のステップオンの際の波形（たとえば，0→1）</p>
+<p class="Blue-Bold">　第二項　：　t=t<sub>0</sub>，において，1→0，のように，逆のステップを入力した波形</p>
+<p>なので，<span class="Red-Bold">ステップオフ後</span>，の波形は，</p>
+<p>　<span class="Large-Bold-Red">ステップオンの波形の残り　＋　マイナスのステップの波形　の和</span></p>
+<p>となるわけです．</p>
+<p>&nbsp;</p>
+<p>実際に，<span class="Large-Bold-Blue">LTspice</span>，でシミュレートしてみましょう．<a href="Circuit-15-1-04.html">ここ</a>，と同様に，</p>
+<p>V<sub>0</sub> : 1 V<br />
+  R : 10 Ω<br />
+  L : 0.01 H<br />
+  C : 0.0004 F</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \omega_0 =   \frac{1}{\sqrt{0.01 \times 0.0004} } = 50 \ (1/s) \)</p>
+<p>\(\Large \displaystyle              \alpha \equiv  \frac{10}{2 \times 0.01}   = 50 \ (1/s) \)</p>
+<p>となり，<span class="Red-Bold">α = ω0</span>，の条件となります．　</p>
+<p>\(\Large \displaystyle               \omega =  \sqrt{   \alpha^2 - \omega_0^2  } =0 (rad/s)  \)</p>
+<p>となり，LTspiceでシミュレートすると，</p>
+<p><img src="Circuit-220.png" width="634" height="563" alt=""/></p>
+<p>&nbsp;</p>
+<p>となります．式と当てはめてみると，</p>
+<p><img src="Circuit-221.png" width="634" height="398" alt=""/></p>
+<p>&nbsp;</p>
+<p>と一致することがわかります（全領域で）．</p>
+<p><span class="Blue-Bold">青点線，が右辺第二項</span>，で<span class="Red-Bold">右辺第一項</span>との和が，シミュレーションと一致することがわかります．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-15-1-13.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-21.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

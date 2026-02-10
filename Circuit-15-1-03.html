@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー０３．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・通常の解き方</p>
+<p>\(\Large \displaystyle           R \cdot I(t) +  L \ \frac{d}{dt} I(t) + \frac{1}{C} \ \int I(t) \ dt =  V_0 \ u(t)\)</p>
+<p>ですが，微分すると，</p>
+<p>\(\Large \displaystyle           R  \ \frac{d}{dt} I(t) +  L \ \frac{d^2}{dt^2} I(t) + \frac{1}{C} \  I(t) =  \ \frac{d}{dt} V_0 \ u(t)\)</p>
+<p>となりますが，入力は，ステップ関数であり，その微分はデルタ関数となります．しかし，t&gt;0，の領域では0となるので，<span class="Large-Bold-Blue">t&gt;0，の領域では0</span>とみなしていいことになります．</p>
+<p>したがって，</p>
+<p>\(\Large \displaystyle             L \ \frac{d^2}{dt^2} I(t) + R  \ \frac{d}{dt} I(t) + \frac{1}{C} \  I(t) =0 \)</p>
+<p>を解けばいいことになります．</p>
+<p>ここで，</p>
+<p>\(\Large \displaystyle             I(t) = e^{ \lambda t} \)</p>
+<p>とおくと，</p>
+<p>\(\Large \displaystyle             L \ \lambda^2 \ e^{ \lambda t}  + R  \ \lambda \ e^{ \lambda t} + \frac{1}{C} \   e^{ \lambda t} =0 \)</p>
+<p>\(\Large \displaystyle             L \ \lambda^2   + R  \ \lambda  + \frac{1}{C}  =0 \)</p>
+<p>\(\Large \displaystyle              \lambda^2   + \frac{R}{L}  \ \lambda  + \frac{1}{LC}  =0 \)</p>
+<p>となります，ここで，</p>
+<p>\(\Large \displaystyle              \omega_0 \equiv \frac{1}{\sqrt{LC} }, \ \alpha \equiv  \frac{R}{2L}   \)</p>
+<p>単位は，</p>
+<p>\(\Large \displaystyle              \omega_0 \equiv \frac{1}{\sqrt{LC} } \rightarrow \frac{1}{\sqrt{\frac{V \ s}{A} \frac{A \ s}{V} }} = \frac{1}{s} \)</p>
+<p>\(\Large \displaystyle               \alpha \equiv  \frac{R}{2L}   \rightarrow \frac{\frac{V}{A}}{\frac{V \ s}{A}} = \frac{1}{s} \)</p>
+<p>と<span class="Blue-Bold">周波数の単位</span>となります．</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \lambda^2   + 2 \alpha \ \lambda  +\omega_0^2  =0 \)</p>
+<p>と簡単になり，</p>
+<p>\(\Large \displaystyle              \lambda = \frac{-2 \alpha \pm \sqrt{4 \alpha^2 -4 \omega_0^2}}{2} = - \alpha \pm \sqrt{ \alpha^2 - \omega_0^2}\)</p>
+<p>と一般解が　求まりました．</p>
+<p>したがって，電流は，</p>
+<p>\(\Large \displaystyle              I(t)  = A \cdot exp \left[ \left(  - \alpha + \sqrt{ \alpha^2 - \omega_0^2} \right) t \right] + B \cdot exp \left[ \left(  - \alpha - \sqrt{ \alpha^2 - \omega_0^2} \right) t \right]\)</p>
+<p>\(\Large \displaystyle              I(t)  = e^{ - \alpha t} \cdot  \left[ A \cdot exp \left( \sqrt{ \alpha^2 - \omega_0^2} \right) t +  B \cdot exp  \left( - \sqrt{ \alpha^2 - \omega_0^2} \right) t \right] \)</p>
+<p>となります.</p>
+<p>&nbsp;</p>
+<p>つぎに，この平方根の中の符号による計算を行っていきましょう．</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-15-1-02.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-04.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

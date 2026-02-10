@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー１２．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">α <span class="X-Large-Bold-RED">&lt;</span> ω<sub>0</sub></p>
+<p>平方根内が虚数となるので，</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>\(\Large \displaystyle \sqrt{ \alpha^2 - \omega_0^2} = j \sqrt{  \omega_0^2 - \alpha^2} \equiv j \omega \)</p>
+<p>&nbsp;</p>
+<p> \(\Large \displaystyle          I(t) =  e^{- \alpha (t - t_0)} \cdot \left[ A \cdot exp  \left\{ j \omega (t-t_0) \right\}  + B \cdot exp  \left\{ - j  \omega (t-t_0) \right\}  \right] \)</p>
+<p> \(\Large \displaystyle          =  A \cdot exp  \left\{ (-\alpha + j \omega) (t-t_0) \right\}  + B \cdot exp  \left\{ (-\alpha- j  \omega) (t-t_0) \right\}   \)</p>
+<p>&nbsp;</p>
+<p>t0 &lt; t，の領域においては，微分値は， </p>
+<p> \(\Large \displaystyle          I'(t)  =  (-\alpha + j \omega) \ A \cdot exp  \left\{ (-\alpha + j \omega) (t-t_0) \right\}  + (-\alpha- j  \omega) \ B \cdot exp  \left\{ (-\alpha- j  \omega) (t-t_0) \right\} \)</p>
+<p>となりますが，ここで，</p>
+<p>\(\Large \displaystyle \color{purple}{I(t_0)  =  e^{- \alpha t_0} \cdot \frac{V_0}{ \omega L}\ sin ( \omega t_0) }\)</p>
+<p> \(\Large \displaystyle \color{purple}{I'(t_0)  = e^{- \alpha t_0} \cdot \frac{V_0}{ \omega L} \left\{ \omega \cdot cos ( \omega t_0) - \alpha \cdot sin \ (\omega t_0) \right\}} \)</p>
+<p>と計算してはいけないようです．</p>
+<p><span class="Blue-Bold">Copilot</span>によると， <br />
+  <span class="Blue">この式は 電源がオンの状態を前提に導出された解です。 したがって、didt(t0)\frac{di}{dt}(t_0)dtdi​(t0​) は「電源がまだあると仮定した場合の傾き」。<br />
+電源オフ後の急変は考慮していません。<br />
+この式は 電源が切れた瞬間の新しい条件を反映。 <br />
+電源がなくなり、コンデンサ電圧が主役になるため、didt(t0)\frac{di}{dt}(t_0)dtdi​(t0​) は大きくなる。 </span><br />
+ということのよう．</p>
+<p>したがって，</p>
+<p>\(\Large \displaystyle          V_C = \frac{1}{C} \ \int_0^{t_0} I(t) \ dt  \)</p>
+<p>\(\Large \displaystyle          I'(t_0) = - \frac{R \cdot I(t_0) +  V_C }{L}  \)</p>
+<p>から，<span class="Blue-Bold">電流の微分値</span>を求めていく必要があります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Blue">やり直します．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-15-1-09.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-12-02.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

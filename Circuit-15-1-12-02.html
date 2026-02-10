@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１５ー１ー１２．ステップ関数（RLC回路）</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">α <span class="X-Large-Bold-RED">&lt;</span> ω<sub>0</sub></p>
+<p>平方根内が虚数となるので，</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>\(\Large \displaystyle \sqrt{ \alpha^2 - \omega_0^2} = j \sqrt{  \omega_0^2 - \alpha^2} \equiv j \omega \)</p>
+<p>&nbsp;</p>
+<p> \(\Large \displaystyle          I(t) =  e^{- \alpha (t - t_0)} \cdot \left[ A \cdot exp  \left\{ j \omega (t-t_0) \right\}  + B \cdot exp  \left\{ - j  \omega (t-t_0) \right\}  \right] \)</p>
+<p> \(\Large \displaystyle          =  A \cdot exp  \left\{ (-\alpha + j \omega) (t-t_0) \right\}  + B \cdot exp  \left\{ (-\alpha- j  \omega) (t-t_0) \right\}   \)</p>
+<p>&nbsp;</p>
+<p>t=t0において， </p>
+<p>&nbsp;</p>
+<p>\(\Large \displaystyle I(t_0)  =  A   + B   \)</p>
+<p>\(\Large \displaystyle  I'(t_0)  =  (-\alpha + j \omega) \ A   + (-\alpha- j  \omega) \ B  \)</p>
+<p>です．変形すると，</p>
+<p> \(\Large \displaystyle          (-\alpha + j \omega) \ A   +  (-\alpha + j \omega) \ B     =  (-\alpha + j \omega) \ I(t_0) \)</p>
+<p> \(\Large \displaystyle          (-\alpha + j \omega) \ A   + (-\alpha- j  \omega) \ B   =   I'(t_0) \)</p>
+<p>となるので，</p>
+<p> \(\Large \displaystyle          2 j \omega B = (-\alpha +  j \omega) \ I(t_0) - I'(t_0)\)</p>
+<p> \(\Large \displaystyle          \color{red}{B} = \frac{(-\alpha +  j \omega) \ I(t_0) - I'(t_0)}{2j \omega} \color{red}{= -\frac{\alpha  \ I(t_0) + I'(t_0)}{2j \omega} + \frac{  I(t_0) }{2 }}\)</p>
+<p> \(\Large \displaystyle          \color{red}{A} = I(t_0) - \frac{(-\alpha +  j \omega) \ I(t_0) - I'(t_0)}{2j \omega} = \frac{2j \omega I(t_0)-(-\alpha +  j \omega) \ I(t_0) + I'(t_0)}{2j \omega} \)</p>
+<p> \(\Large \displaystyle          = \frac{(\alpha +  j \omega) \ I(t_0) + I'(t_0)}{2j \omega} \color{red}{= \frac{\alpha  \ I(t_0) + I'(t_0)}{2j \omega} + \frac{  I(t_0) }{2 }}\)</p>
+<p>となります，まとめると，</p>
+<p>\(\Large \displaystyle I(t)  =  A \cdot exp  \left\{ (-\alpha + j \omega) (t-t_0) \right\}  + B \cdot exp  \left\{ (-\alpha- j  \omega) (t-t_0) \right\}  \)</p>
+<p> \(\Large \displaystyle          = e^{ - \alpha (t-t_0)} \left[ A \ e^{j \omega (t-t_0)} + B \ e^{ -j \omega (t-t_0)} \right]\)</p>
+<p> \(\Large \displaystyle          = e^{ - \alpha (t-t_0)} \left[ \left( \frac{\alpha  \ I(t_0) + I'(t_0)}{2j \omega} + \frac{  I(t_0) }{2 } \right) \ e^{j \omega (t-t_0)} + \left( -\frac{\alpha  \ I(t_0) + I'(t_0)}{2j \omega} + \frac{  I(t_0) }{2 } \right) \ e^{ -j \omega (t-t_0)} \right]\)</p>
+<p> \(\Large \displaystyle =e^{ - \alpha (t-t_0)} \left\{\frac{\alpha  \ I(t_0) + I'(t_0)}{2j \omega}\left[  \ e^{j \omega (t-t_0)} -  \ e^{ -j \omega (t-t_0)} \right] + \frac{  I(t_0) }{2 }\left[  \ e^{j \omega (t-t_0)} +  \ e^{ -j \omega (t-t_0)} \right] \right\} \)</p>
+<p> \(\Large \displaystyle          =\frac{\alpha  \ I(t_0) + I'(t_0)}{ \omega} \ e^{ - \alpha (t-t_0)} \ \sin \ \omega (t - t_0) + I(t_0) \ e^{ - \alpha (t-t_0)} \ \ cos \omega  (t - t_0) \)</p>
+<p>となります．</p>
+<p>ここで，</p>
+<p>\(\Large \displaystyle          V_C = \frac{1}{C} \ \int_0^{t_0} I(t) \ dt  \)</p>
+<p>\(\Large \displaystyle          I'(t_0) = - \frac{R \cdot I(t_0) +  V_C }{L}  \)</p>
+<p>です．</p>
+<p>&nbsp;</p>
+<p>つぎに，<span class="Blue-Bold">電流の微分値</span>を求めるため，<span class="Large-Bold-Blue">V<sub>C</sub>(t<sub>0</sub>)</span>を計算していきます．</p>
+<p> \(\Large \displaystyle          I(t)  =  e^{- \alpha t} \cdot \frac{V_0}{ \omega L}\ sin ( \omega t) \)</p>
+<p> \(\Large \displaystyle          V_C(t_0) =  \frac{1}{C} \int_0^{t_0} I(t) \ dt \)</p>
+<p> \(\Large \displaystyle          = \frac{V_0}{ \omega CL} \int_0^{t_0} e^{- \alpha t} \cdot  sin ( \omega t) \ dt \)</p>
+<p>この積分は，<a href="Integral formula-02.html">ここ</a>，を参考にして，</p>
+<p>&nbsp;</p>
+<p>\(\Large \displaystyle \int_0^{t_0}  e^{- \alpha t} \ sin ( \omega t) \ dt  = \frac{1}{\alpha^2 + \omega^2} \left[- \alpha \ e^{- \alpha t_0} \cdot sin ( \omega t_0) - \omega \ e^{- \alpha t_0} \cdot cos ( \omega t_0) \right] - \frac{1}{\alpha^2 + \omega^2} \left[-  \omega  \right]  \)</p>
+<p> \(\Large \displaystyle          = \frac{\omega - e^{ \alpha t_0} \left[\omega \cdot cos ( \omega t_0) + \alpha \cdot sin ( \omega t_0) \right]}{\alpha^2 + \omega^2}  \)</p>
+<p>&nbsp;</p>
+<p>\(\Large \displaystyle V_C(t_0) =  \frac{1}{C} \int_0^{t_0} I(t) \ dt  \)</p>
+<p>\(\Large \displaystyle  = \frac{V_0}{ \omega CL} \int_0^{t_0} e^{- \alpha t} \cdot  sin ( \omega t) \ dt  \)</p>
+<p> \(\Large \displaystyle          = \frac{V_0}{ \omega CL} \frac{\omega - e^{ \alpha t_0} \left[\omega \cdot cos ( \omega t_0) + \alpha \cdot sin ( \omega t_0) \right]}{\alpha^2 + \omega^2}  \)</p>
+<p>となります．ω，は，</p>
+<p> \(\Large \displaystyle          \omega = \sqrt{  \omega_0^2 - \alpha^2} \rightarrow \alpha^2 + \omega^2 = \omega_0^2  \)</p>
+<p> \(\Large \displaystyle          \omega_0 = \frac{1}{ \sqrt{LC}} \rightarrow \alpha^2 + \omega^2 =\omega_0^2 =\frac{1}{LC} \)</p>
+<p>となるので，</p>
+<p>\(\Large \displaystyle V_C(t_0) = \frac{V_0}{\omega} \ \left\{\omega - e^{ -\alpha t_0} \left[\omega \cdot cos ( \omega t_0) + \alpha \cdot sin ( \omega t_0) \right] \right\}  \)</p>
+<p> \(\Large \displaystyle          = V_0 \   \left\{1 - e^{ -\alpha t_0} \left[ cos ( \omega t_0) + \frac{\alpha}{\omega} \cdot sin ( \omega t_0) \right] \right\}  \)</p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p> t=t0，の場合は， I'(t0)は，</p>
+<p>\(\Large \displaystyle  R \cdot I(t_0) + L \ \frac{d}{dt} I(t_0) + V_C = 0 \)</p>
+<p> \(\Large \displaystyle          I'(t_0) = - \frac{ V_C + R \cdot I(t_0)  }{L} \)</p>
+<p>\(\Large \displaystyle I(t_0)  =  e^{- \alpha t_0} \cdot \frac{V_0}{ \omega L}\ sin ( \omega t_0) \)</p>
+<p> \(\Large \displaystyle          V_C  = V_0 \   \left\{1 - e^{ -\alpha t_0} \left[ cos ( \omega t_0)+ \frac{\alpha}{\omega} \cdot sin ( \omega t_0) \right] \right\}  \)</p>
+<p>となりますので，I'(t0)，は，</p>
+<p>\(\Large \displaystyle          I'(t_0) = - \frac{ V_C + R \cdot I(t_0)  }{L} \)</p>
+<p>\(\Large \displaystyle = - \frac{1}{L} \left[ V_0 \   \left\{1 - e^{ -\alpha t_0} \left[ cos ( \omega t_0)+ \frac{\alpha}{\omega} \cdot sin ( \omega t_0) \right] \right\} + R \cdot   e^{- \alpha t_0} \cdot \frac{V_0}{ \omega L}\ sin ( \omega t_0) \right] \)</p>
+<p>となります．整理すると，</p>
+<p>\(\Large \displaystyle = - \frac{V_0}{L} \left[ 1 - e^{ -\alpha t_0} \left[ cos ( \omega t_0)+ \frac{\alpha}{\omega} \cdot sin ( \omega t_0) \right]  +    e^{- \alpha t_0} \cdot \frac{R}{ \omega L}\ sin ( \omega t_0) \right] \)</p>
+<p>\(\Large \displaystyle = - \frac{V_0}{L} \left[ 1 - e^{ -\alpha t_0} cos ( \omega t_0)-e^{ -\alpha t_0} \frac{1}{\omega} \left\{ \alpha   - \frac{R}{  L}\  \right\}sin ( \omega t_0)\right] \)</p>
+<p>\(\Large \displaystyle          \alpha = \frac{R}{2L}  \)　なので，</p>
+<p>\(\Large \displaystyle  \alpha   - \frac{R}{  L} = \alpha   - 2\alpha   =-\alpha   \)</p>
+<p>となるので，</p>
+<p>\(\Large \displaystyle I'(t_0)= - \frac{V_0}{L} \left[ 1 - e^{ -\alpha t_0} cos ( \omega t_0)+e^{ -\alpha t_0} \frac{\alpha}{\omega} \ sin ( \omega t_0)\right] \)</p>
+<p>\(\Large \displaystyle = - \frac{V_0}{L} \left[ 1 - e^{ -\alpha t_0} \left\{ cos ( \omega t_0)- \frac{\alpha}{\omega} \ sin ( \omega t_0) \right\} \right] \)</p>
+<p>となり， </p>
+<p> \(\Large \displaystyle          I(t)  =\frac{\alpha  \ I(t_0) + I'(t_0)}{ \omega} \ e^{ - \alpha (t-t_0)} \ \sin \ \omega (t - t_0) + I(t_0) \ e^{ - \alpha (t-t_0)} \ \ cos \omega  (t - t_0) \)</p>
+<p>から電流変化を見ればいいことになります． </p>
+<p>&nbsp;</p>
+<p>右辺第一項の係数を整理します．</p>
+<p>\(\Large \displaystyle \frac{\alpha  \ I(t_0) + I'(t_0)}{ \omega}  = \frac{1}{ \omega}\ \left[ \alpha  \cdot e^{- \alpha t_0} \cdot \frac{V_0}{ \omega L}\ sin ( \omega t_0)- \frac{V_0}{L} \left[ 1 - e^{ -\alpha t_0} \left\{ cos ( \omega t_0)- \frac{\alpha}{\omega} \ sin ( \omega t_0) \right\} \right] \right] \)</p>
+<p>\(\Large \displaystyle   = \frac{V_0}{ \omega L }\ \left[ \alpha  \cdot e^{- \alpha t_0} \cdot \frac{1}{ \omega }\ sin ( \omega t_0)-  \left[ 1 - e^{ -\alpha t_0} \left\{ cos ( \omega t_0)- \frac{\alpha}{\omega} \ sin ( \omega t_0) \right\} \right] \right] \)</p>
+<p>\(\Large \displaystyle   = \frac{V_0}{ \omega L }\ \left[ -1 +  e^{- \alpha t_0} \cdot \left\{ \frac{\alpha  }{ \omega }\ sin ( \omega t_0)-   \frac{\alpha}{\omega} \ sin ( \omega t_0) + cos ( \omega t_0) \right\} \right] \)</p>
+<p>\(\Large \displaystyle   = \frac{V_0}{ \omega L }\ \left[ -1 +  e^{- \alpha t_0} \cdot cos ( \omega t_0)  \right] \)</p>
+<p>となるので，右辺第一項は，</p>
+<p>\(\Large \displaystyle   = \frac{V_0}{ \omega L }\ \left[ -1 +  e^{- \alpha t_0} \cdot cos ( \omega t_0)  \right] \ e^{ - \alpha (t-t_0)} \ \sin \ \omega (t - t_0)\)</p>
+<p>\(\Large \displaystyle   = \frac{V_0}{ \omega L }\ \left[ -e^{ - \alpha (t-t_0)} \ \sin \ \omega (t - t_0) +  e^{- \alpha t} \cdot cos ( \omega t_0)  \ \sin \ \omega (t - t_0)\right]  \)</p>
+<p>&nbsp;</p>
+<p>右辺第二項は，</p>
+<p>\(\Large \displaystyle =  e^{- \alpha t_0} \cdot \frac{V_0}{ \omega L}\ sin ( \omega t_0) \ e^{ - \alpha (t-t_0)} \ \ cos \omega  (t - t_0)\)</p>
+<p>\(\Large \displaystyle =   \frac{V_0}{ \omega L} \cdot e^{- \alpha t} \cdot\ sin ( \omega t_0) \  cos \ \omega  (t - t_0)\)</p>
+<p>となるので，まとめると，</p>
+<p>\(\Large \displaystyle   I(t)  = \frac{V_0}{ \omega L }\ \left[ -e^{ - \alpha (t-t_0)} \ \sin \ \omega (t - t_0) +  e^{- \alpha t} \cdot cos ( \omega t_0)  \ \sin \ \omega (t - t_0)+     e^{- \alpha t} \cdot\ sin ( \omega t_0) \  cos \ \omega  (t - t_0) \right] \)</p>
+<p>&nbsp;</p>
+<p>ここで，三角関数の公式より，</p>
+<p>\(\Large \displaystyle   sin \ (x+y) = sin \ x \cdot cos \ y + cos \ x \cdot sin y \)</p>
+<p>となるので，第二項，第三項がまとめられて，</p>
+<p>\(\Large \displaystyle   \color{red}{I(t)  = \frac{V_0}{ \omega L }\ \left[   e^{- \alpha t} \cdot sin ( \omega t)  -e^{ - \alpha (t-t_0)} \ \sin \ \omega (t - t_0) \right]} \)</p>
+<p>となります．</p>
+<p>この式の結果は何を意味しているかというと，</p>
+<p class="Blue-Bold">　第一項　：　最初のステップオンの際の波形（たとえば，0→1）</p>
+<p class="Blue-Bold">　第二項　：　t=t<sub>0</sub>，において，1→0，のように，逆のステップを入力した波形</p>
+<p>なので，<span class="Red-Bold">ステップオフ後</span>，の波形は，</p>
+<p>　<span class="Large-Bold-Red">ステップオンの波形の残り　＋　マイナスのステップの波形　の和</span></p>
+<p>となるわけです．</p>
+<p>&nbsp;</p>
+<p>実際に，<span class="Large-Bold-Blue">LTspice</span>，でシミュレートしてみましょう．<a href="Circuit-15-1-04.html">ここ</a>，と同様に，</p>
+<p>V<sub>0</sub> : 1 V<br />
+  R : 10 Ω<br />
+  L : 0.3 H<br />
+  C : 0.0001 F</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \omega_0 =   \frac{1}{\sqrt{0.3 \times 0.0001} } = 182.57 \ (1/s) \)</p>
+<p>\(\Large \displaystyle              \alpha \equiv  \frac{10}{2 \times 0.3}   = 16.67 \ (1/s) \)</p>
+<p>となり，<span class="Red-Bold">α &lt; ω0</span>，の条件となります．　</p>
+<p>\(\Large \displaystyle               \omega =  \sqrt{  \omega_0^2 - \alpha^2 } = 181.81 (rad/s) = 28.93 Hz \)</p>
+<p>となり，LTspiceでシミュレートすると，</p>
+<p><img src="Circuit-215.png" width="568" height="498" alt=""/></p>
+<p>&nbsp;</p>
+<p>となります．式と当てはめてみると，</p>
+<p><img src="Circuit-216.png" width="724" height="454" alt=""/></p>
+<p>&nbsp;</p>
+<p>と一致することがわかります（全領域で）．</p>
+<p><span class="Blue-Bold">青点線，が右辺第二項</span>，で<span class="Red-Bold">右辺第一項</span>との和が，シミュレーションと一致することがわかります．</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-15-1-09.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-15-1-13.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

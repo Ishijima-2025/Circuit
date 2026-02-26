@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１６ー１．電圧で考えてみる（RLC回路）</p>
+<p>このページからは，いよいよ<span class="Large-Bold-Red">RLC回路</span>の<span class="Large-Bold-Red">ステップ関数</span>の場合の応答を，<span class="X-Large-Bold-RED">電圧</span>，で考えていきます．</p>
+<p>たぶん，実際の計測では<span class="Blue-Bold">電流計</span>よりも<span class="Blue-Bold">電圧計</span>のほうが使い勝手がいいでしょう．</p>
+<p>まずは，<span class="Large-Bold-Red">抵抗，コイル，コンデンサが直列</span>の回路について</p>
+<p><img src="Circuit-49.png" width="577" height="374" alt=""/></p>
+<p>&nbsp;</p>
+<p>基本的な式は，</p>
+<p><br />
+\(\Large V = V_R + V_L + V_C \)</p>
+<p>  \(\Large V_R = R \cdot I(t) \)</p>
+<p>  \(\Large V_L = L \ \frac{d}{dt} I(t) \)</p>
+<p>  \(\Large V_C =  \frac{1}{C} \int I(t) \ dt \)</p>
+<p>  \(\Large V = R \cdot I(t) + L \ \frac{d}{dt} I(t) + \frac{1}{C} \int I(t) \ dt = V_0 \ u(t)\)</p>
+<p>\(\Large \omega_0 = \frac{1}{ \sqrt{LC}} \)</p>
+<p> \(\Large \alpha = \frac{R}{2L} \)</p>
+<p></p>
+
+    
+
+<p>ステップ関数となるので，</p>
+<p>\(\Large   V(t)  \ : \ V_0 \ ( 0 \leq t \leq t_0) \)</p>
+<p>\(\Large   \hspace{35 pt} : \ 0 \ (0&gt;t, t_0 &lt; t) \)</p>
+<p>となります．</p>
+<p><img src="Circuit-41.png" width="250" height="236" alt=""/></p>
+<p>三つの条件における電流の応答は，</p>
+<p>&nbsp;</p>
+<p> <span class="X-Large-Bold-RED">α < ω<sub>0</sub></span>
+</p>
+<p class="Blue-Bold"> 0 < t < t<sub>0</sub></p>
+<p> \(\Large I_1(t)  =   \displaystyle \frac{V_0}{ \omega L} \cdot e^{- \alpha t} \cdot sin ( \omega t)\)<br />
+</p>
+<p> <span class="Blue-Bold">t0 < t</span><br />
+</p>
+<p>\(\Large  I_2(t)  =     \displaystyle \frac{V_0}{ \omega L} \left[  e^{- \alpha t} \cdot sin ( \omega t) - e^{- \alpha (t-t_0)} \cdot sin \  \omega (t-t_0) \right] \)</p>
+<p><br />
+</p>
+<p class="X-Large-Bold-RED">α > ω<sub>0</sub></p>
+<p>  <span class="Blue-Bold">0< t < t<sub>0</sub></span></p>
+<p>\(\Large  I_1(t) =     \displaystyle \frac{V_0}{2\omega L} \cdot e^{- \alpha t} \cdot \left[ e^{ \omega  t}  -e^{-\omega t} \right]  =  \frac{V_0}{\omega L} \cdot e^{- \alpha t} \cdot sinh \ ( \omega t)\)</p>
+<p>  \(\Large  \hspace{40pt} \left(sinh (x)  = \frac{e^x - e^{-x}}{2} \right)　\)<br />
+</p>
+<p class="Blue-Bold"> t<sub>0</sub> < t</p>
+<p>\(\Large  I_2(t)  =   \displaystyle   \frac{V_0}{\omega L} \left[ e^{- \alpha t} \cdot sinh \ ( \omega t) - e^{- \alpha (t-t_0)} \cdot sinh \  \omega (t-t_0)\right]\)</p>
+<p>\(\Large  \hspace{40pt} \left(sinh (x)  = \frac{e^x - e^{-x}}{2} \right)　\)</p>
+<p><br />
+</p>
+<p class="Large-Bold-Red"> <span class="X-Large-Bold-RED">α = ω<sub>0</sub></span></p>
+<p class="Blue-Bold">  0< t < t<sub>0</sub></p>
+<p>\(\Large I_1(t) =    \displaystyle \frac{V_0}{L} \cdot \ t \cdot e^{- \alpha t} \)<br />
+</p>
+<p> <span class="Blue-Bold">t<sub>0</sub> < t</span><br />
+</p>
+<p>\(\Large I_2(t) =    \displaystyle \frac{V_0}{L} \left[ t \cdot e^{- \alpha t} - (t-t_0) \cdot e^{- \alpha (t-t_0)} \right] \)<br />
+</p>
+<p>　</p>
+<p>となります．いずれも，ステップオフの場合は，</p>
+<p class="Blue-Bold">　第一項　：　最初のステップオンの際の波形（たとえば，0→1）</p>
+<p class="Blue-Bold">　第二項　：　t=t<sub>0</sub>，において，1→0，のように，逆のステップを入力した波形</p>
+<p>なので，<span class="Red-Bold">ステップオフ後</span>，の波形は，</p>
+<p>　<span class="Large-Bold-Red">ステップオンの波形の残り　＋　マイナスのステップの波形　の和</span></p>
+<p>となるわけです．</p>
+<p>&nbsp;</p>
+<p>次ページから，電圧で考えてみましょう．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-15-1-14.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a><a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-16-2.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１６ー２．電圧で考えてみる（RLC回路）: α &lt; ω<sub>0</sub></p>
+<p>&nbsp;</p>
+<p><span class="Large-Bold-Red">コンデンサの電圧</span>，です． </p>
+<p><span class="X-Large-Bold-RED">α < ω<sub>0</sub></span>
+</p>
+<p class="Blue-Bold"> 0 < t < t<sub>0</sub></p>
+<p> \(\Large I_1(t)  =   \displaystyle \frac{V_0}{ \omega L} \cdot e^{- \alpha t} \cdot sin ( \omega t)\)<br />
+</p>
+<p> <span class="Blue-Bold">t0 < t</span><br />
+</p>
+<p>\(\Large  I_2(t)  =     \displaystyle \frac{V_0}{ \omega L} \left[  e^{- \alpha t} \cdot sin ( \omega t) - e^{- \alpha (t-t_0)} \cdot sin \  \omega (t-t_0) \right] \)</p>
+<p><br />
+\(\Large \omega =  \sqrt{  \omega_0^2 - \alpha^2}\)</p>
+<p><br />
+</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p class="Large-Bold-Red"> V<sub>C</sub>　：　コンデンサの電圧</p>
+<p><br />
+  <span class="Blue-Bold">0 &lt; t &lt; t<sub>0</sub></span><br />
+</p>
+<p>\(\Large I_1(t)  =            \displaystyle   \frac{V_0}{ \omega L} \ e^{- \alpha t} \cdot \ sin ( \omega t)\)</p>
+<p> \(\Large V_C =              \displaystyle \frac{1}{C} \int I_1(t) \ dt \)</p>
+<p>  \(\Large =             \displaystyle \frac{V_0}{ \omega LC} \int \ e^{- \alpha t} \cdot \ sin ( \omega t) \ dt \)</p>
+<p>積分公式から，</p>
+<p>  \(\Large =             \displaystyle \frac{V_0}{ \omega LC} \frac{1}{\alpha^2 + \omega^2}\cdot  e^{- \alpha t} \cdot \{- \alpha   \ sin ( \omega t) -  \omega  \cdot \ cos ( \omega t)\} + D\)</p>
+<p>と定数項がつきます．</p>
+<p>  \(\Large =             \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}\cdot  e^{- \alpha t} \cdot \{ \alpha   \ sin ( \omega t) +  \omega  \cdot \ cos ( \omega t)\} +D \)</p>
+<p>初期条件として，  </p>
+<p>\(\Large t =0 : V_C(0)=0 \)</p>
+<p>  \(\Large V_C(0) =             \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}\cdot  e^{- \alpha \cdot 0} \cdot \{ \alpha   \ sin ( \omega \cdot 0) +  \omega  \cdot \ cos ( \omega \cdot 0)\} +D \)</p>
+<p> \(\Large =             \displaystyle \frac{V_0}{  LC} \frac{-1}{\alpha^2 + \omega^2}\ +D \)</p>
+<p>  \(\Large  D =             \displaystyle \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2} \)</p>
+<p>と定数項を求めることができました．<br />
+</p>
+<p>ここで，</p>
+<p>\(\Large sin \ (x +y) = sin \ x \cdot cos \ y + cos \ x \cdot sin \ y \)</p>
+<p>から，</p>
+<p><img src="Circuit-223.png" width="536" height="325" alt=""/></p>
+<p><br />
+</p>
+<p>\(\Large V_C =              \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}\cdot  e^{- \alpha t} \cdot \{ \alpha   \ sin ( \omega t) +  \omega  \cdot \ cos ( \omega t)\} + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2}\)</p>
+<p>  \(\Large =              \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}  \cdot e^{- \alpha t} \cdot \ \sqrt{ \alpha^2 + \omega^2} \cdot\{ cos \ \varphi \cdot \ sin ( \omega t) -sin \ \varphi \cdot \ cos ( \omega t)\} + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2}\)</p>
+<p>  \(\Large =              \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\sqrt{\alpha^2 + \omega^2}} \cdot  e^{- \alpha t} \cdot  sin ( \omega t  + \varphi) + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2} \)</p>
+<p>  \(\Large =              \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\sqrt{\alpha^2 + \omega^2}} \cdot  e^{- \alpha t} \cdot  sin ( \omega t  + \varphi) + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2} \)</p>
+<p>  \(\Large\hspace{40pt} ( tan \varphi = \frac{\omega}{\alpha} )\)</p>
+<p>となります．</p>
+<p><br />
+</p>
+<p> <span class="Blue-Bold">t<sub>0</sub> &lt; t</span><br />
+</p>
+<p>\(\Large  I_2(t)  =               \displaystyle \frac{V_0}{ \omega L} \left[  e^{- \alpha t} \cdot sin ( \omega t) - e^{- \alpha (t-t_0)} \cdot sin \  \omega (t-t_0) \right] \)</p>
+<p>&nbsp;</p>
+<p>  \(\Large V_C =               \displaystyle \frac{1}{C} \int I_2(t) \ dt \)<br />
+</p>
+<p>この積分において，第一項は，0&lt;t&lt;t<sub>0</sub>と同じ計算になります．．<br />
+第二項は，T=t-t<sub>0</sub>，と置けば同じ積分となるので，</p>
+<p>\(\Large V_C　=                \displaystyle \frac{V_0}{ \omega LC} \frac{1}{\alpha^2 + \omega^2}\cdot  \left[ e^{- \alpha t} \cdot \{- \alpha   \ sin ( \omega t) -  \omega  \cdot \ cos ( \omega t)\} - e^{- \alpha (t-t_0)} \cdot \{- \alpha   \ sin \ \omega (t-t_0) -  \omega  \cdot \ cos \ \omega (t-t_0)\}\right] + D\)</p>
+<p>となります．初期条件は，</p>
+<p>  \(\Large t = t_0 :   \)</p>
+<p>  \(\Large V_C(t_0) =                \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}\cdot  \left[ e^{- \alpha t_0} \cdot \{- \alpha   \ sin ( \omega t_0) -  \omega  \cdot \ cos ( \omega t_0)\}   -  \omega  \right]+ D\)</p>
+<p>  \(\Large =                \displaystyle \frac{V_0}{ \omega LC} \frac{1}{\alpha^2 + \omega^2}\cdot  \left[  \omega -e^{- \alpha t_0} \cdot \{ \alpha   \ sin ( \omega t_0) +  \omega  \cdot \ cos ( \omega t_0)\}     \right] + D\)</p>
+<p>&nbsp;</p>
+<p>右辺第一項は，まさしく，0&lt;t&lt;t<sub>0</sub>における，t=t<sub>0</sub>の値となります．念のため計算すると，</p>
+<p>\(\Large V_C =              \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}\cdot  e^{- \alpha t} \cdot \{ \alpha   \ sin ( \omega t) +  \omega  \cdot \ cos ( \omega t)\} + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2}\)</p>
+<p>\(\Large V_C(t_0) =              \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}\cdot  e^{- \alpha t_0} \cdot \{ \alpha   \ sin ( \omega t_0) +  \omega  \cdot \ cos ( \omega t_0)\} + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2}\)</p>
+<p>\(\Large =              \displaystyle \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2}\cdot  \left[ \omega - e^{- \alpha t_0} \cdot \{ \alpha   \ sin ( \omega t_0) +  \omega  \cdot \ cos ( \omega t_0)\} \right]\)</p>
+<p>となり，D=0，となります．したがって，<br />
+</p>
+<p>\(\Large V_C =               \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\alpha^2 + \omega^2}\cdot  \left[ e^{- \alpha t} \cdot \{ \alpha   \ sin ( \omega t) +  \omega  \cdot \ cos ( \omega t)\} - e^{- \alpha (t-t_0)} \cdot \{ \alpha   \ sin \ \omega (t-t_0) +  \omega  \cdot \ cos \ \omega (t-t_0)\}\right] \)</p>
+<p> \(\Large =               \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\sqrt{\alpha^2 + \omega^2}} \cdot \left[ e^{- \alpha t} \cdot  sin ( \omega t  + \varphi) - e^{- \alpha (t-t_0)} \cdot  sin \{ \omega (t-t_0)  + \varphi \} \right] \)</p>
+<p>  \(\Large\hspace{40pt} (tan \varphi = \frac{\omega}{\alpha}) \)</p>
+<p>もしくは＋－の定数項を加えると，</p>
+<p>\(\Large =               \displaystyle \frac{V_0}{ \omega LC} \frac{-1}{\sqrt{\alpha^2 + \omega^2}} \cdot \left[ e^{- \alpha t} \cdot  sin ( \omega t  + \varphi) + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2}- \left\{e^{- \alpha (t-t_0)} \cdot  sin \{ \omega (t-t_0)  + \varphi \} + \frac{V_0}{  LC} \frac{1}{\alpha^2 + \omega^2}\right\} \right] \)</p>
+<p>となり，ステップオフの場合は，</p>
+<p class="Blue-Bold">　第一項　：　最初のステップオンの際の波形（たとえば，0→1）</p>
+<p class="Blue-Bold">　第二項　：　t=t<sub>0</sub>，において，1→0，のように，逆のステップを入力した波形</p>
+<p>なので，<span class="Red-Bold">ステップオフ後</span>，の波形は，</p>
+<p>　<span class="Large-Bold-Red">ステップオンの波形の残り　＋　マイナスのステップの波形　の和</span></p>
+<p>となるわけです．</p>
+<p>&nbsp;</p>
+<p>実際に，<span class="Large-Bold-Blue">LTspice</span>，でシミュレートしてみましょう．<a href="Circuit-15-1-04.html">ここ</a>，と同様に，</p>
+<p>V<sub>0</sub> : 1 V<br />
+  R : 10 Ω<br />
+  L : 0.3 H<br />
+  C : 0.0001 F</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \omega_0 =   \frac{1}{\sqrt{0.3 \times 0.0001} } = 182.57 \ (1/s) \)</p>
+<p>\(\Large \displaystyle              \alpha \equiv  \frac{10}{2 \times 0.3}   = 16.67 \ (1/s) \)</p>
+<p>となり，<span class="Red-Bold">α &lt; ω0</span>，の条件となります．　</p>
+<p>\(\Large \displaystyle               \omega =  \sqrt{  \omega_0^2 - \alpha^2 } = 181.81 (rad/s) = 28.93 Hz \)</p>
+<p>となり，LTspiceでシミュレートすると，</p>
+<p>&nbsp;</p>
+<p><img src="Circuit-226.png" width="609" height="536" alt=""/></p>
+<p>&nbsp;</p>
+<p>となります．式と当てはめてみると，</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="Circuit-227.png" width="758" height="474" alt=""/></p>
+<p>&nbsp;</p>
+<p>と一致することがわかります（全領域で）．</p>
+<p><span class="Blue-Bold">青点線，が右辺第二項</span>，で<span class="Red-Bold">右辺第一項</span>との和が，シミュレーションと一致することがわかります．</p>
+<p><br />
+</p>
+<p>&nbsp;</p>
+<p>次ページから，<span class="X-Large-Bold-RED">α &gt; ω<sub>0</sub></span>における<span class="Large-Bold-Red">電圧</span>を考えてみましょう．</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-16-2.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a><a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-16-4.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

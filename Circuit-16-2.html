@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１６ー２．電圧で考えてみる（RLC回路）: α &lt; ω<sub>0</sub></p>
+<p>&nbsp;</p>
+<p>まずは，<span class="Large-Bold-Red">コイルの電圧</span> ，から</p>
+<p><span class="X-Large-Bold-RED">α < ω<sub>0</sub></span>
+</p>
+<p class="Blue-Bold"> 0 < t < t<sub>0</sub></p>
+<p> \(\Large I_1(t)  =   \displaystyle \frac{V_0}{ \omega L} \cdot e^{- \alpha t} \cdot sin ( \omega t)\)<br />
+</p>
+<p> <span class="Blue-Bold">t0 < t</span><br />
+</p>
+<p>\(\Large  I_2(t)  =     \displaystyle \frac{V_0}{ \omega L} \left[  e^{- \alpha t} \cdot sin ( \omega t) - e^{- \alpha (t-t_0)} \cdot sin \  \omega (t-t_0) \right] \)</p>
+<p><br />
+\(\Large \omega =  \sqrt{  \omega_0^2 - \alpha^2}\)</p>
+<p><br />
+</p>
+<p class="Large-Bold-Red"> V<sub>L</sub>　：　コイルの電圧</p>
+<p class="Blue-Bold"> 0 &lt; t &lt; t0</p>
+<p>\(\Large  I_1(t)  =       \displaystyle \frac{V_0}{ \omega L} \ e^{- \alpha t} \cdot \ sin ( \omega t)\)</p>
+<p>  \(\Large  V_{L1} =      \displaystyle L \ \frac{d}{dt} I_1(t) \)</p>
+<p>  \(\Large  =       \displaystyle \frac{V_0}{ \omega }\ \{- \alpha  \  e^{- \alpha t} \cdot \ sin ( \omega t) +  \omega \  e^{- \alpha t} \cdot \ cos ( \omega t)\} \)</p>
+<p>  \(\Large   =       \displaystyle \frac{V_0}{ \omega }\ \  e^{- \alpha t} \cdot\{- \alpha   \ sin ( \omega t) +  \omega  \cdot \ cos ( \omega t)\} \)</p>
+<p>ここで，</p>
+<p>\(\Large cos \ (x +y) = cos \ x \cdot cos \ y - sin \ x \cdot sin \ y \)</p>
+<p>から，</p>
+<p><img src="Circuit-222.png" width="503" height="296" alt=""/></p>
+<p><br />
+</p>
+<p>\(\Large  V_{L1} =          \displaystyle \frac{V_0}{ \omega }\ \  e^{- \alpha t} \cdot\{- \alpha   \ sin ( \omega t) +  \omega  \cdot \ cos ( \omega t)\} \)</p>
+<p>  \(\Large  =          \displaystyle \frac{V_0}{ \omega }\ \  e^{- \alpha t} \cdot\ \sqrt{ \alpha^2 + \omega^2} \cdot \{ cos \ \varphi \cdot \ cos ( \omega t) -sin \ \varphi \cdot \ sin ( \omega t)\} \)</p>
+<p> \(\Large  =          \displaystyle \frac{V_0}{ \omega }\ \  e^{- \alpha t} \cdot\ \sqrt{ \alpha^2 + \omega^2} \cdot cos \ (\omega t + \varphi)  \)</p>
+<p>  \(\Large  \hspace{40pt} ( tan \ \varphi = \frac{\alpha}{\omega} ) \)</p>
+<p><br />
+</p>
+<p> <span class="Blue-Bold">t<sub>0</sub> &lt; t</span><br />
+</p>
+<p>\(\Large  I_2(t)  =            \displaystyle \frac{V_0}{ \omega L} \left[  e^{- \alpha t} \cdot sin ( \omega t) - e^{- \alpha (t-t_0)} \cdot sin \  \omega (t-t_0) \right] \)<br />
+</p>
+<p>第一項は上の計算と同じなので，第二項について考えます．<br />
+</p>
+<p>\(\Large   e^{- \alpha (t-t_0)} \cdot sin \  \omega (t-t_0) \)</p>
+<p>&nbsp;</p>
+<p>  \(\Large   T \equiv t-t_0 \)</p>
+<p>とすると，</p>
+<p>  \(\Large dT = dt \) </p>
+<p>となるので，</p>
+<p>  \(\Large            \displaystyle \frac{d}{dt} =\frac{d}{dT} \frac{dT}{dt} = \frac{d}{dT}\)<br />
+</p>
+<p>となるので計算は同じとなります．<br />
+</p>
+<p>\(\Large  V_{L2} =               \displaystyle \frac{V_0}{ \omega }\  \sqrt{ \alpha^2 + \omega^2} \cdot\ \left[  e^{- \alpha t}\cdot cos \ (\omega t + \varphi)  - e^{- \alpha (t-t_0)}\cdot cos \ \omega (t-t_0) + \varphi) \right] \)</p>
+<p>\(\Large  \hspace{40pt} ( tan \ \varphi = \frac{\alpha}{\omega} ) \)</p>
+<p>となり，ステップオフの場合は，</p>
+<p class="Blue-Bold">　第一項　：　最初のステップオンの際の波形（たとえば，0→1）</p>
+<p class="Blue-Bold">　第二項　：　t=t<sub>0</sub>，において，1→0，のように，逆のステップを入力した波形</p>
+<p>なので，<span class="Red-Bold">ステップオフ後</span>，の波形は，</p>
+<p>　<span class="Large-Bold-Red">ステップオンの波形の残り　＋　マイナスのステップの波形　の和</span></p>
+<p>となるわけです．</p>
+<p>実際に，<span class="Large-Bold-Blue">LTspice</span>，でシミュレートしてみましょう．<a href="Circuit-15-1-04.html">ここ</a>，と同様に，</p>
+<p>V<sub>0</sub> : 1 V<br />
+  R : 10 Ω<br />
+  L : 0.3 H<br />
+  C : 0.0001 F</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \omega_0 =   \frac{1}{\sqrt{0.3 \times 0.0001} } = 182.57 \ (1/s) \)</p>
+<p>\(\Large \displaystyle              \alpha \equiv  \frac{10}{2 \times 0.3}   = 16.67 \ (1/s) \)</p>
+<p>となり，<span class="Red-Bold">α &lt; ω0</span>，の条件となります．　</p>
+<p>\(\Large \displaystyle               \omega =  \sqrt{  \omega_0^2 - \alpha^2 } = 181.81 (rad/s) = 28.93 Hz \)</p>
+<p>となり，LTspiceでシミュレートすると，</p>
+<p><img src="Circuit-224.png" width="607" height="532" alt=""/></p>
+<p>&nbsp;</p>
+<p>となります．式と当てはめてみると，</p>
+<p>&nbsp;</p>
+<p><img src="Circuit-225.png" width="729" height="458" alt=""/></p>
+<p>&nbsp;</p>
+<p>と一致することがわかります（全領域で）．</p>
+<p><span class="Blue-Bold">青点線，が右辺第二項</span>，で<span class="Red-Bold">右辺第一項</span>との和が，シミュレーションと一致することがわかります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p><br />
+</p>
+<p>&nbsp;</p>
+<p>次ページは，コンデンサの電圧を考えてみましょう．</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-16-1.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a><a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-16-3.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

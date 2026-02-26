@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１６ー４．電圧で考えてみる（RLC回路）: α &gt; ω<sub>0</sub></p>
+<p>&nbsp;</p>
+<p>まずは，<span class="Large-Bold-Red">コイルの電圧</span> ，から</p>
+<p><span class="X-Large-Bold-RED">α &gt; ω<sub>0</sub></span>
+</p>
+<p><span class="Blue-Bold">0&lt; t &lt; t<sub>0</sub></span></p>
+<p>\(\Large  I_1(t) =     \displaystyle \frac{V_0}{2\omega L} \cdot e^{- \alpha t} \cdot \left[ e^{ \omega  t}  -e^{-\omega t} \right]  =  \frac{V_0}{\omega L} \cdot e^{- \alpha t} \cdot sinh \ ( \omega t)\)</p>
+<p> \(\Large  \hspace{40pt}    \displaystyle   \left(sinh (x)  = \frac{e^x - e^{-x}}{2}, \ cosh (x)  = \frac{e^x + e^{-x}}{2}\right)　\)<br />
+</p>
+<p class="Blue-Bold"> t<sub>0</sub> &lt; t</p>
+<p>\(\Large  I_2(t)  =   \displaystyle   \frac{V_0}{\omega L} \left[ e^{- \alpha t} \cdot sinh \ ( \omega t) - e^{- \alpha (t-t_0)} \cdot sinh \  \omega (t-t_0)\right]\)</p>
+<p>\(\Large  \hspace{40pt}    \displaystyle   \left(sinh (x)  = \frac{e^x - e^{-x}}{2}, \ cosh (x)  = \frac{e^x + e^{-x}}{2}\right)　\)</p>
+<p class="Blue-Bold">&nbsp;</p>
+<p><br />
+</p>
+<p class="Large-Bold-Red"> V<sub>L</sub>　：　コイルの電圧</p>
+<p class="Blue-Bold"> 0 &lt; t &lt; t0</p>
+<p><br />
+\(\Large I_1(t) =              \displaystyle \frac{V_0}{2\omega L} \cdot e^{- \alpha t} \cdot \left[ e^{ \omega  t}  -e^{-\omega t} \right]\)</p>
+<p>  \(\Large =              \displaystyle \frac{V_0}{2\omega L}  \cdot \left[ e^{ (- \alpha +\omega)  t}  -e^(\Large{(- \alpha-\omega) t} \right]\)</p>
+<p>  \(\Large V_{L1} =             \displaystyle L \ \frac{d}{dt} I_1(t) \)</p>
+<p>  \(\Large =             \displaystyle \frac{V_0}{2\omega }  \cdot \left[ (- \alpha +\omega) \ e^{ (- \alpha +\omega)  t}  -(- \alpha-\omega) \ e^{(- \alpha-\omega) t} \right]\)</p>
+<p>  \(\Large  =             \displaystyle \frac{V_0}{2\omega }  \cdot \left[ - \alpha  \ e^{ - \alpha t} \ e^{\omega  t} + \omega \  \ e^{ - \alpha t} \ e^{\omega  t}  + \alpha  \ e^{ - \alpha t} \ e^{-\omega  t} + \omega \  \ e^{ - \alpha t} \ e^{-\omega  t} \right]\)</p>
+<p>  \(\Large =             \displaystyle \frac{V_0}{2\omega }  \cdot \ e^{ - \alpha t} \left[ - \alpha   \ e^{\omega  t} + \omega \   e^{\omega  t}  + \alpha   \ e^{-\omega  t} + \omega \   e^{-\omega  t} \right]\)</p>
+<p>  \(\Large =             \displaystyle \frac{V_0}{2\omega }  \cdot \ e^{ - \alpha t} \left[  \omega \   ( e^{\omega  t}  +  e^{-\omega  t})  - \alpha    ( e^{\omega  t}  -  e^{-\omega  t}) \right]\)</p>
+<p>  \(\Large =             \displaystyle \frac{V_0}{\omega }  \cdot \ e^{ - \alpha t} \left[  \omega \   cosh \ ( \omega  t)   - \alpha  \  sinh \ ( \omega  t) \right]\)</p>
+<p>  \(\Large =             \displaystyle V_0  \cdot \ e^{ - \alpha t} \left[    cosh \ ( \omega  t)   - \frac{\alpha}{\omega}  \  sinh \ ( \omega  t) \right]\)<br />
+</p>
+<p><br />
+</p>
+<p> <span class="Blue-Bold">t<sub>0</sub> &lt; t</span></p>
+<p> \(\Large I_2(t)  =               \displaystyle \frac{V_0}{\omega L} \left[ e^{- \alpha t} \cdot sinh \ ( \omega t) - e^{- \alpha (t-t_0)} \cdot sinh \  \omega (t-t_0)\right] \)</p>
+<p>\(\Large   V_{L2} =             \displaystyle  L \ \frac{d}{dt} I_2(t)  \)</p>
+<p>  \(\Large =             \displaystyle V_0  \cdot \left[ e^{ - \alpha t} \left\{    cosh \ ( \omega  t)   - \frac{\alpha}{\omega}  \  sinh \ ( \omega  t) \right\} -e^{ - \alpha (t-t_0)} \left\{    cosh \  \omega  (t-t_0)   - \frac{\alpha}{\omega}  \  sinh \  \omega  (t-t_0) \right\} \right] \)</p>
+<p>\(\Large\hspace{40pt} \left(sinh (x)  =             \displaystyle  \frac{e^x - e^{-x}}{2}, \ cosh (x)  =             \displaystyle  \frac{e^x + e^{-x}}{2}\right) \)</p>
+<p>&nbsp;</p>
+<p>となり，ステップオフの場合は，</p>
+<p class="Blue-Bold">　第一項　：　最初のステップオンの際の波形（たとえば，0→1）</p>
+<p class="Blue-Bold">　第二項　：　t=t<sub>0</sub>，において，1→0，のように，逆のステップを入力した波形</p>
+<p>なので，<span class="Red-Bold">ステップオフ後</span>，の波形は，</p>
+<p>　<span class="Large-Bold-Red">ステップオンの波形の残り　＋　マイナスのステップの波形　の和</span></p>
+<p>となるわけです．</p>
+<p>実際に，<span class="Large-Bold-Blue">LTspice</span>，でシミュレートしてみましょう．<a href="Circuit-15-1-04.html">ここ</a>，と同様に，</p>
+<p>V<sub>0</sub> : 1 V<br />
+  R : 10 Ω<br />
+  L : 0.1 H<br />
+  C : 0.1 F</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \omega_0 =   \frac{1}{\sqrt{0.1 \times 0.1} } = 10 \ (1/s) \)</p>
+<p>\(\Large \displaystyle              \alpha \equiv  \frac{10}{2 \times 0.1}   = 50 \ (1/s) \)</p>
+<p>となり，<span class="Red-Bold">α &gt; ω0</span>，の条件となります．　</p>
+<p>\(\Large \displaystyle               \omega =  \sqrt{ \alpha^2 -   \omega_0^2 } = 48.99 (rad/s) = 7.80 Hz \)</p>
+<p>となり，LTspiceでシミュレートすると，</p>
+<p><img src="Circuit-228.png" width="606" height="535" alt=""/></p>
+<p>&nbsp;</p>
+<p>となります．式と当てはめてみると，</p>
+<p>&nbsp;</p>
+<p><img src="Circuit-229.png" width="740" height="464" alt=""/></p>
+<p>&nbsp;</p>
+<p>と一致することがわかります（全領域で）．</p>
+<p><span class="Blue-Bold">青点線，が右辺第二項</span>，で<span class="Red-Bold">右辺第一項</span>との和が，シミュレーションと一致することがわかります．</p>
+<p>&nbsp;</p>
+<p><br />
+  一見，<span class="Blue-Bold">指数減衰</span>のように見えますが，<span class="Red-Bold">双曲線関数</span>となります．</p>
+<p>さらに電圧が<span class="Blue-Bold">マイナス</span>となる場合があります．</p>
+<p>  そのマイナスとなるタイミングの時間は，</p>
+<p> \(\Large \displaystyle               cosh \ ( \omega  t)  = \frac{\alpha}{\omega}  \  sinh \ ( \omega  t) \)</p>
+<p> \(\Large \displaystyle               \frac{sinh \ ( \omega  t)}{cosh \ ( \omega  t)} = \frac{\omega}{\alpha} \)</p>
+<p>  \(\Large \displaystyle               t = \frac{1}{\omega} \ tanh^{-1} \ \left( \frac{\omega}{\alpha} \right) \)</p>
+<p>となり，</p>
+<p>R=10, L=0.１, C=0.1，の場合，約 <span class="Red-Bold">46.8 ms</span>となります．</p>
+<p class="Large-Bold-Red">&nbsp;</p>
+<p>次ページは，コンデンサの電圧を考えてみましょう．</p>
+<p>　</p>
+<p><span class="style7"><a href="Circuit-16-3.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a><a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-16-5.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

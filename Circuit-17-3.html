@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Circuit</title>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+
+<link href="160324.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.style7 {color: #000000; }
+</style>
+</head>
+
+<body>
+<p class="X-Large-Bold-RED">１７ー２．ステップ関数（RLC回路），初期条件，特に，微分を0としてみる</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Red">・α <span class="X-Large-Bold-RED">=</span>ω<sub>0</sub></p>
+<p><a href="Circuit-15-1-06.html">ここ</a>に記したように，</p>
+<p class="Large-Bold-Red">平方根内が0となるので，</p>
+<p>\(\Large \displaystyle               \sqrt{ \alpha^2 - \omega_0^2} = 0 \)</p>
+<p>とします．電流は，</p>
+<p><br />
+\(\Large \displaystyle              I(t) =   (D_1 + D_2 \ t ) \ e^{- \alpha t} \)</p>
+<p>となります，初期条件から，<br />
+</p>
+<p>\(\Large \displaystyle I(0) = D_1 =I_0 \)</p>
+<p>  \(\Large \displaystyle              I'(t) =   D_2 \  e^{- \alpha t} - \alpha (D_1 + D_2 \ t ) \ e^{- \alpha t} \)</p>
+<p> \(\Large \displaystyle              I'(0) =  D_2 - \alpha \ D_1 = D_2 - \alpha \ I_0 = 0\)</p>
+<p>  \(\Large \displaystyle              D_2 = \alpha \ I_0 \)</p>
+<p>  \(\Large \displaystyle              I(t) = (I_0 + \alpha \ I_0 \ t ) \ e^{- \alpha t} =  I_0 (1+ \alpha  \ t ) \ e^{- \alpha t} \)</p>
+<p>となります．<br />
+</p>
+<p>&nbsp;</p>
+<p>実際に，<span class="Large-Bold-Blue">エクセル</span>，でシミュレートしてみましょう．</p>
+<p>V<sub>0</sub> : 1 V<br />
+R : 10 Ω<br />
+L : 0.02 H<br />
+C : 0.0008 F</p>
+<p>とすると，</p>
+<p>\(\Large \displaystyle              \omega_0 =   \frac{1}{\sqrt{0.02 \times 0.0008} } = 250 \ (1/s) \)</p>
+<p>\(\Large \displaystyle              \alpha \equiv  \frac{10}{2 \times 0.02}   = 250 \ (1/s) \)</p>
+<p>となり，<span class="Red-Bold">α = ω0</span>，の条件となります．　</p>
+<p>となり，</p>
+<p><img src="Circuit-238.png" width="707" height="397" alt=""/></p>
+<p>となります．</p>
+<p>&nbsp;</p>
+<p class="Large-Bold-Blue">動画 (YouTube)</p>
+<p>抵抗値を変化させたときの応答を動画として作成してみました．</p>
+<p>条件は，<a href="https://physcis.celas.osaka-u.ac.jp/jp/class/themeC.html" target="_blank">大阪大学・基礎物理学実験</a>，と同じ条件としてみました．</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ovNJgts4VdI?si=UNaU0NUg1y4RG9ij" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span class="style7"><a href="Circuit-17-2.html"><img src="L-arrow.png" alt="l" width="57" height="34" border="0" /></a> <a href="index.html"><img src="TOP.png" alt="t" width="57" height="34" /></a></span><a href="Circuit-21.html"><img src="R-arrow.png" alt="r" width="57" height="34" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
